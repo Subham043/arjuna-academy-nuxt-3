@@ -56,7 +56,8 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     'nuxt-schema-org',
     'nuxt-aos',
-    '@sidebase/nuxt-pdf'
+    '@sidebase/nuxt-pdf',
+    '@vueuse/nuxt'
   ],
 
   build: {
@@ -105,7 +106,8 @@ export default defineNuxtConfig({
     },
     headers: {
       permissionsPolicy: {
-        'picture-in-picture': 'self'
+        'picture-in-picture': 'self',
+        fullscreen: 'self'
       },
       crossOriginEmbedderPolicy: 'unsafe-none',
       crossOriginOpenerPolicy: 'same-origin-allow-popups',

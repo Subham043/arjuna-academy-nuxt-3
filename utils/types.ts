@@ -537,6 +537,53 @@ export type OnlineTestType = {
   } | null;
 }
 
+export type OnlineTestQuestionSetType = {
+  id: number;
+  uuid: string;
+  test_id: number;
+  current_quiz: {
+      id: number;
+      duration: number;
+      mark: number;
+      negative_mark: number;
+      difficulty: string;
+      subject: {
+          id: number;
+          name: string;
+          created_at: string;
+          updated_at: string
+      };
+      created_at: string;
+      updated_at: string
+  };
+  current_question: {
+      id: number;
+      question: string;
+      question_unfiltered: string;
+      answer_1: string;
+      answer_1_unfiltered: string;
+      answer_2: string;
+      answer_2_unfiltered: string;
+      answer_3: string;
+      answer_3_unfiltered: string;
+      answer_4: string;
+      answer_4_unfiltered: string;
+      created_at: string;
+      updated_at: string
+  };
+  user_id: number;
+  is_enrolled: boolean;
+  enrollment_type: string;
+  test_status: string;
+  reason: null | string;
+  amount: number;
+  receipt: null | string;
+  razorpay_order_id: null | string;
+  payment_status: string;
+  created_at: string;
+  updated_at: string
+}
+
 export type PaginationLinkType = {
   first: string | null;
   next: string | null;

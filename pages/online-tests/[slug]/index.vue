@@ -17,8 +17,8 @@ const route = useRoute()
 const router = useRouter()
 
 const dialogVisible = ref(false)
-const dialogEliminatedVisible = ref(true)
-const enrollmentLoading = ref(true)
+const dialogEliminatedVisible = ref(false)
+const enrollmentLoading = ref(false)
 
 const { data, pending, refresh } = await useSSRFetch<{
   test: OnlineTestType
@@ -28,7 +28,7 @@ const { data, pending, refresh } = await useSSRFetch<{
 })
 
 const testApplyHandler = async () => {
-  if (authStatus.value === 'authenticated') {
+  if (authStatus.value === 'unauthenticated') {
     toast.error('Please login to take the test.')
     router.push('/auth/sign-in')
     return

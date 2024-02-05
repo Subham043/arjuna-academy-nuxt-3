@@ -8,7 +8,7 @@ definePageMeta({
 })
 
 const toast = useToast()
-
+const { signIn } = useAuth()
 const loading = ref(false)
 
 const schema = object({
@@ -42,6 +42,11 @@ const onSubmit = async (values: any, actions: any) => {
     if (response.ok) {
       toast.success(content.message)
       actions.resetForm()
+      signIn('credentials', {
+        redirect: false,
+        email: values.email,
+        password: values.password
+      })
     } else {
       throw content
     }
