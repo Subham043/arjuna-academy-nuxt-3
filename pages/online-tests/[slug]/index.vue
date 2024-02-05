@@ -3,12 +3,6 @@ import { useToast } from 'vue-toastification'
 import { API_ROUTES } from '@/utils/api_routes'
 import type { OnlineTestType } from '@/utils/types'
 
-useHead({
-  script: [
-    { src: 'https://checkout.razorpay.com/v1/checkout.js', async: true }
-  ]
-})
-
 const config = useRuntimeConfig()
 
 const toast = useToast()
@@ -20,11 +14,51 @@ const dialogVisible = ref(false)
 const dialogEliminatedVisible = ref(false)
 const enrollmentLoading = ref(false)
 
-const { data, pending, refresh } = await useSSRFetch<{
+const { data, pending, error, refresh } = await useSSRFetch<{
   test: OnlineTestType
 }>(() => API_ROUTES.tests + `/${route.params.slug}${authStatus.value === 'authenticated' ? '/main-detail' : ''}`, {
   key: 'online_test_detail_' + route.params.slug,
   lazy: true
+})
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
+
+useSeoMeta({
+  title: () => data.value ? data.value.test.meta_title : 'Arjunaa Academy For Achievers',
+  ogTitle: () => data.value ? data.value.test.meta_title : 'Arjunaa Academy For Achievers',
+  twitterTitle: () => data.value ? data.value.test.meta_title : 'Arjunaa Academy For Achievers',
+  description: () => data.value ? data.value.test.meta_description : 'Arjunaa Academy For Achievers',
+  ogDescription: () => data.value ? data.value.test.meta_description : 'Arjunaa Academy For Achievers',
+  twitterDescription: () => data.value ? data.value.test.meta_description : 'Arjunaa Academy For Achievers',
+  keywords: () => data.value ? data.value.test.meta_keywords : 'Arjunaa Academy For Achievers',
+  ogUrl: config.public.mainURL + (route.fullPath === '/' ? '' : route.fullPath),
+  ogType: 'website',
+  ogImage: () => data.value ? data.value.test.image : '/images/logos/new-logo.webp',
+  twitterImage: () => data.value ? data.value.test.image : '/images/logos/new-logo.webp',
+  twitterCard: 'summary_large_image',
+  colorScheme: 'normal',
+  themeColor: '#354620'
+})
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: config.public.mainURL + (route.fullPath === '/' ? '' : route.fullPath)
+    }
+  ],
+  script: [
+    { src: 'https://checkout.razorpay.com/v1/checkout.js', async: true },
+    {
+      type: 'application/ld+json',
+      innerHTML: () => data.value ? data.value.test.meta_scripts : undefined
+    }
+  ]
 })
 
 const testApplyHandler = async () => {

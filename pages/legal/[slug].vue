@@ -5,12 +5,19 @@ import type { LegalType } from '@/utils/types'
 const config = useRuntimeConfig()
 const route = useRoute()
 
-const { data: legal, pending: legalPending } = await useSSRFetch<{
+const { data: legal, pending: legalPending, error } = await useSSRFetch<{
   legal: LegalType
 }>(API_ROUTES.legal + `/${route.params.slug}`, {
   key: 'legal_' + route.params.slug,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => legal.value ? legal.value.legal.meta_title : 'Arjunaa Academy For Achievers',

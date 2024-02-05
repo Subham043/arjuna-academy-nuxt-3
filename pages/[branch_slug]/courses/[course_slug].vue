@@ -18,10 +18,17 @@ const toast = useToast()
 const route = useRoute()
 const loading = ref(false)
 
-const { data, pending } = await useSSRFetch<CourseDetailType>(() => API_ROUTES.course + `/${route.params.course_slug}/branch/${route.params.branch_slug}`, {
+const { data, pending, error } = await useSSRFetch<CourseDetailType>(() => API_ROUTES.course + `/${route.params.course_slug}/branch/${route.params.branch_slug}`, {
   key: `course_detail_${route.params.course_slug}_branch_${route.params.branch_slug}`,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_title : 'Arjunaa Academy For Achievers',

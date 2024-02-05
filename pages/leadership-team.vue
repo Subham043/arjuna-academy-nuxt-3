@@ -186,7 +186,7 @@ const paginationHandler = () => $scroll('#instructor-area', () => router.push({ 
             </el-skeleton>
           </div>
         </div>
-        <div v-if="!staffPending && staff && staff.data.length>0" class="row justify-content-center">
+        <div v-if="!staffPending && staff && staff.data.length>0" class="row justify-content-center" data-aos="fade-up">
           <div v-for="(item, i) in staff.data" :key="i" class="col-lg-3 col-md-6 col-sm-6">
             <InstructorCard
               :image="item.image"

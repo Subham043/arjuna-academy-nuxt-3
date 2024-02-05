@@ -29,10 +29,28 @@ export function useSSRFetch<DataT = void, ErrorT = FetchError> (
         options.headers = new Headers({ Authorization: `Bearer ${session.value.user.token}` })
       }
     },
-    onResponse () {
+    onResponse ({ response }) {
       if (process.client && isLoading.value) {
         finish()
         clear()
+      }
+      if (!response.ok) {
+        throw createError({
+          statusCode: response.status,
+          statusMessage: response._data.message
+        })
+      }
+    },
+    onResponseError ({ response }) {
+      if (process.client && isLoading.value) {
+        finish()
+        clear()
+      }
+      if (!response.ok) {
+        throw createError({
+          statusCode: response.status,
+          statusMessage: response._data.message
+        })
       }
     }
   })

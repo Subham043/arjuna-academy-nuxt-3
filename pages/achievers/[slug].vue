@@ -8,12 +8,19 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data: achieverCategory, pending: achieverCategoryPending } = await useSSRFetch<{
+const { data: achieverCategory, pending: achieverCategoryPending, error } = await useSSRFetch<{
   achiverCategory: AchieverCategoryType
 }>(API_ROUTES.achieverCategory + `/${route.params.slug}`, {
   key: 'achiever_category_' + route.params.slug,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => achieverCategory.value ? achieverCategory.value.achiverCategory.meta_title : 'Arjunaa Academy For Achievers',

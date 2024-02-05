@@ -21,7 +21,7 @@ const loading = ref(false)
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 const commentPage = ref((route.query.commentPage && !isNaN(+route.query.commentPage)) ? +route.query.commentPage : 1)
 
-const { data: blog, pending: blogPending } = await useSSRFetch<{
+const { data: blog, pending: blogPending, error } = await useSSRFetch<{
   blog: BlogType,
   next_blog: BlogType,
   prev_blog: BlogType
@@ -29,6 +29,13 @@ const { data: blog, pending: blogPending } = await useSSRFetch<{
   key: 'blog_' + route.params.slug,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => blog.value ? blog.value.blog.meta_title : 'Arjunaa Academy For Achievers',

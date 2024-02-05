@@ -5,7 +5,7 @@ import type { ExpertTipType } from '@/utils/types'
 const config = useRuntimeConfig()
 const route = useRoute()
 
-const { data: expertTip, pending: expertTipPending } = await useSSRFetch<{
+const { data: expertTip, pending: expertTipPending, error } = await useSSRFetch<{
   expertTip: ExpertTipType,
   next_expertTip: ExpertTipType,
   prev_expertTip: ExpertTipType
@@ -13,6 +13,13 @@ const { data: expertTip, pending: expertTipPending } = await useSSRFetch<{
   key: 'expert_tip_' + route.params.slug,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => expertTip.value ? expertTip.value.expertTip.meta_title : 'Arjunaa Academy For Achievers',

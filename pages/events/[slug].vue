@@ -9,12 +9,19 @@ const router = useRouter()
 
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data: event, pending: eventPending } = await useSSRFetch<{
+const { data: event, pending: eventPending, error } = await useSSRFetch<{
   event: EventType,
 }>(API_ROUTES.event + `/${route.params.slug}`, {
   key: 'event_' + route.params.slug,
   lazy: true
 })
+
+if (error.value) {
+  throw createError({
+    statusCode: error.value.statusCode,
+    statusMessage: error.value.message
+  })
+}
 
 useSeoMeta({
   title: () => event.value ? event.value.event.meta_title : 'Arjunaa Academy For Achievers',
