@@ -15,14 +15,14 @@ watch(() => route.fullPath, () => {
 })
 
 const { data: achieverCategoryData, pending: achieverCategoryPending } =
-  await useSSRFetch<{
+  useSSRFetch<{
     achiverCategory: AchieverCategory[];
   }>(() => API_ROUTES.achieverCategory, {
     key: 'achiever_category_header',
     lazy: true
   })
 
-const { data: branchData, pending: branchPending } = await useSSRFetch<{
+const { data: branchData, pending: branchPending } = useSSRFetch<{
   branch: BranchType[];
 }>(() => API_ROUTES.branch + '/all', {
   key: 'branch_header',

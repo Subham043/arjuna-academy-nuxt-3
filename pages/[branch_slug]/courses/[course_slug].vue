@@ -18,7 +18,7 @@ const toast = useToast()
 const route = useRoute()
 const loading = ref(false)
 
-const { data, pending, error } = await useSSRFetch<CourseDetailType>(() => API_ROUTES.course + `/${route.params.course_slug}/branch/${route.params.branch_slug}`, {
+const { data, pending, error } = useSSRFetch<CourseDetailType>(() => API_ROUTES.course + `/${route.params.course_slug}/branch/${route.params.branch_slug}`, {
   key: `course_detail_${route.params.course_slug}_branch_${route.params.branch_slug}`,
   lazy: true
 })

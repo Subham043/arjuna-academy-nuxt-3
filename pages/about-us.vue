@@ -29,7 +29,7 @@ const dialogBannerVisible = ref(true)
             "A <span>leader</span> is one who knows the way, goes the way & shows the way"
           </h2>
         </div>
-        <div class="play-btn-area" data-aos="fade-up">
+        <div class="play-btn-area">
           <a href="javascript:void(0)" class="play-btn" aria-label="Video Popup" @click="dialogVideoVisible = true">
             <i class="flaticon-play-button-arrowhead" />
           </a>

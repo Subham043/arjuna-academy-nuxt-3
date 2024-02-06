@@ -9,7 +9,7 @@ const router = useRouter()
 
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data: event, pending: eventPending, error } = await useSSRFetch<{
+const { data: event, pending: eventPending, error } = useSSRFetch<{
   event: EventType,
 }>(API_ROUTES.event + `/${route.params.slug}`, {
   key: 'event_' + route.params.slug,
@@ -55,7 +55,7 @@ useHead({
   ]
 })
 
-const { data: events, pending: eventsPending } = await useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + `?total=8&page=${page.value}&sort=-id`, {
+const { data: events, pending: eventsPending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + `?total=8&page=${page.value}&sort=-id`, {
   key: 'upcoming_events_' + route.query.page || '1',
   lazy: true,
   server: false,

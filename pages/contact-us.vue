@@ -6,7 +6,7 @@ import { toTypedSchema } from '@vee-validate/yup'
 import { API_ROUTES } from '@/utils/api_routes'
 import { type ShortCourseType } from '@/utils/types'
 
-const { data: courseData } = await useSSRFetch<{
+const { data: courseData } = useSSRFetch<{
   course: ShortCourseType[];
 }>(() => API_ROUTES.course, {
   key: 'course_contact',

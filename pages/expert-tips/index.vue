@@ -6,7 +6,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = await useSSRFetch<PaginationType<ExpertTipType>>(() => API_ROUTES.expertTip + `?total=12&page=${page.value}&sort=-published_on`, {
+const { data, pending } = useSSRFetch<PaginationType<ExpertTipType>>(() => API_ROUTES.expertTip + `?total=12&page=${page.value}&sort=-published_on`, {
   key: 'expert_tips_' + route.query.page || '1',
   lazy: true,
   watch: [page]

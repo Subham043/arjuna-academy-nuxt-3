@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import { type LegalType } from '../utils/types'
 
-const { data: legalData, pending } = await useSSRFetch<{
+const { data: legalData, pending } = useSSRFetch<{
   legal: LegalType[];
 }>(API_ROUTES.legal, {
   lazy: true,
@@ -94,7 +94,8 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink noPrefetch
+                <NuxtLink
+                  noPrefetch
                   to="/mission-vision"
                   aria-label="mission & vision page"
                 >
@@ -102,7 +103,8 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink noPrefetch
+                <NuxtLink
+                  noPrefetch
                   to="/leadership-team"
                   aria-label="leadership team & faculty page"
                 >
@@ -157,7 +159,8 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink noPrefetch
+                <NuxtLink
+                  noPrefetch
                   to="/2-year-integrated-day-scholar-and-residential-program"
                   aria-label="Day Scholar / Residential"
                 >
@@ -185,7 +188,8 @@ const { data: legalData, pending } = await useSSRFetch<{
               class="footer-list"
             >
               <li v-for="(item, i) in legalData.legal" :key="i">
-                <NuxtLink noPrefetch
+                <NuxtLink
+                  noPrefetch
                   :to="`/legal/${item.slug}`"
                   :aria-label="item.page_name"
                 >
@@ -252,7 +256,8 @@ const { data: legalData, pending } = await useSSRFetch<{
         <div class="copy-right-text text-center">
           <p>
             Copyright © {{ new Date().getFullYear() }}
-            <NuxtLink noPrefetch
+            <NuxtLink
+              noPrefetch
               to="/"
               aria-label="Arjunaa Academy for Achievers"
             >

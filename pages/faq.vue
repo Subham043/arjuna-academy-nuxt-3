@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = await useSSRFetch<PaginationType<FaqType>>(() => API_ROUTES.faq + `?total=12&page=${page.value}`, {
+const { data, pending } = useSSRFetch<PaginationType<FaqType>>(() => API_ROUTES.faq + `?total=12&page=${page.value}`, {
   key: 'faq_' + route.query.page || '1',
   lazy: true,
   watch: [page]

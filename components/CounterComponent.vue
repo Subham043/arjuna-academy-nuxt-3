@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import { type CounterType } from '../utils/types'
 
-const { data, pending } = await useSSRFetch<{
+const { data, pending } = useSSRFetch<{
   counter: CounterType[];
 }>(API_ROUTES.counter, {
   lazy: true,
@@ -26,7 +26,7 @@ const { data, pending } = await useSSRFetch<{
           </el-skeleton>
         </div>
       </div>
-      <div v-if="!pending && data && data.counter.length>0" class="row" data-aos="fade-up">
+      <div v-if="!pending && data && data.counter.length>0" class="row">
         <div v-for="(item, i) in data.counter" :key="i" class="col-lg-3 col-md-6 col-sm-6">
           <div class="counter-card box-shadow">
             <div class="row align-item-center">

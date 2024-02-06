@@ -11,7 +11,7 @@ const config = useRuntimeConfig()
 const toast = useToast()
 const route = useRoute()
 
-const { data, pending, error } = await useSSRFetch<{
+const { data, pending, error } = useSSRFetch<{
   campaign: CampaignType;
 }>(() => API_ROUTES.campaign + `/${route.params.slug}`, {
   key: 'campaign_' + route.params.slug,

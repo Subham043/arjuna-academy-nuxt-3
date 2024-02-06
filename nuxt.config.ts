@@ -55,7 +55,6 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     'nuxt-swiper',
     'nuxt-schema-org',
-    'nuxt-aos',
     '@sidebase/nuxt-pdf',
     '@vueuse/nuxt',
     'nuxt-delay-hydration'
@@ -78,6 +77,7 @@ export default defineNuxtConfig({
       mainURL: process.env.MAIN_BASE_URL,
       RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
       authJs: {
+        baseUrl: process.env.NUXT_NEXTAUTH_URL,
         verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
         guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
         authenticatedRedirectTo: '/profile' // The path to redirect to when a user is authenticated

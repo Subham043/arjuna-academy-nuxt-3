@@ -7,14 +7,14 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = await useSSRFetch<{
+const { data, pending } = useSSRFetch<{
   data: ManagementType[];
 }>(() => API_ROUTES.management, {
   lazy: true,
   server: true
 })
 
-const { data: staff, pending: staffPending } = await useSSRFetch<PaginationType<StaffType>>(() => API_ROUTES.staff + `?total=12&page=${page.value}`, {
+const { data: staff, pending: staffPending } = useSSRFetch<PaginationType<StaffType>>(() => API_ROUTES.staff + `?total=12&page=${page.value}`, {
   key: 'staff_' + route.query.page || '1',
   lazy: true,
   server: false,
@@ -186,7 +186,7 @@ const paginationHandler = () => $scroll('#instructor-area', () => router.push({ 
             </el-skeleton>
           </div>
         </div>
-        <div v-if="!staffPending && staff && staff.data.length>0" class="row justify-content-center" data-aos="fade-up">
+        <div v-if="!staffPending && staff && staff.data.length>0" class="row justify-content-center">
           <div v-for="(item, i) in staff.data" :key="i" class="col-lg-3 col-md-6 col-sm-6">
             <InstructorCard
               :image="item.image"

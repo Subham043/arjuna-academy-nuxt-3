@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = await useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + `?total=8&page=${page.value}&sort=-id`, {
+const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + `?total=8&page=${page.value}&sort=-id`, {
   key: 'events_' + route.query.page || '1',
   lazy: true,
   watch: [page]

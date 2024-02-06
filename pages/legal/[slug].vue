@@ -5,7 +5,7 @@ import type { LegalType } from '@/utils/types'
 const config = useRuntimeConfig()
 const route = useRoute()
 
-const { data: legal, pending: legalPending, error } = await useSSRFetch<{
+const { data: legal, pending: legalPending, error } = useSSRFetch<{
   legal: LegalType
 }>(API_ROUTES.legal + `/${route.params.slug}`, {
   key: 'legal_' + route.params.slug,

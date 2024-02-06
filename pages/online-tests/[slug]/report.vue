@@ -10,7 +10,7 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const pdfSection = ref<HTMLElement | null>(null)
 
-const { data, pending, error } = await useSSRFetch<{
+const { data, pending, error } = useSSRFetch<{
   test: OnlineTestType;
   total_answer_count: number;
   total_question_count: number;

@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import type { BannerType } from '../utils/types'
 
-const { data, pending } = await useSSRFetch<{
+const { data, pending } = useSSRFetch<{
   banner: BannerType[]
 }>(() => API_ROUTES.bannerSection, {
   key: 'banner_slider',

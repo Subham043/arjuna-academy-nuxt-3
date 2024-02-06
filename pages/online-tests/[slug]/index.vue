@@ -14,7 +14,7 @@ const dialogVisible = ref(false)
 const dialogEliminatedVisible = ref(false)
 const enrollmentLoading = ref(false)
 
-const { data, pending, error, refresh } = await useSSRFetch<{
+const { data, pending, error, refresh } = useSSRFetch<{
   test: OnlineTestType
 }>(() => API_ROUTES.tests + `/${route.params.slug}${authStatus.value === 'authenticated' ? '/main-detail' : ''}`, {
   key: 'online_test_detail_' + route.params.slug,

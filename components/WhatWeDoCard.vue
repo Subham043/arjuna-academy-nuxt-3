@@ -17,7 +17,7 @@ const props = defineProps({
   }
 })
 
-const { data, pending } = await useSSRFetch<{
+const { data, pending } = useSSRFetch<{
   feature: FeatureType[];
 }>(() => API_ROUTES.feature + `/${props.slug}`, {
   lazy: true,
@@ -45,7 +45,7 @@ const { data, pending } = await useSSRFetch<{
       <div v-if="pending" class="row">
         <FeatureCardLoading :count="6" />
       </div>
-      <div v-if="!pending && data && data.feature.length>0" class="row" data-aos="fade-up">
+      <div v-if="!pending && data && data.feature.length>0" class="row">
         <div v-for="(item, i) in data.feature" :key="i" class="col-lg-4 col-6">
           <div class="featured-item-two">
             <div class="feature-icon-holder">

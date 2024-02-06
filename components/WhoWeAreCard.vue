@@ -21,7 +21,7 @@ const props = defineProps({
   }
 })
 
-const { data, pending } = await useSSRFetch<{
+const { data, pending } = useSSRFetch<{
   about: AboutType;
 }>(() => API_ROUTES.aboutSection + `/${props.slug}`, {
   lazy: true,
@@ -33,7 +33,7 @@ const { data, pending } = await useSSRFetch<{
 <template>
   <div>
     <template v-if="!pending && data">
-      <div :class="`enrolled-area-two ${props.first ? 'pt-70' : ''} pb-70`" data-aos="fade-up">
+      <div :class="`enrolled-area-two ${props.first ? 'pt-70' : ''} pb-70`">
         <div class="container">
           <div class="row align-items-center">
             <div v-if="props.heading_center" class="col-lg-12">

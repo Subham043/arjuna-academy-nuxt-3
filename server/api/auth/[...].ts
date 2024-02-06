@@ -12,7 +12,7 @@ const runtimeConfig = useRuntimeConfig()
 
 // Refer to Auth.js docs for more details
 export const authOptions: AuthConfig = {
-  secret: runtimeConfig.private.authJs.secret,
+  secret: runtimeConfig.authJs.secret,
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')

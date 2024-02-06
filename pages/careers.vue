@@ -14,7 +14,7 @@ const accordianValue = ref('0')
 const dialogVideoVisible = ref(false)
 const loading = ref(false)
 
-const { data, pending } = await useSSRFetch<PaginationType<JobOpeningType>>(() => API_ROUTES.job_opening + `?total=9&page=${page.value}`, {
+const { data, pending } = useSSRFetch<PaginationType<JobOpeningType>>(() => API_ROUTES.job_opening + `?total=9&page=${page.value}`, {
   key: 'job_openings_' + route.query.page || '1',
   lazy: true,
   watch: [page]
@@ -116,7 +116,7 @@ const onSubmit = async (values: any, actions: any) => {
       </div>
     </div>
 
-    <div class="featured-area pt-70 pb-70" data-aos="fade-up">
+    <div class="featured-area pt-70 pb-70">
       <div class="container">
         <div class="row align-items-center mb-45">
           <div class="col-lg-12 col-md-12">
@@ -189,7 +189,7 @@ const onSubmit = async (values: any, actions: any) => {
                 </el-skeleton>
               </div>
             </div>
-            <el-collapse v-if="!pending && data && data.data.length>0" accordion :value="accordianValue" data-aos="fade-up" @change="(val:CollapseModelValue)=>{accordianValue=val as string}">
+            <el-collapse v-if="!pending && data && data.data.length>0" accordion :value="accordianValue" @change="(val:CollapseModelValue)=>{accordianValue=val as string}">
               <el-collapse-item v-for="(item, i) in data.data" :key="i" :name="item.id">
                 <template #title>
                   <div class="w-100 d-flex align-items-center justify-content-between">

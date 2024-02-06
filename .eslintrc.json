@@ -22,6 +22,9 @@
       { "allow": ["router-link", "nuxt-link"] }
     ],
     "vue/prop-name-casing": ["error", "snake_case"],
-    "vue/no-v-html": "off"
+    "vue/no-v-html": "off",
+    "vue/attribute-hyphenation": ["error", "always", {
+      "ignore": ["noPrefetch"]
+    }]
   }
 }
