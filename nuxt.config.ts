@@ -97,10 +97,17 @@ export default defineNuxtConfig({
     }
   },
 
+  swiper: {
+    // Swiper options
+    prefix: 'Swiper',
+    styleLang: 'css',
+    modules: ['autoplay', 'navigation', 'pagination'] // all modules are imported by default
+  },
+
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
     // NOTE: you should disable this once you've finished testing, it will break HMR
-    debug: true,
+    debug: false,
     mode: 'init'
   },
 
