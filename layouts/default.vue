@@ -2,8 +2,8 @@
   <div>
     <MainHeader />
     <slot />
-    <NewsLetter />
-    <MainFooter />
-    <SocialMedia />
+    <LazyNewsLetter />
+    <LazyMainFooter />
+    <LazySocialMedia />
   </div>
 </template>

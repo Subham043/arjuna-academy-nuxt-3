@@ -94,7 +94,10 @@ export default defineNuxtConfig({
   gtm: {
     // Options
     id: 'GTM-N5WS2TC',
-    enabled: true
+    enabled: true,
+    defer: true,
+    compatibility: true,
+    loadScript: true
   },
 
   security: {

@@ -52,7 +52,7 @@ const { data, pending } = await useSSRFetch<{ course: CourseSliderType[]}>(() =>
           }"
         >
           <SwiperSlide v-for="(item, i) in data.course" :key="i" class="single-swiper-slider">
-            <CourseCard
+            <LazyCourseCard
               :image="item.image"
               :image_alt="item.image_alt"
               :image_title="item.image_title"
