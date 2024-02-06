@@ -133,8 +133,18 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                 <NuxtImg
                   id="logo-one-mobile"
                   preload
+                  format="webp"
                   src="/images/logos/logo-sm.webp"
                   class="logo-one mobile-logo"
+                  alt="logo"
+                />
+                <NuxtImg
+                  id="logo-two-mobile"
+                  format="webp"
+                  width="60px"
+                  height="60px"
+                  src="/images/logos/logo-sm.webp"
+                  class="logo-two mobile-logo"
                   alt="logo"
                 />
               </NuxtLink>
@@ -164,6 +174,7 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
               <NuxtImg
                 id="logo-one"
                 preload
+                format="webp"
                 src="/images/logos/new-logo.webp"
                 class="logo-one"
                 alt="Logo"

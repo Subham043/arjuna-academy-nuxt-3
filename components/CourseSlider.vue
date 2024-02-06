@@ -19,7 +19,9 @@ watch(
 const { data, pending } = useSSRFetch<{ course: CourseSliderType[]}>(() => API_ROUTES.course, {
   key: 'courses_slider',
   lazy: true,
-  server: false
+  server: false,
+  immediate: false,
+  watch: [isSliderVisible]
 })
 
 </script>
@@ -37,7 +39,7 @@ const { data, pending } = useSSRFetch<{ course: CourseSliderType[]}>(() => API_R
       </div>
       <CourseCardLoading v-if="pending" :count="3" />
       <div ref="isSliderEl">
-        <LazyCourseSwiper v-if="!pending && isSliderVisible && data && data.course.length>0" :course="data.course" />
+        <LazyCourseSwiper v-if="!pending && data && data.course.length>0" :course="data.course" />
       </div>
     </div>
   </div>

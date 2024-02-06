@@ -32,6 +32,7 @@ const props = defineProps({
   <div class="achiever-detail">
     <div class="achiever-detail-container pb-0">
       <NuxtImg
+        format="webp"
         placeholder="/images/placeholder.webp"
         loading="lazy"
         :src="props.image"

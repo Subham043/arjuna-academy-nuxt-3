@@ -38,6 +38,7 @@ const paginationHandler = () => $scroll('#faq-area', () => router.push({ query: 
             <div class="faq-img">
               <NuxtImg
                 loading="lazy"
+                format="webp"
                 placeholder="/images/placeholder.webp"
                 src="/images/faq.webp"
                 alt="faq"
@@ -45,7 +46,14 @@ const paginationHandler = () => $scroll('#faq-area', () => router.push({ query: 
                 class="faq-page-img"
               />
               <div class="shape">
-                <NuxtImg loading="lazy" src="/images/faq-shape.png" height="90px" alt="Faq" title="Faq" />
+                <NuxtImg
+                  format="webp"
+                  loading="lazy"
+                  src="/images/faq-shape.png"
+                  height="90px"
+                  alt="Faq"
+                  title="Faq"
+                />
               </div>
             </div>
           </div>

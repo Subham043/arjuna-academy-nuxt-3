@@ -31,7 +31,14 @@ const props = defineProps({
 
 <template>
   <div class="instructors-card">
-    <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
+    <NuxtImg
+      format="webp"
+      loading="lazy"
+      placeholder="/images/placeholder.webp"
+      :src="props.image"
+      :alt="props.image_alt"
+      :title="props.image_title"
+    />
     <div class="content">
       <h3 v-html="props.name" />
       <span v-html="props.designation" />

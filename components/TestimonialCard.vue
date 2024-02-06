@@ -38,7 +38,16 @@ const props = defineProps({
       “<span v-html="props.message" />”
     </p>
     <div class="content">
-      <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="props.image" :alt="props.name" :title="props.name" />
+      <NuxtImg
+        format="webp"
+        loading="lazy"
+        width="70px"
+        height="70px"
+        placeholder="/images/placeholder.webp"
+        :src="props.image"
+        :alt="props.name"
+        :title="props.name"
+      />
       <h3 v-html="props.name" />
       <span v-html="props.designation" />
     </div>

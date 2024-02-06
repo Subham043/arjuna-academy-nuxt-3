@@ -117,6 +117,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                 <NuxtImg
                   v-if="course==='Day Scholar'"
                   loading="lazy"
+                  format="webp"
                   placeholder="/images/placeholder.webp"
                   width="1280"
                   src="/images/scholar-bg.jpg"
@@ -127,6 +128,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                   v-else
                   loading="lazy"
                   width="1280"
+                  format="webp"
                   placeholder="/images/placeholder.webp"
                   src="/images/residential-bg.jpg"
                   alt="2 Year Integrated Residential Program for PU/CBSE Boards, CET, JEE and NEET"

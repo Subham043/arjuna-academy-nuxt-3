@@ -295,6 +295,7 @@ const onRequestCallback = handleSubmit(async (values: any, actions: any) => {
               <div class="courses-details-sidebar">
                 <NuxtImg
                   loading="lazy"
+                  format="webp"
                   placeholder="/images/placeholder.webp"
                   :src="data.course.image"
                   :alt="data.course.image_alt"

@@ -19,7 +19,9 @@ watch(
 const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + '?total=9&page=1&filter[is_popular]=true&sort=-published_on', {
   key: 'blogs_slider',
   lazy: true,
-  server: false
+  server: false,
+  immediate: false,
+  watch: [isSliderVisible]
 })
 
 </script>
@@ -42,7 +44,7 @@ const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES
       </div>
       <BlogCardLoading v-if="pending" :count="3" />
       <div ref="isSliderEl">
-        <LazyBlogSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+        <LazyBlogSwiper v-if="!pending && data" :data="data" />
       </div>
     </div>
   </div>

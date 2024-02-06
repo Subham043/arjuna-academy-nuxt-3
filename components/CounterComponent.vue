@@ -32,6 +32,7 @@ const { data, pending } = useSSRFetch<{
             <div class="row align-item-center">
               <NuxtImg
                 loading="lazy"
+                format="webp"
                 placeholder="/images/placeholder.webp"
                 :src="item.image"
                 :alt="item.image_alt"

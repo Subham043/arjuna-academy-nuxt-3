@@ -32,9 +32,16 @@ const { data, pending } = useSSRFetch<{
         <div class="row align-items-center">
           <div class="col-lg-4">
             <div class="faq-img">
-              <NuxtImg preload loading="eager" src="/images/mission.webp" height="300px" alt="faq" />
+              <NuxtImg
+                format="webp"
+                preload
+                loading="eager"
+                src="/images/mission.webp"
+                height="300px"
+                alt="faq"
+              />
               <div class="shape">
-                <NuxtImg loading="lazy" src="/images/faq-shape.png" height="80px" alt="Faq" />
+                <NuxtImg format="webp" loading="lazy" src="/images/faq-shape.png" height="80px" alt="Faq" />
               </div>
             </div>
           </div>

@@ -51,6 +51,7 @@ const paginationHandler = () => $scroll('#gallery-area', () => router.push({ que
               <div class="blog-card">
                 <NuxtImg
                   loading="lazy"
+                  format="webp"
                   placeholder="/images/placeholder.webp"
                   :src="item.image"
                   :alt="item.image_alt"

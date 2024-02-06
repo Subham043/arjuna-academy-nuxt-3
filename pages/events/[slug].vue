@@ -90,6 +90,7 @@ const paginationHandler = () => $scroll('#popular-event-area', () => router.push
                 <div class="event-preview-img">
                   <NuxtImg
                     loading="lazy"
+                    format="webp"
                     placeholder="/images/placeholder.webp"
                     :src="event.event.image"
                     :alt="event.event.image_alt"
@@ -106,7 +107,14 @@ const paginationHandler = () => $scroll('#popular-event-area', () => router.push
                   <div v-for="(item, i) in event.event.speakers" :key="i" class="col-lg-3 col-md-6">
                     <div class="instructors-item instructors-item-bg">
                       <div class="instructors-img">
-                        <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                        <NuxtImg
+                          format="webp"
+                          loading="lazy"
+                          placeholder="/images/placeholder.webp"
+                          :src="item.image"
+                          :alt="item.image_alt"
+                          :title="item.image_title"
+                        />
                       </div>
                       <div class="content">
                         <h3 v-html="item.name" />

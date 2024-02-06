@@ -19,7 +19,9 @@ watch(
 const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + '?total=8&page=1&sort=-id', {
   key: 'events_slider',
   lazy: true,
-  server: false
+  server: false,
+  immediate: false,
+  watch: [isSliderVisible]
 })
 
 </script>
@@ -42,7 +44,7 @@ const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTE
       </div>
       <EventCardLoading v-if="pending" :count="2" />
       <div ref="isSliderEl">
-        <LazyEventSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+        <LazyEventSwiper v-if="!pending && data" :data="data" />
       </div>
     </div>
   </div>

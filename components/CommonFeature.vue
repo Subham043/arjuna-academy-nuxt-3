@@ -20,6 +20,9 @@ const { data, pending } = useSSRFetch<{
           <div class="featured-item">
             <NuxtImg
               loading="lazy"
+              format="webp"
+              width="512px"
+              height="512px"
               placeholder="/images/placeholder.webp"
               :src="item.image"
               class="featured-img"

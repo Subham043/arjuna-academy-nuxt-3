@@ -147,7 +147,7 @@ const grade = computed(() => {
           <div ref="pdfSection" class="main-report-wrapper">
             <div class="inner-report-wrapper">
               <div class="report-logo-container">
-                <NuxtImg loading="lazy" src="/images/logos/new-logo.webp" alt="logo" width="400px" />
+                <NuxtImg format="webp" loading="lazy" src="/images/logos/new-logo.webp" alt="logo" width="400px" />
               </div>
               <div class="report-heading-container">
                 <h2>{{ data.test.name }} Report Card</h2>

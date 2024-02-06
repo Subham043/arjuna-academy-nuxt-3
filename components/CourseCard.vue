@@ -46,7 +46,16 @@ const props = defineProps({
 
 <template>
   <div class="courses-item">
-    <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
+    <NuxtImg
+      format="webp"
+      loading="lazy"
+      width="405px"
+      height="215px"
+      placeholder="/images/placeholder.webp"
+      :src="props.image"
+      :alt="props.image_alt"
+      :title="props.image_title"
+    />
     <div class="content">
       <div class="bottom-content align-items-center">
         <p class="tag-btn" v-html="props.class_name" />

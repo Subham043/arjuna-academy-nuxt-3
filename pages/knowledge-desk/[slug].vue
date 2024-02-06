@@ -145,6 +145,7 @@ const onSubmit = async (values: any, actions: any) => {
                 <div class="blog-preview-img">
                   <NuxtImg
                     width="900"
+                    format="webp"
                     loading="lazy"
                     placeholder="/images/placeholder.webp"
                     :src="blog.blog.image"
@@ -248,6 +249,7 @@ const onSubmit = async (values: any, actions: any) => {
                                     <div class="content">
                                       <NuxtImg
                                         loading="lazy"
+                                        format="webp"
                                         placeholder="/images/placeholder.webp"
                                         src="/images/avatar.webp"
                                         alt="Images"

@@ -57,6 +57,7 @@ onMounted(() => { setTimeout(() => { dialogBannerVisible.value = true }, 3000) }
     <el-dialog v-model="dialogBannerVisible" title="ARJUNAA ACADEMY FOR ACHIEVERS" width="80%" top="10vh">
       <NuxtImg
         preload
+        format="webp"
         loading="eager"
         placeholder="/images/placeholder.webp"
         src="/images/jee-main.webp"

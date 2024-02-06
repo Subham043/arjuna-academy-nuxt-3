@@ -46,6 +46,9 @@ const { data, pending } = useSSRFetch<{
                 <div class="col-lg-6 order-1-sm">
                   <div class="hero-img">
                     <NuxtImg
+                      format="webp"
+                      width="753px"
+                      height="754px"
                       preload
                       loading="eager"
                       :src="item.banner_image"
@@ -54,11 +57,27 @@ const { data, pending } = useSSRFetch<{
                       :title="item.banner_image_title"
                     />
                     <div class="hero-bg-shape">
-                      <NuxtImg preload loading="eager" src="/images/home-three/bg-shape1.png" class="bg-img-shape1" alt="Hero" />
+                      <NuxtImg
+                        preload
+                        loading="eager"
+                        format="webp"
+                        src="/images/home-three/bg-shape1.webp"
+                        class="bg-img-shape1"
+                        alt="Hero"
+                      />
                     </div>
                     <div class="top-content">
                       <div class="hero-img-content">
-                        <NuxtImg placeholder="/images/placeholder.webp" loading="lazy" :src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" />
+                        <NuxtImg
+                          format="webp"
+                          placeholder="/images/placeholder.webp"
+                          loading="lazy"
+                          width="512px"
+                          height="512px"
+                          :src="item.counter_image_1"
+                          :alt="item.counter_title_1"
+                          :title="item.counter_title_1"
+                        />
                         <div class="content">
                           <h3 v-html="item.counter_title_1" />
                           <p v-html="item.counter_description_1" />
@@ -67,7 +86,16 @@ const { data, pending } = useSSRFetch<{
                     </div>
                     <div class="right-content">
                       <div class="hero-img-content">
-                        <NuxtImg placeholder="/images/placeholder.webp" loading="lazy" :src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" />
+                        <NuxtImg
+                          format="webp"
+                          placeholder="/images/placeholder.webp"
+                          loading="lazy"
+                          width="512px"
+                          height="512px"
+                          :src="item.counter_image_2"
+                          :alt="item.counter_title_2"
+                          :title="item.counter_title_2"
+                        />
                         <div class="content">
                           <h3 v-html="item.counter_title_2" />
                           <p v-html="item.counter_description_2" />
@@ -84,10 +112,22 @@ const { data, pending } = useSSRFetch<{
     </div>
     <div class="hero-shape">
       <div class="shape1">
-        <NuxtImg loading="lazy" src="/images/home-three/shape.png" height="50px" alt="Shape" />
+        <NuxtImg
+          format="webp"
+          loading="lazy"
+          src="/images/home-three/shape.png"
+          height="50px"
+          alt="Shape"
+        />
       </div>
       <div class="shape2">
-        <NuxtImg loading="lazy" src="/images/home-three/shape2.png" height="50px" alt="Shape" />
+        <NuxtImg
+          format="webp"
+          loading="lazy"
+          src="/images/home-three/shape2.png"
+          height="50px"
+          alt="Shape"
+        />
       </div>
     </div>
   </div>

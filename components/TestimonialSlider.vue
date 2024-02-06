@@ -19,7 +19,9 @@ watch(
 const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + '?total=9&page=1', {
   key: 'testimonials_slider',
   lazy: true,
-  server: false
+  server: false,
+  immediate: false,
+  watch: [isSliderVisible]
 })
 
 </script>
@@ -42,7 +44,7 @@ const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API
       </div>
       <TestimonialCardLoading v-if="pending" :count="3" />
       <div ref="isSliderEl">
-        <LazyTestimonialSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+        <LazyTestimonialSwiper v-if="!pending && data" :data="data" />
       </div>
     </div>
   </div>
