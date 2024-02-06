@@ -21,11 +21,13 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       title: 'Arjunaa Academy',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-        { hid: 'description', name: 'description', content: '' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' },
         { name: 'format-detection', content: 'telephone=no' }
       ],
       script: [

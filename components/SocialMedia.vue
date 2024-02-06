@@ -1,38 +1,38 @@
 <template>
   <div class="sbuttons">
-    <a href="tel:+917676642258" class="sbutton call" tooltip="Call">
+    <a href="tel:+917676642258" class="sbutton call" aria-label="Call Arjunaa Academy" tooltip="Call">
       <Icon name="fa6-solid:phone" />
     </a>
 
-    <a href="mailto:info@aaaedu.in" class="sbutton mail" tooltip="Email">
+    <a href="mailto:info@aaaedu.in" class="sbutton mail" aria-label="Email Arjunaa Academy" tooltip="Email">
       <Icon name="fa6-solid:envelope" />
     </a>
 
-    <a href="https://api.whatsapp.com/send?phone=7676642258" target="_blank" class="sbutton whatsapp" tooltip="WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=7676642258" target="_blank" aria-label="Whatsapp Arjunaa Academy" class="sbutton whatsapp" tooltip="WhatsApp">
       <Icon name="fa6-brands:whatsapp" />
     </a>
 
-    <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank" class="sbutton fb" tooltip="Facebook">
+    <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank" aria-label="Follow Arjunaa Academy Facebook Account" class="sbutton fb" tooltip="Facebook">
       <Icon name="fa6-brands:facebook-f" />
     </a>
 
-    <a href="https://twitter.com/academy_arjunaa" target="_blank" class="sbutton twitt" tooltip="Twitter">
+    <a href="https://twitter.com/academy_arjunaa" target="_blank" aria-label="Follow Arjunaa Academy Twitter Account" class="sbutton twitt" tooltip="Twitter">
       <Icon name="fa6-brands:twitter" />
     </a>
 
-    <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank" class="sbutton insta" tooltip="Instagram">
+    <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" aria-label="Follow Arjunaa Academy Instagram Account" target="_blank" class="sbutton insta" tooltip="Instagram">
       <Icon name="fa6-brands:instagram" />
     </a>
 
-    <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank" class="sbutton linkedin" tooltip="Linkedin">
+    <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank" aria-label="Follow Arjunaa Academy Linkedin Account" class="sbutton linkedin" tooltip="Linkedin">
       <Icon name="fa6-brands:linkedin" />
     </a>
 
-    <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank" class="sbutton youtube" tooltip="Youtube">
+    <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank" aria-label="Follow Arjunaa Academy Youtube Account" class="sbutton youtube" tooltip="Youtube">
       <Icon name="fa6-brands:youtube" />
     </a>
 
-    <a target="_blank" class="sbutton mainsbutton" tooltip="Connect With Us">
+    <a href="#" target="_blank" class="sbutton mainsbutton" aria-label="Connect With Arjunaa Academy" tooltip="Connect With Us">
       <Icon name="fa6-solid:headset" />
     </a>
   </div>

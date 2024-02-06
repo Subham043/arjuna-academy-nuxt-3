@@ -34,8 +34,8 @@ const { data, pending } = useSSRFetch<{
             <div class="faq-img">
               <NuxtImg
                 format="webp"
-                preload
-                loading="eager"
+                loading="lazy"
+                placeholder="/images/placeholder.webp"
                 src="/images/mission.webp"
                 height="300px"
                 alt="faq"

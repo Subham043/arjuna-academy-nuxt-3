@@ -173,7 +173,6 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
             <NuxtLink noPrefetch to="/" class="navbar-brand" aria-label="home page">
               <NuxtImg
                 id="logo-one"
-                preload
                 format="webp"
                 src="/images/logos/new-logo.webp"
                 class="logo-one"

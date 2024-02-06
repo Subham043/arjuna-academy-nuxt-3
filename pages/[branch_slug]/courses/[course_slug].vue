@@ -32,9 +32,9 @@ if (error.value) {
 
 useSeoMeta({
   title: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_title : 'Arjunaa Academy For Achievers',
+  description: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_description : 'Arjunaa Academy For Achievers',
   ogTitle: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_title : 'Arjunaa Academy For Achievers',
   twitterTitle: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_title : 'Arjunaa Academy For Achievers',
-  description: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_description : 'Arjunaa Academy For Achievers',
   ogDescription: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_description : 'Arjunaa Academy For Achievers',
   twitterDescription: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_description : 'Arjunaa Academy For Achievers',
   keywords: () => (data.value && data.value.course.branch_details.length > 0) ? data.value.course.branch_details[0].meta_keywords : 'Arjunaa Academy For Achievers',
