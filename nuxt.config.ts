@@ -83,25 +83,11 @@ export default defineNuxtConfig({
         guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
         authenticatedRedirectTo: '/profile'
       }
-      // authJs: {
-      //   secret: process.env.NUXT_NEXTAUTH_SECRET,
-      //   baseUrl: process.env.NUXT_NEXTAUTH_URL,
-      //   verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
-      //   guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
-      //   authenticatedRedirectTo: '/profile' // The path to redirect to when a user is authenticated
-      // }
     },
     private: {
       apiURL: process.env.API_BASE_URL,
       mainURL: process.env.MAIN_BASE_URL,
       RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID
-      // authJs: {
-      //   secret: process.env.NUXT_NEXTAUTH_SECRET,
-      //   baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
-      //   verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
-      //   guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
-      //   authenticatedRedirectTo: '/profile' // The path to redirect to when a user is authenticated
-      // }
     }
   },
 
