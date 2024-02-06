@@ -111,7 +111,7 @@ const onSubmit = async (values: any, actions: any) => {
                         <div class="col-lg-12 mt-3 text-center">
                           <label for="chb1">
                             Remember your password?
-                            <NuxtLink
+                            <NuxtLink noPrefetch
                               class="forget"
                               to="/auth/sign-in"
                             >Login</NuxtLink>

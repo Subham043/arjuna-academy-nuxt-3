@@ -200,7 +200,7 @@ const onRequestCallback = handleSubmit(async (values: any, actions: any) => {
           <h1 v-html="data ? data.course.name : ''" />
           <ul>
             <li>
-              <NuxtLink to="/">
+              <NuxtLink noPrefetch to="/">
                 Home
               </NuxtLink>
             </li>

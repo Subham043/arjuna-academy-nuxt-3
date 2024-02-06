@@ -59,7 +59,7 @@ const props = defineProps({
 
 <template>
   <div class="courses-item online-test-item">
-    <NuxtLink :to="`/online-tests/${props.slug}`" aria-hidden="true" :aria-label="title">
+    <NuxtLink noPrefetch :to="`/online-tests/${props.slug}`" aria-hidden="true" :aria-label="title">
       <NuxtImg placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
     </NuxtLink>
     <div class="content">
@@ -72,10 +72,10 @@ const props = defineProps({
         </p>
       </div>
       <h3 class="text-center mb-0">
-        <NuxtLink :to="`/online-tests/${props.slug}`" aria-hidden="true" :aria-label="props.title" v-html="props.title" />
+        <NuxtLink noPrefetch :to="`/online-tests/${props.slug}`" aria-hidden="true" :aria-label="props.title" v-html="props.title" />
       </h3>
       <p v-html="description" />
-      <NuxtLink :to="`/online-tests/${props.slug}`" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">
+      <NuxtLink noPrefetch :to="`/online-tests/${props.slug}`" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">
         <template v-if="!props.enrollment">
           Take Now
         </template>

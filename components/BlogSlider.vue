@@ -21,7 +21,7 @@ const { data, pending } = await useSSRFetch<PaginationType<BlogType>>(() => API_
           </div>
         </div>
         <div class="col-lg-4 text-end">
-          <NuxtLink to="/knowledge-desk" class="default-btn border-radius-50" aria-label="View all Blogs">
+          <NuxtLink noPrefetch to="/knowledge-desk" class="default-btn border-radius-50" aria-label="View all Blogs">
             View all Blogs
           </NuxtLink>
         </div>

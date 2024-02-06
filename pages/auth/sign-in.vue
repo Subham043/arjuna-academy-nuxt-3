@@ -104,7 +104,7 @@ const onSubmit = async (values: any) => {
                             <input id="chb1" type="checkbox">
                             <label for="chb1">
                               Remember Me
-                              <NuxtLink
+                              <NuxtLink noPrefetch
                                 class="forget"
                                 to="/auth/forgot-password"
                               >Forgot Password?</NuxtLink>
@@ -130,7 +130,7 @@ const onSubmit = async (values: any) => {
                         <div class="col-lg-12 mt-3 text-center">
                           <label for="chb1">
                             Don't have an account?
-                            <NuxtLink
+                            <NuxtLink noPrefetch
                               class="forget"
                               to="/auth/sign-up"
                             >Register</NuxtLink>

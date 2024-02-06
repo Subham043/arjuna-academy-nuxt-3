@@ -85,7 +85,7 @@ useHead({
                   <li>
                     <span class="svg-icon">
                       <Icon name="fa6-solid:user" />&nbsp;
-                      <NuxtLink to="/leadership-team" :aria-label="expertTip.expertTip.author_name" v-html="expertTip.expertTip.author_name" />
+                      <NuxtLink noPrefetch to="/leadership-team" :aria-label="expertTip.expertTip.author_name" v-html="expertTip.expertTip.author_name" />
                     </span>
                   </li>
                 </ul>
@@ -95,7 +95,7 @@ useHead({
                   <div class="row align-items-center justify-content-between">
                     <div v-if="expertTip.prev_expertTip" class="col-lg-auto col-md-auto">
                       <div class="pagination-area m-0">
-                        <NuxtLink :to="expertTip.prev_expertTip ? `/expert-tips/${expertTip.prev_expertTip.slug}` : '#'" title="previous expert tip" class="prev page-numbers" aria-label="previous expert tip">
+                        <NuxtLink noPrefetch :to="expertTip.prev_expertTip ? `/expert-tips/${expertTip.prev_expertTip.slug}` : '#'" title="previous expert tip" class="prev page-numbers" aria-label="previous expert tip">
                           <i class="flaticon-left-arrow" />
                         </NuxtLink>
                       </div>
@@ -132,7 +132,7 @@ useHead({
                     </div>
                     <div v-if="expertTip.next_expertTip!==null" class="col-lg-auto col-md-auto">
                       <div class="pagination-area m-0">
-                        <NuxtLink :to="expertTip.next_expertTip!==null ? `/expert-tips/${expertTip.next_expertTip.slug}` : '#'" title="next expert tip" class="next page-numbers" aria-label="next expert tip">
+                        <NuxtLink noPrefetch :to="expertTip.next_expertTip!==null ? `/expert-tips/${expertTip.next_expertTip.slug}` : '#'" title="next expert tip" class="next page-numbers" aria-label="next expert tip">
                           <i class="flaticon-chevron" />
                         </NuxtLink>
                       </div>

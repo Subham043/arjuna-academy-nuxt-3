@@ -42,7 +42,7 @@ const props = defineProps({
 <template>
   <div class="event-item">
     <div v-if="props.image!==''" class="event-img">
-      <NuxtLink :to="props.is_event ? `/events/${props.slug}` : `/expert-tips/${props.slug}`" :aria-label="props.title">
+      <NuxtLink noPrefetch :to="props.is_event ? `/events/${props.slug}` : `/expert-tips/${props.slug}`" :aria-label="props.title">
         <NuxtImg placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
       </NuxtLink>
     </div>
@@ -60,7 +60,7 @@ const props = defineProps({
         </li>
       </ul>
       <h3>
-        <NuxtLink :to="props.is_event ? `/events/${props.slug}` : `/expert-tips/${props.slug}`" :aria-label="props.title">
+        <NuxtLink noPrefetch :to="props.is_event ? `/events/${props.slug}` : `/expert-tips/${props.slug}`" :aria-label="props.title">
           <span v-html="props.title" />
         </NuxtLink>
       </h3>

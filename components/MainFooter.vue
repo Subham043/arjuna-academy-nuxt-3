@@ -16,7 +16,7 @@ const { data: legalData, pending } = await useSSRFetch<{
         <div class="col-lg-12 col-sm-12 mb-3">
           <div class="footer-widget text-center">
             <div class="footer-logo">
-              <NuxtLink to="/">
+              <NuxtLink noPrefetch to="/">
                 <NuxtImg
                   placeholder="/images/placeholder.webp"
                   src="/images/logos/new-logo.webp"
@@ -89,12 +89,12 @@ const { data: legalData, pending } = await useSSRFetch<{
             <h3>About us</h3>
             <ul class="footer-list">
               <li>
-                <NuxtLink to="/about-us" aria-label="about us page">
+                <NuxtLink noPrefetch to="/about-us" aria-label="about us page">
                   About Us
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
+                <NuxtLink noPrefetch
                   to="/mission-vision"
                   aria-label="mission & vision page"
                 >
@@ -102,7 +102,7 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
+                <NuxtLink noPrefetch
                   to="/leadership-team"
                   aria-label="leadership team & faculty page"
                 >
@@ -110,17 +110,17 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/testimonial" aria-label="testimonial page">
+                <NuxtLink noPrefetch to="/testimonial" aria-label="testimonial page">
                   Testimonial
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/careers" aria-label="contact us page">
+                <NuxtLink noPrefetch to="/careers" aria-label="contact us page">
                   Careers
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/contact-us" aria-label="contact us page">
+                <NuxtLink noPrefetch to="/contact-us" aria-label="contact us page">
                   Contact Us
                 </NuxtLink>
               </li>
@@ -132,32 +132,32 @@ const { data: legalData, pending } = await useSSRFetch<{
             <h3>Resources</h3>
             <ul class="footer-list">
               <li>
-                <NuxtLink to="/knowledge-desk" aria-label="knowledge desk page">
+                <NuxtLink noPrefetch to="/knowledge-desk" aria-label="knowledge desk page">
                   Knowledge Desk
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/expert-tips" aria-label="expert tips page">
+                <NuxtLink noPrefetch to="/expert-tips" aria-label="expert tips page">
                   Expert Tips
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/faq" aria-label="faq page">
+                <NuxtLink noPrefetch to="/faq" aria-label="faq page">
                   FAQ
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/gallery" aria-label="gallery page">
+                <NuxtLink noPrefetch to="/gallery" aria-label="gallery page">
                   Gallery
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/events" aria-label="events page">
+                <NuxtLink noPrefetch to="/events" aria-label="events page">
                   Events
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
+                <NuxtLink noPrefetch
                   to="/2-year-integrated-day-scholar-and-residential-program"
                   aria-label="Day Scholar / Residential"
                 >
@@ -185,7 +185,7 @@ const { data: legalData, pending } = await useSSRFetch<{
               class="footer-list"
             >
               <li v-for="(item, i) in legalData.legal" :key="i">
-                <NuxtLink
+                <NuxtLink noPrefetch
                   :to="`/legal/${item.slug}`"
                   :aria-label="item.page_name"
                 >
@@ -252,7 +252,7 @@ const { data: legalData, pending } = await useSSRFetch<{
         <div class="copy-right-text text-center">
           <p>
             Copyright © {{ new Date().getFullYear() }}
-            <NuxtLink
+            <NuxtLink noPrefetch
               to="/"
               aria-label="Arjunaa Academy for Achievers"
             >

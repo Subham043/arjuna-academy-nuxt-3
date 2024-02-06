@@ -21,7 +21,7 @@ const { data, pending } = await useSSRFetch<PaginationType<TestimonialType>>(() 
           </div>
         </div>
         <div class="col-lg-4 col-md-3 text-end">
-          <NuxtLink to="/testimonial" class="default-btn border-radius-50" aria-label="View all Testimonial">
+          <NuxtLink noPrefetch to="/testimonial" class="default-btn border-radius-50" aria-label="View all Testimonial">
             View all Testimonial
           </NuxtLink>
         </div>
