@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, useWindowSize } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, TestimonialType } from '../utils/types'
+
+const { width } = useWindowSize()
 
 const isSliderVisible = ref(false)
 const isSliderEl = ref<HTMLElement | null>(null)
@@ -42,7 +44,7 @@ const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API
           </NuxtLink>
         </div>
       </div>
-      <TestimonialCardLoading v-if="pending" :count="3" />
+      <TestimonialCardLoading v-if="pending" :count="width > 650 ? 3 : 1" />
       <div ref="isSliderEl">
         <LazyTestimonialSwiper v-if="!pending && data" :data="data" />
       </div>

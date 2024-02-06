@@ -59,7 +59,7 @@ const onSubmit = async (values: any, actions: any) => {
             <form class="newsletter-form" data-toggle="validator" method="POST" @submit.prevent="handleSubmit($event, onSubmit)">
               <div>
                 <VeeField
-                  id="email"
+                  id="subscription_email"
                   type="email"
                   name="email"
                   class="form-control"

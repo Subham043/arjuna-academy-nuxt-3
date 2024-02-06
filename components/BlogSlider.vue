@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, useWindowSize } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, BlogType } from '../utils/types'
+
+const { width } = useWindowSize()
 
 const isSliderVisible = ref(false)
 const isSliderEl = ref<HTMLElement | null>(null)
 const isSlidertargetVisible = useElementVisibility(isSliderEl)
-
 watch(
   () => isSlidertargetVisible.value,
   (value) => {
@@ -42,7 +43,7 @@ const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES
           </NuxtLink>
         </div>
       </div>
-      <BlogCardLoading v-if="pending" :count="3" />
+      <BlogCardLoading v-if="pending" :count="width > 650 ? 3 : 1" />
       <div ref="isSliderEl">
         <LazyBlogSwiper v-if="!pending && data" :data="data" />
       </div>

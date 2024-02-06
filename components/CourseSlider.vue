@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, useWindowSize } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { CourseSliderType } from '../utils/types'
+
+const { width } = useWindowSize()
 
 const isSliderVisible = ref(false)
 const isSliderEl = ref<HTMLElement | null>(null)
@@ -37,7 +39,7 @@ const { data, pending } = useSSRFetch<{ course: CourseSliderType[]}>(() => API_R
           </div>
         </div>
       </div>
-      <CourseCardLoading v-if="pending" :count="3" />
+      <CourseCardLoading v-if="pending" :count="width > 650 ? 3 : 1" />
       <div ref="isSliderEl">
         <LazyCourseSwiper v-if="!pending && data && data.course.length>0" :course="data.course" />
       </div>

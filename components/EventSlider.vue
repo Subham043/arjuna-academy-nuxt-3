@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, useWindowSize } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, EventType } from '../utils/types'
+
+const { width } = useWindowSize()
 
 const isSliderVisible = ref(false)
 const isSliderEl = ref<HTMLElement | null>(null)
@@ -42,7 +44,7 @@ const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTE
           </NuxtLink>
         </div>
       </div>
-      <EventCardLoading v-if="pending" :count="2" />
+      <EventCardLoading v-if="pending" :count="width > 650 ? 2 : 1" />
       <div ref="isSliderEl">
         <LazyEventSwiper v-if="!pending && data" :data="data" />
       </div>
