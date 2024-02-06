@@ -162,7 +162,7 @@ const onSubmit = async (values: any, actions: any) => {
                   <li>
                     <span class="svg-icon">
                       <Icon name="fa6-solid:user" />&nbsp;
-                      <NuxtLink noPrefetch to="/leadership-team" :aria-label="blog.blog.author_name" v-html="blog.blog.author_name" />
+                      <NuxtLink to="/leadership-team" :aria-label="blog.blog.author_name" v-html="blog.blog.author_name" />
                     </span>
                   </li>
                 </ul>
@@ -172,7 +172,7 @@ const onSubmit = async (values: any, actions: any) => {
                   <div class="row align-items-center justify-content-between">
                     <div v-if="blog.prev_blog !== null" class="col-lg-auto col-md-auto">
                       <div class="pagination-area m-0">
-                        <NuxtLink noPrefetch
+                        <NuxtLink
                           :to="blog.prev_blog !== null ? `/knowledge-desk/${blog.prev_blog?.slug}` : '#'"
                           title="previous blog"
                           class="prev page-numbers"
@@ -223,7 +223,7 @@ const onSubmit = async (values: any, actions: any) => {
                     </div>
                     <div v-if="blog.next_blog" class="col-lg-auto col-md-auto">
                       <div class="pagination-area m-0">
-                        <NuxtLink noPrefetch
+                        <NuxtLink
                           :to="blog.next_blog !== null ? `/knowledge-desk/${blog.next_blog?.slug}` : '#'"
                           title="next blog"
                           class="next page-numbers"
@@ -376,7 +376,7 @@ const onSubmit = async (values: any, actions: any) => {
                       <div class="info">
                         <p>{{ item.published }}</p>
                         <h4 class="title-text">
-                          <NuxtLink noPrefetch :aria-label="item.name" :to="`/knowledge-desk/${item.slug}`">
+                          <NuxtLink :aria-label="item.name" :to="`/knowledge-desk/${item.slug}`">
                             {{ item.name }}
                           </NuxtLink>
                         </h4>

@@ -225,7 +225,7 @@ const testimonials = ref([
             </div>
           </div>
           <div class="col-lg-3 col-md-3 text-end">
-            <NuxtLink noPrefetch to="/vrddhi/syllabus" aria-label="Syllabus" class="default-btn">
+            <NuxtLink to="/vrddhi/syllabus" aria-label="Syllabus" class="default-btn">
               Click Here
             </NuxtLink>
           </div>

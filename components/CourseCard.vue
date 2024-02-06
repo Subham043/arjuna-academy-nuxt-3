@@ -65,7 +65,7 @@ const props = defineProps({
       <hr>
       <div class="bottom-content align-items-center">
         <el-dropdown>
-          <NuxtLink noPrefetch to="/" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">
+          <NuxtLink to="/" class="default-btn two border-radius-50 m-0" aria-hidden="true" aria-label="Enroll Now">
             Enroll Now
           </NuxtLink>
           <template #dropdown>
@@ -75,7 +75,6 @@ const props = defineProps({
                 :key="i"
               >
                 <NuxtLink
-                  noPrefetch
                   :to="`/${item.slug}/courses/${slug}`"
                   class="text-dark"
                   aria-hidden="true"
@@ -87,7 +86,7 @@ const props = defineProps({
           </template>
         </el-dropdown>
         <el-dropdown>
-          <NuxtLink noPrefetch to="/" class="default-btn border-radius-50 mr-2" aria-hidden="true" aria-label="Request Callback">
+          <NuxtLink to="/" class="default-btn border-radius-50 mr-2" aria-hidden="true" aria-label="Request Callback">
             Request Callback
           </NuxtLink>
           <template #dropdown>
@@ -97,7 +96,7 @@ const props = defineProps({
                 :key="i"
               >
                 <NuxtLink
-                  noPrefetch
+
                   :to="`/${item.slug}/courses/${slug}`"
                   class="text-dark"
                   aria-hidden="true"

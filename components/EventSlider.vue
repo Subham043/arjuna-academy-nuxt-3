@@ -39,7 +39,7 @@ const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTE
           </div>
         </div>
         <div class="col-lg-4 text-end">
-          <NuxtLink noPrefetch to="/events" class="default-btn border-radius-50" aria-label="View all Events">
+          <NuxtLink to="/events" class="default-btn border-radius-50" aria-label="View all Events">
             View all Events
           </NuxtLink>
         </div>

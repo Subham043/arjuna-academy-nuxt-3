@@ -75,7 +75,7 @@ const { data, pending } = useSSRFetch<{
                   <div v-html="data.about.description" />
                 </div>
                 <div class="text-center-sm">
-                  <NuxtLink noPrefetch to="/leadership-team" class="default-btn border-radius-50" aria-label="View Leaders">
+                  <NuxtLink to="/leadership-team" class="default-btn border-radius-50" aria-label="View Leaders">
                     View Leaders
                   </NuxtLink>
                 </div>

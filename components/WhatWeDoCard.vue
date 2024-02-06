@@ -37,7 +37,7 @@ const { data, pending } = useSSRFetch<{
           </div>
         </div>
         <div class="col-lg-4 col-md-3 text-end">
-          <NuxtLink noPrefetch to="/mission-vision" class="default-btn border-radius-50" aria-label="Mission & Vision">
+          <NuxtLink to="/mission-vision" class="default-btn border-radius-50" aria-label="Mission & Vision">
             Mission & Vision
           </NuxtLink>
         </div>
