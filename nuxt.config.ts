@@ -57,7 +57,8 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     'nuxt-aos',
     '@sidebase/nuxt-pdf',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    'nuxt-delay-hydration'
   ],
 
   build: {
@@ -77,8 +78,6 @@ export default defineNuxtConfig({
       mainURL: process.env.MAIN_BASE_URL,
       RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
       authJs: {
-        secret: process.env.NUXT_NEXTAUTH_SECRET,
-        baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
         verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
         guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
         authenticatedRedirectTo: '/profile' // The path to redirect to when a user is authenticated
@@ -87,8 +86,22 @@ export default defineNuxtConfig({
     private: {
       apiURL: process.env.API_BASE_URL,
       mainURL: process.env.MAIN_BASE_URL,
-      RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID
+      RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
+      authJs: {
+        secret: process.env.NUXT_NEXTAUTH_SECRET,
+        baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
+        verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
+        guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
+        authenticatedRedirectTo: '/profile' // The path to redirect to when a user is authenticated
+      }
     }
+  },
+
+  delayHydration: {
+    // enables nuxt-delay-hydration in dev mode for testing
+    // NOTE: you should disable this once you've finished testing, it will break HMR
+    debug: true,
+    mode: 'init'
   },
 
   gtm: {
@@ -97,7 +110,8 @@ export default defineNuxtConfig({
     enabled: true,
     defer: true,
     compatibility: true,
-    loadScript: true
+    loadScript: true,
+    devtools: false
   },
 
   security: {

@@ -25,6 +25,7 @@
     "eslint-plugin-prettier": "^5.1.3",
     "nuxt": "^3.9.3",
     "nuxt-aos": "^1.2.2",
+    "nuxt-delay-hydration": "^1.3.3",
     "nuxt-icon": "^0.6.8",
     "nuxt-schema-org": "^3.3.4",
     "nuxt-security": "^1.0.1",
