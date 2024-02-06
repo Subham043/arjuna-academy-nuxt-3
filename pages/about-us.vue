@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const dialogVideoVisible = ref(false)
-const dialogBannerVisible = ref(true)
+const dialogBannerVisible = ref(false)
+
+onMounted(() => { setTimeout(() => { dialogBannerVisible.value = true }, 3000) })
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const dialogBannerVisible = ref(true)
       ]"
     />
 
-    <WhoWeAreCard
+    <LazyWhoWeAreCard
       :first="true"
       slug="about-page"
     />
@@ -37,9 +39,9 @@ const dialogBannerVisible = ref(true)
       </div>
     </div>
 
-    <CounterComponent />
+    <LazyCounterComponent />
 
-    <WhatWeDoCard heading="Why choose Arjunaa Academy for Achievers?" slug="about-page" :server="false" />
+    <LazyWhatWeDoCard heading="Why choose Arjunaa Academy for Achievers?" slug="about-page" :server="false" />
 
     <el-dialog v-model="dialogVideoVisible" title="Hareesh PK" width="90%" top="20px">
       <iframe
@@ -53,7 +55,15 @@ const dialogBannerVisible = ref(true)
     </el-dialog>
 
     <el-dialog v-model="dialogBannerVisible" title="ARJUNAA ACADEMY FOR ACHIEVERS" width="80%" top="10vh">
-      <NuxtImg placeholder="/images/placeholder.webp" src="/images/jee-main.webp" title="ARJUNAA ACADEMY FOR ACHIEVERS" alt="ARJUNAA ACADEMY FOR ACHIEVERS" class="w-100" />
+      <NuxtImg
+        preload
+        loading="eager"
+        placeholder="/images/placeholder.webp"
+        src="/images/jee-main.webp"
+        title="ARJUNAA ACADEMY FOR ACHIEVERS"
+        alt="ARJUNAA ACADEMY FOR ACHIEVERS"
+        class="w-100"
+      />
     </el-dialog>
   </div>
 </template>

@@ -49,7 +49,14 @@ const paginationHandler = () => $scroll('#gallery-area', () => router.push({ que
           <viewer :options="{zoom_in: false}" :images="data.data" class="row justify-content-center">
             <div v-for="(item, i) in data.data" :key="i" class="col-lg-4 col-md-6">
               <div class="blog-card">
-                <NuxtImg placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" style="cursor: pointer;" />
+                <NuxtImg
+                  loading="lazy"
+                  placeholder="/images/placeholder.webp"
+                  :src="item.image"
+                  :alt="item.image_alt"
+                  :title="item.image_title"
+                  style="cursor: pointer;"
+                />
                 <div class="content">
                   <h3 v-html="item.title" />
                   <p v-html="item.description" />

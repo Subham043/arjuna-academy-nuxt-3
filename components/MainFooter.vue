@@ -18,6 +18,7 @@ const { data: legalData, pending } = useSSRFetch<{
             <div class="footer-logo">
               <NuxtLink noPrefetch to="/">
                 <NuxtImg
+                  loading="lazy"
                   placeholder="/images/placeholder.webp"
                   src="/images/logos/new-logo.webp"
                   alt="Images"

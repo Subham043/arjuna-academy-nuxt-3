@@ -87,7 +87,7 @@ const testimonials = ref([
         <div class="row align-items-center">
           <div class="col-lg-5">
             <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-              <NuxtImg placeholder="/images/placeholder.webp" src="/images/parent-say.webp" width="500px" alt="Enrolled" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/parent-say.webp" width="500px" alt="Enrolled" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -195,7 +195,7 @@ const testimonials = ref([
           </div>
           <div class="col-lg-5">
             <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-              <NuxtImg placeholder="/images/placeholder.webp" src="/images/objective-of-vrddhi.webp" width="500px" alt="Enrolled" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/objective-of-vrddhi.webp" width="500px" alt="Enrolled" />
             </div>
           </div>
         </div>
@@ -224,9 +224,9 @@ const testimonials = ref([
         <div class="row align-items-center">
           <div class="col-lg-6">
             <div class="faq-img">
-              <NuxtImg placeholder="/images/placeholder.webp" src="/images/reward.webp" width="700px" alt="faq" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/reward.webp" width="700px" alt="faq" />
               <div class="shape">
-                <NuxtImg src="/images/faq-shape.png" height="90px" alt="Faq" />
+                <NuxtImg loading="lazy" src="/images/faq-shape.png" height="90px" alt="Faq" />
               </div>
             </div>
           </div>

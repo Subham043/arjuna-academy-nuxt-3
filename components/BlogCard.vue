@@ -38,7 +38,7 @@ const props = defineProps({
 <template>
   <div class="blog-card">
     <NuxtLink noPrefetch :to="`/knowledge-desk/${props.slug}`" aria-hidden="true" :aria-label="title">
-      <NuxtImg placeholder="/images/placeholder.webp" :src="image" :alt="props.image_alt" :title="props.image_title" />
+      <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="image" :alt="props.image_alt" :title="props.image_title" />
     </NuxtLink>
     <div class="content">
       <ul>

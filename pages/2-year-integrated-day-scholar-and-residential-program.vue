@@ -116,6 +116,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               <div class="blog-preview-img">
                 <NuxtImg
                   v-if="course==='Day Scholar'"
+                  loading="lazy"
                   placeholder="/images/placeholder.webp"
                   width="1280"
                   src="/images/scholar-bg.jpg"
@@ -124,6 +125,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                 />
                 <NuxtImg
                   v-else
+                  loading="lazy"
                   width="1280"
                   placeholder="/images/placeholder.webp"
                   src="/images/residential-bg.jpg"

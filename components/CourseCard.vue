@@ -46,7 +46,7 @@ const props = defineProps({
 
 <template>
   <div class="courses-item">
-    <NuxtImg placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
+    <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
     <div class="content">
       <div class="bottom-content align-items-center">
         <p class="tag-btn" v-html="props.class_name" />
@@ -65,7 +65,14 @@ const props = defineProps({
                 v-for="(item, i) in props.branches"
                 :key="i"
               >
-                <NuxtLink noPrefetch :to="`/${item.slug}/courses/${slug}`" class="text-dark" aria-hidden="true" :aria-label="item.name" v-html="item.name" />
+                <NuxtLink
+                  noPrefetch
+                  :to="`/${item.slug}/courses/${slug}`"
+                  class="text-dark"
+                  aria-hidden="true"
+                  :aria-label="item.name"
+                  v-html="item.name"
+                />
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -80,7 +87,14 @@ const props = defineProps({
                 v-for="(item, i) in props.branches"
                 :key="i"
               >
-                <NuxtLink noPrefetch :to="`/${item.slug}/courses/${slug}`" class="text-dark" aria-hidden="true" :aria-label="item.name" v-html="item.name" />
+                <NuxtLink
+                  noPrefetch
+                  :to="`/${item.slug}/courses/${slug}`"
+                  class="text-dark"
+                  aria-hidden="true"
+                  :aria-label="item.name"
+                  v-html="item.name"
+                />
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>

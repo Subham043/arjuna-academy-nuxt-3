@@ -49,7 +49,7 @@ const { data, pending } = useSSRFetch<{
         <div v-for="(item, i) in data.feature" :key="i" class="col-lg-4 col-6">
           <div class="featured-item-two">
             <div class="feature-icon-holder">
-              <NuxtImg placeholder="/images/placeholder.webp" :src="item.image" :alt="item.title" :title="item.title" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="item.image" :alt="item.title" :title="item.title" />
               <h3 v-html="item.title" />
             </div>
             <p v-html="item.description" />

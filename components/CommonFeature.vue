@@ -18,7 +18,14 @@ const { data, pending } = useSSRFetch<{
       <div v-if="!pending && data && data.feature.length>0" class="row justify-content-center">
         <div v-for="(item, i) in data.feature" :key="i" class="col-lg-4 col-6">
           <div class="featured-item">
-            <NuxtImg placeholder="/images/placeholder.webp" :src="item.image" class="featured-img" :alt="item.title" :title="item.title" />
+            <NuxtImg
+              loading="lazy"
+              placeholder="/images/placeholder.webp"
+              :src="item.image"
+              class="featured-img"
+              :alt="item.title"
+              :title="item.title"
+            />
             <h3 v-html="item.title" />
             <p v-html="item.description" />
           </div>

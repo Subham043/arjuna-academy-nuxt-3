@@ -113,7 +113,14 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
             <div class="col-lg-12">
               <div class="blog-details-content">
                 <div class="blog-preview-img">
-                  <NuxtImg placeholder="/images/placeholder.webp" :src="data.campaign.image" :alt="data.campaign.image_alt" :title="data.campaign.image_title" width="1280px" />
+                  <NuxtImg
+                    loading="lazy"
+                    placeholder="/images/placeholder.webp"
+                    :src="data.campaign.image"
+                    :alt="data.campaign.image_alt"
+                    :title="data.campaign.image_title"
+                    width="1280px"
+                  />
                 </div>
               </div>
             </div>

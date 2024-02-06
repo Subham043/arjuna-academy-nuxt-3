@@ -43,9 +43,9 @@ const { data, pending } = useSSRFetch<{
             </div>
             <div class="col-lg-6">
               <div class="enrolled-img-three mb-30 pr-20">
-                <NuxtImg placeholder="/images/placeholder.webp" :src="data.about.image" :alt="data.about.image_alt" :title="data.about.image_title" />
+                <NuxtImg preload loading="eager" :src="data.about.image" :alt="data.about.image_alt" :title="data.about.image_title" />
                 <div class="enrolled-img-content">
-                  <NuxtImg placeholder="/images/placeholder.webp" :src="data.about.counter_image" :alt="data.about.counter_title" :title="data.about.counter_title" />
+                  <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="data.about.counter_image" :alt="data.about.counter_title" :title="data.about.counter_title" />
                   <div class="content">
                     <h3 v-html="data.about.counter_title" />
                     <p v-html="data.about.counter_description" />

@@ -207,6 +207,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                   <div class="contact-info-card p-4 rounded">
                     <iframe
                       :src="item"
+                      loading="lazy"
                       referrerpolicy="no-referrer-when-downgrade"
                     />
                   </div>

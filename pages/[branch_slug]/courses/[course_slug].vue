@@ -293,7 +293,14 @@ const onRequestCallback = handleSubmit(async (values: any, actions: any) => {
           <div class="col-lg-4">
             <template v-if="!pending && data">
               <div class="courses-details-sidebar">
-                <NuxtImg placeholder="/images/placeholder.webp" :src="data.course.image" :alt="data.course.image_alt" :title="data.course.image_title" class="w-100" />
+                <NuxtImg
+                  loading="lazy"
+                  placeholder="/images/placeholder.webp"
+                  :src="data.course.image"
+                  :alt="data.course.image_alt"
+                  :title="data.course.image_title"
+                  class="w-100"
+                />
                 <div class="content">
                   <span class="d-flex justify-content-between align-items-center">
                     <small v-if="data.course.branch_details.length>0 && data.course.branch_details[0].discount!=0" class="d-inline-flex m-0 px-2 py-1 fw-semibold text-success-emphasis bg-success-subtle border border-success-subtle rounded-2">{{ data.course.branch_details[0].discount }}% OFF</small>

@@ -149,9 +149,9 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
         <div class="row">
           <div class="col-lg-5">
             <div class="faq-img">
-              <NuxtImg placeholder="/images/placeholder.webp" src="/images/lesson.webp" alt="faq" class="lesson-img" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/lesson.webp" alt="faq" class="lesson-img" />
               <div class="shape">
-                <NuxtImg src="/images/faq-shape.png" height="90px" alt="Faq" />
+                <NuxtImg loading="lazy" src="/images/faq-shape.png" height="90px" alt="Faq" />
               </div>
             </div>
           </div>

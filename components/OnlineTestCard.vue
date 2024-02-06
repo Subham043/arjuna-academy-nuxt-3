@@ -60,7 +60,7 @@ const props = defineProps({
 <template>
   <div class="courses-item online-test-item">
     <NuxtLink noPrefetch :to="`/online-tests/${props.slug}`" aria-hidden="true" :aria-label="title">
-      <NuxtImg placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
+      <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="props.image" :alt="props.image_alt" :title="props.image_title" />
     </NuxtLink>
     <div class="content">
       <div class="bottom-content align-items-center justify-content-end online-test-tag">

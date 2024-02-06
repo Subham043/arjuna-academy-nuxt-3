@@ -93,7 +93,7 @@ const onSubmit = async (values: any, actions: any) => {
         <div class="row align-items-center">
           <div class="col-lg-5">
             <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-              <NuxtImg placeholder="/images/placeholder.webp" src="/images/parent-say.webp" alt="Enrolled" width="500px" />
+              <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/parent-say.webp" alt="Enrolled" width="500px" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -130,7 +130,7 @@ const onSubmit = async (values: any, actions: any) => {
           <div class="col-lg-6 col-6">
             <div class="featured-item-two">
               <div class="feature-icon-holder">
-                <NuxtImg placeholder="/images/placeholder.webp" src="/images/careers/heartbeat@1x.png" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/careers/heartbeat@1x.png" />
                 <h3>Your wellbeing is our priority</h3>
               </div>
               <p>To be empowered to do your best, your wellbeing needs to come first. We prioritize the health, happiness, and wellbeing of an individual.</p>
@@ -139,7 +139,7 @@ const onSubmit = async (values: any, actions: any) => {
           <div class="col-lg-6 col-6">
             <div class="featured-item-two">
               <div class="feature-icon-holder">
-                <NuxtImg placeholder="/images/placeholder.webp" src="/images/careers/teamwork@1x.png" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/careers/teamwork@1x.png" />
                 <h3>Inclusion</h3>
               </div>
               <p>We foster a collaborative, inclusive culture that inspires you to give the best. We strive to create an accessible and inclusive experience for all candidates.</p>
@@ -148,7 +148,7 @@ const onSubmit = async (values: any, actions: any) => {
           <div class="col-lg-6 col-6">
             <div class="featured-item-two">
               <div class="feature-icon-holder">
-                <NuxtImg placeholder="/images/placeholder.webp" src="/images/careers/green-leaf@1x.png" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/careers/green-leaf@1x.png" />
                 <h3>Learn and grow</h3>
               </div>
               <p>AAAEDU is a great place to start your working life, and we offer the opportunity to feel good by doing well in your everyday work. Our supportive environment enables you to learn, develop and be your best in the role that best suits you.</p>
@@ -157,7 +157,7 @@ const onSubmit = async (values: any, actions: any) => {
           <div class="col-lg-6 col-6">
             <div class="featured-item-two">
               <div class="feature-icon-holder">
-                <NuxtImg placeholder="/images/placeholder.webp" src="/images/careers/respect--1-@1x.png" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" src="/images/careers/respect--1-@1x.png" />
                 <h3>Integrity, Respect, Courage, and Transparency</h3>
               </div>
               <p>The employees are a crucial fabric of our culture. We work on four essential principles: Integrity, Respect, Courage, and Transparency. We are committed to putting ethics first, and these principles allow us to continue to be the most trusted Institute. We empower our people to approach challenges to fulfil the students' dreams.</p>

@@ -130,7 +130,7 @@ const paginationHandler = () => $scroll('#instructor-area', () => router.push({ 
           <div class="row">
             <div class="col-lg-5 order-1-sm">
               <div class="instructors-details-img faq-img">
-                <NuxtImg placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" />
                 <div class="shape">
                   <h2><span class="badge bg-warning" v-html="item.designation" /></h2>
                 </div>
@@ -156,7 +156,7 @@ const paginationHandler = () => $scroll('#instructor-area', () => router.push({ 
             </div>
             <div class="col-lg-5 order-1-sm">
               <div class="instructors-details-img faq-img">
-                <NuxtImg placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" />
+                <NuxtImg loading="lazy" placeholder="/images/placeholder.webp" :src="item.image" :alt="item.image_alt" :title="item.image_title" />
                 <div class="shape">
                   <h2><span class="badge bg-warning" v-html="item.designation" /></h2>
                 </div>

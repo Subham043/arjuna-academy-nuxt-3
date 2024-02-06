@@ -7,7 +7,7 @@ const { data, pending } = useSSRFetch<{
 }>(() => API_ROUTES.bannerSection, {
   key: 'banner_slider',
   lazy: true,
-  server: false
+  server: true
 })
 
 </script>
@@ -45,14 +45,20 @@ const { data, pending } = useSSRFetch<{
                 </div>
                 <div class="col-lg-6 order-1-sm">
                   <div class="hero-img">
-                    <NuxtImg placeholder="/images/placeholder.webp" :src="item.banner_image" class="hero" :alt="item.banner_image_alt" :title="item.banner_image_title" />
+                    <NuxtImg
+                      preload
+                      loading="eager"
+                      :src="item.banner_image"
+                      class="hero"
+                      :alt="item.banner_image_alt"
+                      :title="item.banner_image_title"
+                    />
                     <div class="hero-bg-shape">
-                      <NuxtImg placeholder="/images/placeholder.webp" src="/images/home-three/bg-shape1.png" class="bg-img-shape1" alt="Hero" />
-                      <NuxtImg placeholder="/images/placeholder.webp" src="/images/home-three/bg-shape2.png" class="bg-img-shape2" alt="Hero" />
+                      <NuxtImg preload loading="eager" src="/images/home-three/bg-shape1.png" class="bg-img-shape1" alt="Hero" />
                     </div>
                     <div class="top-content">
                       <div class="hero-img-content">
-                        <NuxtImg placeholder="/images/placeholder.webp" :src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" />
+                        <NuxtImg placeholder="/images/placeholder.webp" loading="lazy" :src="item.counter_image_1" :alt="item.counter_title_1" :title="item.counter_title_1" />
                         <div class="content">
                           <h3 v-html="item.counter_title_1" />
                           <p v-html="item.counter_description_1" />
@@ -61,7 +67,7 @@ const { data, pending } = useSSRFetch<{
                     </div>
                     <div class="right-content">
                       <div class="hero-img-content">
-                        <NuxtImg placeholder="/images/placeholder.webp" :src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" />
+                        <NuxtImg placeholder="/images/placeholder.webp" loading="lazy" :src="item.counter_image_2" :alt="item.counter_title_2" :title="item.counter_title_2" />
                         <div class="content">
                           <h3 v-html="item.counter_title_2" />
                           <p v-html="item.counter_description_2" />
@@ -78,10 +84,10 @@ const { data, pending } = useSSRFetch<{
     </div>
     <div class="hero-shape">
       <div class="shape1">
-        <NuxtImg src="/images/home-three/shape.png" height="50px" alt="Shape" />
+        <NuxtImg loading="lazy" src="/images/home-three/shape.png" height="50px" alt="Shape" />
       </div>
       <div class="shape2">
-        <NuxtImg src="/images/home-three/shape2.png" height="50px" alt="Shape" />
+        <NuxtImg loading="lazy" src="/images/home-three/shape2.png" height="50px" alt="Shape" />
       </div>
     </div>
   </div>
