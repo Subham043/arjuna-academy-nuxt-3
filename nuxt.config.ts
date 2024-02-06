@@ -65,19 +65,11 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    authJs: {
-      secret: process.env.NUXT_NEXTAUTH_SECRET, // You can generate one with `openssl rand -base64 32`
-      baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
-      verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
-      guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
-      authenticatedRedirectTo: '/profile'
-    },
     public: {
       apiURL: process.env.API_BASE_URL,
       mainURL: process.env.MAIN_BASE_URL,
       RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
-      authJs: {
-        secret: process.env.NUXT_NEXTAUTH_SECRET, // You can generate one with `openssl rand -base64 32`
+      authJs: { // You can generate one with `openssl rand -base64 32`
         baseUrl: process.env.NUXT_NEXTAUTH_URL, // The URL of your deployed app (used for origin Check in production)
         verifyClientOnEveryRequest: false, // whether to hit the /auth/session endpoint on every client request
         guestRedirectTo: '/auth/sign-in', // The path to redirect to when a user is not authenticated
@@ -87,7 +79,10 @@ export default defineNuxtConfig({
     private: {
       apiURL: process.env.API_BASE_URL,
       mainURL: process.env.MAIN_BASE_URL,
-      RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID
+      RAZORPAY_KEY_ID: process.env.RAZORPAY_KEY_ID,
+      authJs: {
+        secret: process.env.NUXT_NEXTAUTH_SECRET
+      }
     }
   },
 

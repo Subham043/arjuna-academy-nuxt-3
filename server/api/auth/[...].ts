@@ -12,7 +12,7 @@ const runtimeConfig = useRuntimeConfig()
 
 // Refer to Auth.js docs for more details
 export const authOptions: AuthConfig = {
-  secret: runtimeConfig.authJs.secret,
+  secret: runtimeConfig.private.authJs.secret,
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -32,8 +32,6 @@ export const authOptions: AuthConfig = {
         // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
-        console.log('secret', runtimeConfig.authJs.secret)
-        console.log('baseUrl', runtimeConfig.authJs.baseUrl)
         try {
           const formData = new FormData()
           formData.append('email', credentials.email as string)
@@ -57,8 +55,8 @@ export const authOptions: AuthConfig = {
     signIn () {
       return true
     },
-    redirect ({ url }) {
-      return url
+    redirect ({ baseUrl }) {
+      return baseUrl
     },
     jwt ({ token, user, trigger, session }) {
       if (token && user) {
