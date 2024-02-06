@@ -32,6 +32,8 @@ export const authOptions: AuthConfig = {
         // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
+        console.log('secret', runtimeConfig.authJs.secret)
+        console.log('baseUrl', runtimeConfig.authJs.baseUrl)
         try {
           const formData = new FormData()
           formData.append('email', credentials.email as string)
