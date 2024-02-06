@@ -60,7 +60,7 @@
       slug="home-page"
     />
 
-    <!-- <LazyCourseSlider /> -->
+    <LazyCourseSlider />
 
     <LazyWhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" slug="home-page" :server="true" />
 
@@ -103,10 +103,10 @@
       </div>
     </div>
 
-    <!-- <LazyTestimonialSlider /> -->
+    <LazyTestimonialSlider />
 
-    <!-- <LazyEventSlider /> -->
+    <LazyEventSlider />
 
-    <!-- <LazyBlogSlider /> -->
+    <LazyBlogSlider />
   </div>
 </template>

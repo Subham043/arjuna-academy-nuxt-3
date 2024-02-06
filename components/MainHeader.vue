@@ -132,14 +132,9 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
               <NuxtLink noPrefetch to="/" aria-label="home page">
                 <NuxtImg
                   id="logo-one-mobile"
+                  preload
                   src="/images/logos/logo-sm.webp"
                   class="logo-one mobile-logo"
-                  alt="logo"
-                />
-                <NuxtImg
-                  id="logo-two-mobile"
-                  src="/images/logos/logo-sm.webp"
-                  class="logo-two mobile-logo"
                   alt="logo"
                 />
               </NuxtLink>
@@ -168,14 +163,9 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
             <NuxtLink noPrefetch to="/" class="navbar-brand" aria-label="home page">
               <NuxtImg
                 id="logo-one"
+                preload
                 src="/images/logos/new-logo.webp"
                 class="logo-one"
-                alt="Logo"
-              />
-              <NuxtImg
-                id="logo-two"
-                src="/images/logos/logo-sm.webp"
-                class="logo-two"
                 alt="Logo"
               />
             </NuxtLink>
@@ -186,7 +176,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
             >
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="/about-us"
                     aria-label="about us page"
                     :class="`nav-link dropdown-toggle ${($route.path.includes('about-us') || $route.path.includes('mission-vision') || $route.path.includes('leadership-team') || $route.path.includes('testimonial') || $route.path.includes('careers')) && 'nuxt-link-active'}`"
@@ -195,7 +186,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/mission-vision"
                         aria-label="mission & vision page"
                         :class="`nav-link ${$route.path.includes('mission-vision') && 'nuxt-link-active'}`"
@@ -204,7 +196,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/leadership-team"
                         aria-label="leadership team & faculty page"
                         :class="`nav-link ${$route.path.includes('leadership-team') && 'nuxt-link-active'}`"
@@ -213,7 +206,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/testimonial"
                         aria-label="testimonial page"
                         :class="`nav-link ${$route.path.includes('testimonial') && 'nuxt-link-active'}`"
@@ -222,7 +216,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/careers"
                         aria-label="careers page"
                         :class="`nav-link ${$route.path.includes('careers') && 'nuxt-link-active'}`"
@@ -233,7 +228,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="#"
                     :class="`nav-link dropdown-toggle ${$route.path.includes('courses') && 'nuxt-link-active'}`"
                   >
@@ -262,7 +258,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       :key="i"
                       class="nav-item"
                     >
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="#"
                         :class="`nav-link dropdown-toggle ${$route.path.includes(item.slug) && 'nuxt-link-active'}`"
                       >
@@ -270,7 +267,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                       <ul class="dropdown-menu">
                         <li class="nav-item">
-                          <NuxtLink noPrefetch
+                          <NuxtLink
+                            noPrefetch
                             to="#"
                             class="nav-link dropdown-toggle"
                           >
@@ -285,7 +283,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                               <template
                                 v-if="it.class === 'School (STD VIII to X)'"
                               >
-                                <NuxtLink noPrefetch
+                                <NuxtLink
+                                  noPrefetch
                                   :to="`/${item.slug}/courses/${it.slug}`"
                                   :aria-label="it.name"
                                   :class="`nav-link ${$route.path.includes(it.slug) && 'nuxt-link-active'}`"
@@ -311,7 +310,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                                   it.class === 'Senior Secondary (XI, XII, PU)'
                                 "
                               >
-                                <NuxtLink noPrefetch
+                                <NuxtLink
+                                  noPrefetch
                                   :to="`/${item.slug}/courses/${it.slug}`"
                                   :aria-label="it.name"
                                   :class="`nav-link ${$route.path.includes(it.slug) && 'nuxt-link-active'}`"
@@ -333,7 +333,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                               class="nav-item"
                             >
                               <template v-if="it.class === 'Online'">
-                                <NuxtLink noPrefetch
+                                <NuxtLink
+                                  noPrefetch
                                   :to="`/${item.slug}/courses/${it.slug}`"
                                   :aria-label="it.name"
                                   :class="`nav-link ${$route.path.includes(it.slug) && 'nuxt-link-active'}`"
@@ -349,7 +350,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="#"
                     :class="`nav-link dropdown-toggle ${$route.path.includes('achievers') && 'nuxt-link-active'}`"
                   >
@@ -385,7 +387,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                             achieverCategoryData.achiverCategory.length > 0
                         "
                       >
-                        <NuxtLink noPrefetch
+                        <NuxtLink
+                          noPrefetch
                           :to="`/achievers/${item.slug}`"
                           :aria-label="item.name"
                           :class="`nav-link ${$route.path.includes(item.slug) && 'nuxt-link-active'}`"
@@ -397,7 +400,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="#"
                     :class="`nav-link dropdown-toggle ${($route.path.includes('knowledge-desk') || $route.path.includes('expert-tips') || $route.path.includes('faq') || $route.path.includes('vrddhi') || $route.path.includes('online-tests')) && 'nuxt-link-active'}`"
                   >
@@ -405,7 +409,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/knowledge-desk"
                         aria-label="blog page"
                         :class="`nav-link ${$route.path.includes('knowledge-desk') && 'nuxt-link-active'}`"
@@ -414,7 +419,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/expert-tips"
                         aria-label="expert tips page"
                         :class="`nav-link ${$route.path.includes('expert-tips') && 'nuxt-link-active'}`"
@@ -423,7 +429,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/online-tests"
                         aria-label="test page"
                         :class="`nav-link ${$route.path.includes('online-tests') && 'nuxt-link-active'}`"
@@ -432,7 +439,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/faq"
                         aria-label="faq page"
                         :class="`nav-link ${$route.path.includes('faq') && 'nuxt-link-active'}`"
@@ -441,7 +449,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                       </NuxtLink>
                     </li>
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/vrddhi"
                         aria-label="vrddhi page"
                         :class="`nav-link ${$route.path.includes('vrddhi') && 'nuxt-link-active'}`"
@@ -452,7 +461,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="/events"
                     aria-label="upcoming events page"
                     :class="`nav-link ${$route.path.includes('events') && 'nuxt-link-active'}`"
@@ -461,7 +471,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                 </li>
                 <li class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="/contact-us"
                     aria-label="contact us page"
                     :class="`nav-link ${$route.path.includes('contact-us') && 'nuxt-link-active'}`"
@@ -470,7 +481,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                 </li>
                 <li v-if="status === 'unauthenticated'" class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="/auth/sign-in"
                     aria-label="sign in page"
                     :class="`nav-link ${$route.path.includes('auth/sign-in') && 'nuxt-link-active'}`"
@@ -479,7 +491,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                 </li>
                 <li v-else-if="status === 'authenticated'" class="nav-item">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
+                    noPrefetch
                     to="#"
                     :class="`nav-link dropdown-toggle ${$route.path.includes('profile') && 'nuxt-link-active'}`"
                   >
@@ -487,7 +500,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   </NuxtLink>
                   <ul class="dropdown-menu" style="left: unset; right: 0">
                     <li class="nav-item">
-                      <NuxtLink noPrefetch
+                      <NuxtLink
+                        noPrefetch
                         to="/profile"
                         aria-label="profile page"
                         :class="`nav-link ${$route.path.includes('profile') && 'nuxt-link-active'}`"
@@ -548,8 +562,9 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   School
                 </template>
                 <template v-for="(it, index) in item.courses" :key="index">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
                     v-if="it.class == 'School (STD VIII to X)'"
+                    noPrefetch
                     :aria-label="it.name"
                     :to="`/${item.slug}/courses/${it.slug}`"
                   >
@@ -564,8 +579,9 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   Senior Secondary
                 </template>
                 <template v-for="(it, index) in item.courses" :key="index">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
                     v-if="it.class == 'Senior Secondary (XI, XII, PU)'"
+                    noPrefetch
                     :aria-label="it.name"
                     :to="`/${item.slug}/courses/${it.slug}`"
                   >
@@ -580,8 +596,9 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                   Online
                 </template>
                 <template v-for="(it, index) in item.courses" :key="index">
-                  <NuxtLink noPrefetch
+                  <NuxtLink
                     v-if="it.class == 'Online'"
+                    noPrefetch
                     :aria-label="it.name"
                     :to="`/${item.slug}/courses/${it.slug}`"
                   >
@@ -603,7 +620,8 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
                 Mission & Vision
               </el-menu-item>
             </NuxtLink>
-            <NuxtLink noPrefetch
+            <NuxtLink
+              noPrefetch
               to="/leadership-team"
               aria-label="leadership team & faculty page"
             >
@@ -627,9 +645,10 @@ const { data: branchData, pending: branchPending } = useSSRFetch<{
               <i class="el-icon-trophy" />
               <span>Achievers</span>
             </template>
-            <NuxtLink noPrefetch
+            <NuxtLink
               v-for="(item, i) in achieverCategoryData?.achiverCategory"
               :key="i"
+              noPrefetch
               :to="`/achievers/${item.slug}`"
               :aria-label="item.name"
             >
