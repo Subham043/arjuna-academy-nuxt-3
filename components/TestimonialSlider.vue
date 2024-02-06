@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { useElementVisibility } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, TestimonialType } from '../utils/types'
+
+const isSliderVisible = ref(false)
+const isSliderEl = ref<HTMLElement | null>(null)
+const isSlidertargetVisible = useElementVisibility(isSliderEl)
+
+watch(
+  () => isSlidertargetVisible.value,
+  (value) => {
+    if (!isSliderVisible.value && value) {
+      isSliderVisible.value = true
+    }
+  }
+)
 
 const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + '?total=9&page=1', {
   key: 'testimonials_slider',
@@ -27,7 +41,9 @@ const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API
         </div>
       </div>
       <TestimonialCardLoading v-if="pending" :count="3" />
-      <LazyTestimonialSwiper v-if="!pending && data" :data="data" />
+      <div ref="isSliderEl">
+        <LazyTestimonialSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+      </div>
     </div>
   </div>
 </template>

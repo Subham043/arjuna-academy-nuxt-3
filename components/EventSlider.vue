@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { useElementVisibility } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, EventType } from '../utils/types'
+
+const isSliderVisible = ref(false)
+const isSliderEl = ref<HTMLElement | null>(null)
+const isSlidertargetVisible = useElementVisibility(isSliderEl)
+
+watch(
+  () => isSlidertargetVisible.value,
+  (value) => {
+    if (!isSliderVisible.value && value) {
+      isSliderVisible.value = true
+    }
+  }
+)
 
 const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + '?total=8&page=1&sort=-id', {
   key: 'events_slider',
@@ -27,7 +41,9 @@ const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTE
         </div>
       </div>
       <EventCardLoading v-if="pending" :count="2" />
-      <LazyEventSwiper v-if="!pending && data" :data="data" />
+      <div ref="isSliderEl">
+        <LazyEventSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+      </div>
     </div>
   </div>
 </template>

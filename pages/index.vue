@@ -1,33 +1,3 @@
-<script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
-
-const isCourseSliderVisible = ref(false)
-const isCourseSliderEl = ref<HTMLElement | null>(null)
-const isCourseSlidertargetVisible = useElementVisibility(isCourseSliderEl)
-
-watch(
-  () => isCourseSlidertargetVisible.value,
-  (value) => {
-    if (!isCourseSliderVisible.value && value) {
-      isCourseSliderVisible.value = true
-    }
-  }
-)
-
-const isSliderVisible = ref(false)
-const isSliderEl = ref<HTMLElement | null>(null)
-const isSlidertargetVisible = useElementVisibility(isSliderEl)
-
-watch(
-  () => isSlidertargetVisible.value,
-  (value) => {
-    if (!isSliderVisible.value && value) {
-      isSliderVisible.value = true
-    }
-  }
-)
-</script>
-
 <template>
   <div>
     <SeoHeader
@@ -90,9 +60,7 @@ watch(
       slug="home-page"
     />
 
-    <div ref="isCourseSliderEl">
-      <LazyCourseSlider v-if="isCourseSliderVisible" />
-    </div>
+    <LazyCourseSlider />
 
     <LazyWhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" slug="home-page" :server="true" />
 
@@ -135,10 +103,10 @@ watch(
       </div>
     </div>
 
-    <div ref="isSliderEl">
-      <LazyTestimonialSlider v-if="isSliderVisible" />
-      <LazyEventSlider v-if="isSliderVisible" />
-      <LazyBlogSlider v-if="isSliderVisible" />
-    </div>
+    <LazyTestimonialSlider />
+
+    <LazyEventSlider />
+
+    <LazyBlogSlider />
   </div>
 </template>

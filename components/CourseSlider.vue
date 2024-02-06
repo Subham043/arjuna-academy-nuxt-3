@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { useElementVisibility } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { CourseSliderType } from '../utils/types'
+
+const isSliderVisible = ref(false)
+const isSliderEl = ref<HTMLElement | null>(null)
+const isSlidertargetVisible = useElementVisibility(isSliderEl)
+
+watch(
+  () => isSlidertargetVisible.value,
+  (value) => {
+    if (!isSliderVisible.value && value) {
+      isSliderVisible.value = true
+    }
+  }
+)
 
 const { data, pending } = useSSRFetch<{ course: CourseSliderType[]}>(() => API_ROUTES.course, {
   key: 'courses_slider',
@@ -22,7 +36,9 @@ const { data, pending } = useSSRFetch<{ course: CourseSliderType[]}>(() => API_R
         </div>
       </div>
       <CourseCardLoading v-if="pending" :count="3" />
-      <LazyCourseSwiper v-if="!pending && data && data.course.length>0" :course="data.course" />
+      <div ref="isSliderEl">
+        <LazyCourseSwiper v-if="!pending && isSliderVisible && data && data.course.length>0" :course="data.course" />
+      </div>
     </div>
   </div>
 </template>

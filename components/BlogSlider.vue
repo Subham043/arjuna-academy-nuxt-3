@@ -1,6 +1,20 @@
 <script setup lang="ts">
+import { useElementVisibility } from '@vueuse/core'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, BlogType } from '../utils/types'
+
+const isSliderVisible = ref(false)
+const isSliderEl = ref<HTMLElement | null>(null)
+const isSlidertargetVisible = useElementVisibility(isSliderEl)
+
+watch(
+  () => isSlidertargetVisible.value,
+  (value) => {
+    if (!isSliderVisible.value && value) {
+      isSliderVisible.value = true
+    }
+  }
+)
 
 const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + '?total=9&page=1&filter[is_popular]=true&sort=-published_on', {
   key: 'blogs_slider',
@@ -27,7 +41,9 @@ const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES
         </div>
       </div>
       <BlogCardLoading v-if="pending" :count="3" />
-      <LazyBlogSwiper v-if="!pending && data" :data="data" />
+      <div ref="isSliderEl">
+        <LazyBlogSwiper v-if="!pending && isSliderVisible && data" :data="data" />
+      </div>
     </div>
   </div>
 </template>
