@@ -37,7 +37,7 @@ const props = defineProps({
 
 <template>
   <div class="blog-card">
-    <NuxtLink :to="`/knowledge-desk/${props.slug}`" aria-hidden="true" :aria-label="title">
+    <NuxtLink noPrefetch :to="`/knowledge-desk/${props.slug}`" aria-hidden="true" :aria-label="title">
       <NuxtImg
         format="webp"
         loading="lazy"
@@ -63,7 +63,7 @@ const props = defineProps({
         </li> -->
       </ul>
       <h3>
-        <NuxtLink :to="`/knowledge-desk/${props.slug}`" aria-hidden="true" :aria-label="title">
+        <NuxtLink noPrefetch :to="`/knowledge-desk/${props.slug}`" aria-hidden="true" :aria-label="title">
           <span v-html="props.title" />
         </NuxtLink>
       </h3>

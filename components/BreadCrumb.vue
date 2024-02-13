@@ -22,12 +22,12 @@ const props = defineProps({
         <h3>{{ props.title }}</h3>
         <ul>
           <li>
-            <NuxtLink to="/">
+            <NuxtLink noPrefetch to="/">
               Home
             </NuxtLink>
           </li>
           <li v-for="(item, i) in props.pages" :key="i">
-            <NuxtLink v-if="i + 1 !== props.pages.length" :to="item.link">
+            <NuxtLink v-if="i + 1 !== props.pages.length" noPrefetch :to="item.link">
               {{
                 item.name
               }}

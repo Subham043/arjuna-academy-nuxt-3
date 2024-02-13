@@ -155,7 +155,7 @@ const verifyPayment = async (data:any) => {
           <h1 v-html="data ? data.test.name : ''" />
           <ul>
             <li>
-              <NuxtLink to="/">
+              <NuxtLink noPrefetch to="/">
                 Home
               </NuxtLink>
             </li>
@@ -234,7 +234,7 @@ const verifyPayment = async (data:any) => {
                         <button v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogEliminatedVisible = true">
                           Elimination Report
                         </button>
-                        <NuxtLink v-else :to="`/online-tests/${data.test.slug}/report`" class="default-btn">
+                        <NuxtLink v-else noPrefetch :to="`/online-tests/${data.test.slug}/report`" class="default-btn">
                           View Test Report
                         </NuxtLink>
                       </div>
@@ -281,7 +281,7 @@ const verifyPayment = async (data:any) => {
           <p>Once you are done reading the above instructions, Please click the button given below to proceed with your test.</p>
         </div>
         <div v-if="data.test.is_test_enrolled && (data.test.is_test_enrolled.test_status=='Pending' || data.test.is_test_enrolled.test_status=='Ongoing')" class="my-2 text-center">
-          <NuxtLink class="default-btn" :to="`/online-tests/${data.test.slug}/ongoing`">
+          <NuxtLink noPrefetch class="default-btn" :to="`/online-tests/${data.test.slug}/ongoing`">
             <template v-if="data.test.is_test_enrolled.test_status=='Pending'">
               Start Now
             </template>

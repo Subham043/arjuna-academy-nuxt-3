@@ -123,10 +123,10 @@ export default defineNuxtConfig({
   },
 
   delayHydration: {
+    mode: 'mount',
     // enables nuxt-delay-hydration in dev mode for testing
     // NOTE: you should disable this once you've finished testing, it will break HMR
-    debug: process.env.NODE_ENV === 'development',
-    mode: 'init'
+    debug: process.env.NODE_ENV === 'development'
   },
 
   security: {

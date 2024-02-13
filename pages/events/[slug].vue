@@ -151,7 +151,7 @@ const paginationHandler = () => $scroll('#popular-event-area', () => router.push
               <div v-if="!eventsPending && events && events.data.length>0">
                 <article v-for="(item, i) in events.data" :key="i" class="item">
                   <div class="info">
-                    <NuxtLink :to="`/events/${item.slug}`" :aria-label="item.name">
+                    <NuxtLink noPrefetch :to="`/events/${item.slug}`" :aria-label="item.name">
                       <h4 class="title-text" v-html="item.name" />
                     </NuxtLink>
                     <p v-html="item.short_description" />

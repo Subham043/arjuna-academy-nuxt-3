@@ -205,6 +205,7 @@ const onSubmit = async (values: any, actions: any) => {
                           <label for="chb1">
                             Already have an account?
                             <NuxtLink
+                              noPrefetch
                               class="forget"
                               to="/auth/sign-in"
                             >Login</NuxtLink>

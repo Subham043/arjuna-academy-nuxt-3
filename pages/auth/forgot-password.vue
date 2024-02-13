@@ -112,6 +112,7 @@ const onSubmit = async (values: any, actions: any) => {
                           <label for="chb1">
                             Remember your password?
                             <NuxtLink
+                              noPrefetch
                               class="forget"
                               to="/auth/sign-in"
                             >Login</NuxtLink>

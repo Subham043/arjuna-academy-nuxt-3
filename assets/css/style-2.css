@@ -4789,3 +4789,31 @@ img {
 .swiper-button-prev:after, .swiper-button-next:after{
   font-size: 1.3rem !important;
 }
+
+.error-area .error-content {
+  text-align: center;
+  position: relative;
+}
+.error-area .error-content h1 {
+  font-size: 260px;
+  line-height: 0.8;
+  font-weight: 700;
+  color: var(--titleColor);
+}
+.error-area .error-content h1 span {
+  color: var(--mainColor);
+}
+.error-area .error-content h3 {
+  margin: 35px 0 0;
+  position: relative;
+  color: var(--titleColor);
+  font-size: 35px;
+}
+.error-area .error-content p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}

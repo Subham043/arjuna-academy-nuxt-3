@@ -105,6 +105,7 @@ const onSubmit = async (values: any) => {
                             <label for="chb1">
                               Remember Me
                               <NuxtLink
+                                noPrefetch
                                 class="forget"
                                 to="/auth/forgot-password"
                               >Forgot Password?</NuxtLink>
@@ -131,6 +132,7 @@ const onSubmit = async (values: any) => {
                           <label for="chb1">
                             Don't have an account?
                             <NuxtLink
+                              noPrefetch
                               class="forget"
                               to="/auth/sign-up"
                             >Register</NuxtLink>

@@ -77,18 +77,18 @@
                 <div class="banner-btn justify-content-center">
                   <a href="/pdf/brochure.pdf" target="_blank" aria-label="Download Brochure" class="default-btn two border-radius-50 mr-2">Download Brochure</a>
                   <el-dropdown>
-                    <NuxtLink to="/" class="default-btn border-radius-50 m-0" aria-label="Admission Form">
+                    <NuxtLink noPrefetch to="/" class="default-btn border-radius-50 m-0" aria-label="Admission Form">
                       Admission Form
                     </NuxtLink>
                     <template #dropdown>
                       <el-dropdown-menu>
                         <el-dropdown-item>
-                          <NuxtLink to="/admission/class-8-9-10" class="text-dark" aria-label="Class 8, 9 & 10">
+                          <NuxtLink noPrefetch to="/admission/class-8-9-10" class="text-dark" aria-label="Class 8, 9 & 10">
                             Class 8, 9 & 10
                           </NuxtLink>
                         </el-dropdown-item>
                         <el-dropdown-item>
-                          <NuxtLink to="/admission/puc" class="text-dark" aria-label="Class 11 or 1st PUC">
+                          <NuxtLink noPrefetch to="/admission/puc" class="text-dark" aria-label="Class 11 or 1st PUC">
                             Class 11 or 1st PUC
                           </NuxtLink>
                         </el-dropdown-item>
