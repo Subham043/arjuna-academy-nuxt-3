@@ -55,14 +55,14 @@
 
     <CommonFeature />
 
-    <LazyWhoWeAreCard
+    <WhoWeAreCard
       :heading_center="true"
       slug="home-page"
     />
 
-    <LazyCourseSlider />
+    <CourseSlider />
 
-    <LazyWhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" slug="home-page" :server="true" />
+    <WhatWeDoCard heading="Why Arjunaa Academy for Achievers is the Top Coaching Centre in Bangalore?" slug="home-page" :server="true" />
 
     <div class="register-area pb-70">
       <div class="container">
@@ -103,10 +103,10 @@
       </div>
     </div>
 
-    <LazyTestimonialSlider />
+    <TestimonialSlider />
 
-    <LazyEventSlider />
+    <EventSlider />
 
-    <LazyBlogSlider />
+    <BlogSlider />
   </div>
 </template>

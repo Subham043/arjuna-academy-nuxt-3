@@ -41,7 +41,7 @@ const props = defineProps({
       }"
     >
       <SwiperSlide v-for="(item, i) in props.data.data" :key="i" class="single-swiper-slider">
-        <LazyTestimonialCard
+        <TestimonialCard
           :image="item.image"
           :name="item.name"
           :star="item.star"

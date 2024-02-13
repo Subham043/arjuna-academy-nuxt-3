@@ -2,7 +2,50 @@ import { resolve } from 'node:path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true
+    }
+  },
+
+  modules: [
+    '@nuxtjs/google-fonts',
+    'nuxt-security',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    'nuxt-icon',
+    '@element-plus/nuxt',
+    '@nuxt/image',
+    '@hebilicious/authjs-nuxt',
+    '@vee-validate/nuxt',
+    'nuxt-swiper',
+    'nuxt-schema-org',
+    '@sidebase/nuxt-pdf',
+    '@vueuse/nuxt',
+    'nuxt-delay-hydration',
+    '@nuxtjs/partytown'
+  ],
+
+  partytown: {
+    forward: ['dataLayer.push']
+  },
+
+  image: {
+    inject: true,
+    quality: 80,
+    format: ['webp'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    }
+  },
 
   devServer: {
     host: '0.0.0.0',
@@ -32,7 +75,8 @@ export default defineNuxtConfig({
       ],
       script: [
         { innerHTML: 'document.addEventListener("DOMContentLoaded", function() { window.addEventListener(\'scroll\', function() { if (window.scrollY > 150) { document.getElementById(\'navbar\').classList.add(\'is-sticky\'); } else { document.getElementById(\'navbar\').classList.remove(\'is-sticky\'); }});});', async: true },
-        { innerHTML: '!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement("script");i.async=!0,i.type="text/javascript",i.src="https://app.artibot.ai/loader.js",e.getElementsByTagName("head").item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState)){new window.ArtiBot({i:"2c848ffb-661a-45fc-ab7b-b7705235191f"});a=!0}}}(window,document);', async: true }
+        { innerHTML: '!function(t,e){t.artibotApi={l:[],t:[],on:function(){this.l.push(arguments)},trigger:function(){this.t.push(arguments)}};var a=!1,i=e.createElement("script");i.async=!0,i.type="text/javascript",i.src="https://app.artibot.ai/loader.js",e.getElementsByTagName("head").item(0).appendChild(i),i.onreadystatechange=i.onload=function(){if(!(a||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState)){new window.ArtiBot({i:"2c848ffb-661a-45fc-ab7b-b7705235191f"});a=!0}}}(window,document);', async: true },
+        { src: 'https://www.googletagmanager.com/gtag/js?id=GTM-N5WS2TC', async: true, type: 'text/partytown' }
       ]
     }
   },
@@ -42,24 +86,6 @@ export default defineNuxtConfig({
     '~/assets/fonts/flaticon.css',
     '~/assets/css/style.css',
     '~/assets/css/responsive.css'
-  ],
-
-  modules: [
-    '@zadigetvoltaire/nuxt-gtm',
-    '@nuxtjs/google-fonts',
-    'nuxt-security',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    'nuxt-icon',
-    '@element-plus/nuxt',
-    '@nuxt/image',
-    '@hebilicious/authjs-nuxt',
-    '@vee-validate/nuxt',
-    'nuxt-swiper',
-    'nuxt-schema-org',
-    '@sidebase/nuxt-pdf',
-    '@vueuse/nuxt',
-    'nuxt-delay-hydration'
   ],
 
   build: {
@@ -98,18 +124,8 @@ export default defineNuxtConfig({
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
     // NOTE: you should disable this once you've finished testing, it will break HMR
-    debug: false,
+    debug: process.env.NODE_ENV === 'development',
     mode: 'init'
-  },
-
-  gtm: {
-    // Options
-    id: 'GTM-N5WS2TC',
-    enabled: true,
-    defer: true,
-    compatibility: true,
-    loadScript: true,
-    devtools: false
   },
 
   security: {
@@ -202,21 +218,6 @@ export default defineNuxtConfig({
       Allow: '/',
       Disallow: '/admin'
       // 'Sitemap': process.env.MAIN_BASE_URL+`/sitemap.xml`
-    }
-  },
-
-  image: {
-    inject: true,
-    quality: 80,
-    format: ['webp'],
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      '2xl': 1536
     }
   },
 

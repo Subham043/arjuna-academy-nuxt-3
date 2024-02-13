@@ -19,12 +19,12 @@ watch(
   <div>
     <MainHeader />
     <slot />
-    <LazyNewsLetter />
+    <NewsLetter />
 
     <div ref="isFooterEl">
       <LazyMainFooter v-if="isFooterVisible" />
     </div>
 
-    <LazySocialMedia />
+    <SocialMedia />
   </div>
 </template>

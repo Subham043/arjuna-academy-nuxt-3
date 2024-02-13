@@ -41,7 +41,7 @@ const props = defineProps({
       }"
     >
       <SwiperSlide v-for="(item, i) in props.data.data" :key="i" class="single-swiper-slider">
-        <LazyEventCard
+        <EventCard
           :image="item.image"
           :title="item.name"
           :description="item.short_description"
