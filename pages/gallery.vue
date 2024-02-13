@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import VueViewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
 import { API_ROUTES } from '../utils/api_routes'
 import type { PaginationType, GalleryType } from '../utils/types'
 
-const { $scroll } = useNuxtApp()
+const nuxtApp = useNuxtApp()
+nuxtApp.vueApp.use(VueViewer)
+
 const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
@@ -13,7 +17,7 @@ const { data, pending } = useSSRFetch<PaginationType<GalleryType>>(() => API_ROU
   watch: [page]
 })
 
-const paginationHandler = () => $scroll('#gallery-area', () => router.push({ query: { page: page.value } }))
+const paginationHandler = () => nuxtApp.$scroll('#gallery-area', () => router.push({ query: { page: page.value } }))
 
 </script>
 

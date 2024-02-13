@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import Chartkick from 'vue-chartkick'
+import VueChart from 'chart.js/auto'
 import { API_ROUTES } from '@/utils/api_routes'
 import type { OnlineTestType } from '@/utils/types'
+const nuxtApp = useNuxtApp()
+if (process.client) {
+  nuxtApp.vueApp.use(Chartkick.use(VueChart))
+}
 
 definePageMeta({
   middleware: 'auth'

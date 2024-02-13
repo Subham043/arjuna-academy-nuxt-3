@@ -19,7 +19,7 @@ onMounted(() => { setTimeout(() => { dialogBannerVisible.value = true }, 3000) }
       ]"
     />
 
-    <LazyWhoWeAreCard
+    <WhoWeAreCard
       :first="true"
       slug="about-page"
     />
@@ -39,9 +39,9 @@ onMounted(() => { setTimeout(() => { dialogBannerVisible.value = true }, 3000) }
       </div>
     </div>
 
-    <LazyCounterComponent />
+    <CounterComponent />
 
-    <LazyWhatWeDoCard heading="Why choose Arjunaa Academy for Achievers?" slug="about-page" :server="false" />
+    <WhatWeDoCard heading="Why choose Arjunaa Academy for Achievers?" slug="about-page" :server="false" />
 
     <el-dialog v-model="dialogVideoVisible" title="Hareesh PK" width="90%" top="20px">
       <iframe

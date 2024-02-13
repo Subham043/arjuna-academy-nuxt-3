@@ -84,7 +84,8 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/bootstrap.min.css',
     '~/assets/fonts/flaticon.css',
-    '~/assets/css/style.css',
+    // '~/assets/css/style.css',
+    '~/assets/css/style-2.css',
     '~/assets/css/responsive.css'
   ],
 
