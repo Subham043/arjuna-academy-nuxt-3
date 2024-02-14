@@ -82,11 +82,12 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '~/assets/css/bootstrap.min.css',
+    '~/assets/main/bootstrap.min.css',
     '~/assets/fonts/flaticon.css',
-    // '~/assets/css/style.css',
-    '~/assets/css/style-2.css',
-    '~/assets/css/responsive.css'
+    '~/assets/main/style.css',
+    '~/assets/main/extra.css',
+    // '~/assets/main/style-2.css',
+    '~/assets/main/responsive.css'
   ],
 
   build: {
