@@ -20,7 +20,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@hebilicious/authjs-nuxt',
     '@vee-validate/nuxt',
-    'nuxt-swiper',
     'nuxt-schema-org',
     '@sidebase/nuxt-pdf',
     '@vueuse/nuxt',
@@ -82,6 +81,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    'vue3-carousel/dist/carousel.css',
     '~/assets/main/bootstrap.min.css',
     '~/assets/fonts/flaticon.css',
     '~/assets/main/style.css',
@@ -114,13 +114,6 @@ export default defineNuxtConfig({
         secret: process.env.NUXT_NEXTAUTH_SECRET
       }
     }
-  },
-
-  swiper: {
-    // Swiper options
-    prefix: 'Swiper',
-    styleLang: 'css',
-    modules: ['autoplay', 'navigation', 'pagination'] // all modules are imported by default
   },
 
   delayHydration: {
