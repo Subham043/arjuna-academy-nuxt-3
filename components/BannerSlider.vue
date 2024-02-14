@@ -39,8 +39,7 @@ const { data, pending } = useSSRFetch<{
                         format="webp"
                         width="753px"
                         height="754px"
-                        preload
-                        loading="eager"
+                        loading="lazy"
                         :src="item.banner_image"
                         class="hero"
                         :alt="item.banner_image_alt"
