@@ -745,6 +745,10 @@
   .el-dialog {
     width: 95% !important;
   }
+
+  .navbar-area.is-sticky .logo-two {
+    display: block !important;
+  }
 }
 
 @media only screen and (max-width: 520px) {
