@@ -27,7 +27,7 @@ const { value, errorMessage } = useField<string>(() => props.name)
 
 <template>
   <div>
-    <el-select v-model="value" class="w-100" :placeholder="placeholder">
+    <el-select v-model="value" class="w-100 el-select-form-control" :placeholder="placeholder">
       <el-option
         v-for="(item, i) in options"
         :key="i"

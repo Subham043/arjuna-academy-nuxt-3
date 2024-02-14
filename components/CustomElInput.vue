@@ -22,13 +22,21 @@ const { value, errorMessage } = useField<string>(() => props.name)
 
 <template>
   <div>
-    <el-input
+    <textarea
+      v-if="type === 'textarea'"
       v-model="value"
       :placeholder="placeholder"
-      class="w-100"
+      class="w-100 form-control el-form-control"
       :type="type"
-      :rows="type === 'textarea' ? 5 : 1"
+      rows="3"
     />
+    <input
+      v-else
+      v-model="value"
+      :placeholder="placeholder"
+      class="w-100 form-control el-form-control"
+      :type="type"
+    >
     <div class="is-invalid">
       {{ errorMessage }}
     </div>

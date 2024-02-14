@@ -17,12 +17,12 @@ const { value, errorMessage } = useField<string>(() => props.name)
 
 <template>
   <div>
-    <el-time-picker
+    <input
       v-model="value"
-      arrow-control
-      class="w-100"
       :placeholder="placeholder"
-    />
+      class="w-100 form-control el-form-control"
+      type="time"
+    >
     <div class="is-invalid">
       {{ errorMessage }}
     </div>

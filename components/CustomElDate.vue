@@ -17,12 +17,12 @@ const { value, errorMessage } = useField<string>(() => props.name)
 
 <template>
   <div>
-    <el-date-picker
+    <input
       v-model="value"
-      type="date"
-      class="w-100"
       :placeholder="placeholder"
-    />
+      class="w-100 form-control el-form-control"
+      type="date"
+    >
     <div class="is-invalid">
       {{ errorMessage }}
     </div>
