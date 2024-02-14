@@ -40,6 +40,7 @@ const { data, pending } = useSSRFetch<{
                         width="753px"
                         height="754px"
                         loading="lazy"
+                        placeholder="/images/placeholder.webp"
                         :src="item.banner_image"
                         class="hero"
                         :alt="item.banner_image_alt"
