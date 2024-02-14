@@ -21,7 +21,6 @@ export default defineNuxtConfig({
     '@hebilicious/authjs-nuxt',
     '@vee-validate/nuxt',
     'nuxt-schema-org',
-    '@sidebase/nuxt-pdf',
     '@vueuse/nuxt',
     'nuxt-delay-hydration',
     '@nuxtjs/partytown'
