@@ -90,7 +90,7 @@ const testimonials = ref([
               <NuxtImg
                 format="webp"
                 loading="lazy"
-                placeholder="/images/placeholder.webp"
+                placeholder="/images/img-placeholder.webp"
                 src="/images/parent-say.webp"
                 width="500px"
                 alt="Enrolled"
@@ -205,7 +205,7 @@ const testimonials = ref([
               <NuxtImg
                 format="webp"
                 loading="lazy"
-                placeholder="/images/placeholder.webp"
+                placeholder="/images/img-placeholder.webp"
                 src="/images/objective-of-vrddhi.webp"
                 width="500px"
                 alt="Enrolled"
@@ -241,7 +241,7 @@ const testimonials = ref([
               <NuxtImg
                 format="webp"
                 loading="lazy"
-                placeholder="/images/placeholder.webp"
+                placeholder="/images/img-placeholder.webp"
                 src="/images/reward.webp"
                 width="700px"
                 alt="faq"

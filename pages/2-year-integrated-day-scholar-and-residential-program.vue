@@ -116,18 +116,22 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               <div class="blog-preview-img">
                 <NuxtImg
                   v-if="course==='Day Scholar'"
-                  loading="lazy"
+                  loading="eager"
+                  preload
                   format="webp"
                   placeholder="/images/placeholder.webp"
                   width="1280"
+                  height="296"
                   src="/images/scholar-bg.jpg"
                   alt="2 Year Integrated Day Scholar Program for PU/CBSE Boards, CET, NEET and JEE"
                   title="2 Year Integrated Day Scholar Program for PU/CBSE Boards, CET, NEET and JEE"
                 />
                 <NuxtImg
                   v-else
-                  loading="lazy"
+                  loading="eager"
+                  preload
                   width="1280"
+                  height="296"
                   format="webp"
                   placeholder="/images/placeholder.webp"
                   src="/images/residential-bg.jpg"

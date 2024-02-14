@@ -50,13 +50,13 @@ const paginationHandler = () => nuxtApp.$scroll('#gallery-area', () => router.pu
           <BlogCardLoading v-if="pending" :count="6" />
         </div>
         <div v-if="!pending && data && data.data.length>0">
-          <viewer :options="{zoom_in: false}" :images="data.data" class="row justify-content-center">
+          <viewer :options="{zoom_in: false}" :images="data.data.flatMap(item => item.image)" class="row justify-content-center">
             <div v-for="(item, i) in data.data" :key="i" class="col-lg-4 col-md-6">
               <div class="blog-card">
                 <NuxtImg
                   loading="lazy"
                   format="webp"
-                  placeholder="/images/placeholder.webp"
+                  placeholder="/images/img-placeholder.webp"
                   :src="item.image"
                   :alt="item.image_alt"
                   :title="item.image_title"

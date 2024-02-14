@@ -114,7 +114,8 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               <div class="blog-details-content">
                 <div class="blog-preview-img">
                   <NuxtImg
-                    loading="lazy"
+                    preload
+                    loading="eager"
                     format="webp"
                     placeholder="/images/placeholder.webp"
                     :src="data.campaign.image"

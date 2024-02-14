@@ -749,6 +749,10 @@
   .navbar-area.is-sticky .logo-two {
     display: block !important;
   }
+
+  .el-menu-vertical-demo .el-menu-item, .el-menu-vertical-demo .el-sub-menu .el-sub-menu__title{
+    padding-left: 0 !important;
+  }
 }
 
 @media only screen and (max-width: 520px) {

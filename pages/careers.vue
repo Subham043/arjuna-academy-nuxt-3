@@ -96,7 +96,7 @@ const onSubmit = async (values: any, actions: any) => {
               <NuxtImg
                 format="webp"
                 loading="lazy"
-                placeholder="/images/placeholder.webp"
+                placeholder="/images/img-placeholder.webp"
                 src="/images/parent-say.webp"
                 alt="Enrolled"
                 width="500px"

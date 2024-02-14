@@ -34,13 +34,11 @@ const logout = async () => await signOut()
     <el-menu default-active="2" class="el-menu-vertical-demo">
       <el-menu-item index="1">
         <NuxtLink noPrefetch to="/" aria-label="home page">
-          <i class="el-icon-s-home" />
           <span>Home</span>
         </NuxtLink>
       </el-menu-item>
       <el-sub-menu index="1">
         <template #title>
-          <i class="el-icon-reading" />
           <span>Courses</span>
         </template>
         <el-sub-menu
@@ -111,7 +109,6 @@ const logout = async () => await signOut()
       </el-sub-menu>
       <el-sub-menu index="3">
         <template #title>
-          <i class="el-icon-school" />
           <span>About Us</span>
         </template>
         <NuxtLink noPrefetch to="/mission-vision" aria-label="mission & vision page">
@@ -141,7 +138,6 @@ const logout = async () => await signOut()
       </el-sub-menu>
       <el-sub-menu index="4">
         <template #title>
-          <i class="el-icon-trophy" />
           <span>Achievers</span>
         </template>
         <NuxtLink
@@ -165,7 +161,6 @@ const logout = async () => await signOut()
       </el-sub-menu>
       <el-sub-menu index="5">
         <template #title>
-          <i class="el-icon-notebook-2" />
           <span>Knowledge Desk</span>
         </template>
         <NuxtLink noPrefetch to="/knowledge-desk" aria-label="blogs page">
@@ -196,25 +191,21 @@ const logout = async () => await signOut()
       </el-sub-menu>
       <el-menu-item index="6">
         <NuxtLink noPrefetch to="/events" aria-label="upcoming events page">
-          <i class="el-icon-data-analysis" />
           <span>Upcoming Events</span>
         </NuxtLink>
       </el-menu-item>
       <el-menu-item index="7">
         <NuxtLink noPrefetch to="/contact-us" aria-label="contact us page">
-          <i class="el-icon-service" />
           <span>Contact Us</span>
         </NuxtLink>
       </el-menu-item>
       <el-menu-item v-if="status === 'unauthenticated'" index="8">
         <NuxtLink noPrefetch to="/auth/sign-in" aria-label="sign in page">
-          <i class="el-icon-user" />
           <span>Sign In</span>
         </NuxtLink>
       </el-menu-item>
       <el-sub-menu v-else-if="status === 'authenticated'" index="9">
         <template #title>
-          <i class="el-icon-user" />
           <span>Account</span>
         </template>
         <NuxtLink noPrefetch to="/profile" aria-label="profile page">
