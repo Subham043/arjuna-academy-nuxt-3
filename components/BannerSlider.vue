@@ -3,7 +3,7 @@ import { Carousel, Slide } from 'vue3-carousel'
 import { API_ROUTES } from '../utils/api_routes'
 import type { BannerType } from '../utils/types'
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   banner: BannerType[]
 }>(() => API_ROUTES.bannerSection, {
   key: 'banner_slider',

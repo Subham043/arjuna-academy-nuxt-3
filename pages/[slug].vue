@@ -11,7 +11,7 @@ const config = useRuntimeConfig()
 const toast = useToast()
 const route = useRoute()
 
-const { data, pending, error } = useSSRFetch<{
+const { data, pending, error } = await useSSRFetch<{
   campaign: CampaignType;
 }>(() => API_ROUTES.campaign + `/${route.params.slug}`, {
   key: 'campaign_' + route.params.slug,
@@ -117,7 +117,6 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                     preload
                     loading="eager"
                     format="webp"
-                    placeholder="/images/placeholder.webp"
                     :src="data.campaign.image"
                     :alt="data.campaign.image_alt"
                     :title="data.campaign.image_title"

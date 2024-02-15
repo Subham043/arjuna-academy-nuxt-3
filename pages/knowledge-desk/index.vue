@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + `?total=12&page=${page.value}&sort=-published_on`, {
+const { data, pending } = await useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + `?total=12&page=${page.value}&sort=-published_on`, {
   key: 'blogs_' + route.query.page || '1',
   lazy: true,
   watch: [page]

@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + `?total=9&page=${page.value}`, {
+const { data, pending } = await useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + `?total=9&page=${page.value}`, {
   key: 'testimonials_' + route.query.page || '1',
   lazy: true,
   watch: [page]

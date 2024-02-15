@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import { type CounterType } from '../utils/types'
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   counter: CounterType[];
 }>(API_ROUTES.counter, {
   lazy: true,

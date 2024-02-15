@@ -8,7 +8,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data: achieverCategory, pending: achieverCategoryPending, error } = useSSRFetch<{
+const { data: achieverCategory, pending: achieverCategoryPending, error } = await useSSRFetch<{
   achiverCategory: AchieverCategoryType
 }>(API_ROUTES.achieverCategory + `/${route.params.slug}`, {
   key: 'achiever_category_' + route.params.slug,
@@ -54,7 +54,7 @@ useHead({
   ]
 })
 
-const { data: achieverStudent, pending: achieverStudentPending } = useSSRFetch<PaginationType<AchieverStudentType>>(() => API_ROUTES.achieverStudent + `?total=12&page=${page.value}&filter[has_categories]=${route.params.slug}`, {
+const { data: achieverStudent, pending: achieverStudentPending } = await useSSRFetch<PaginationType<AchieverStudentType>>(() => API_ROUTES.achieverStudent + `?total=12&page=${page.value}&filter[has_categories]=${route.params.slug}`, {
   key: 'achiever_student_' + route.query.slug || '1',
   lazy: true,
   watch: [page]

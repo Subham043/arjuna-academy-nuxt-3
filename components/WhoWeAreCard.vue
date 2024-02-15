@@ -21,7 +21,7 @@ const props = defineProps({
   }
 })
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   about: AboutType;
 }>(() => API_ROUTES.aboutSection + `/${props.slug}`, {
   lazy: true,

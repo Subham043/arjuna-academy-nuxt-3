@@ -14,7 +14,7 @@ const accordianValue = ref('0')
 const dialogVideoVisible = ref(false)
 const loading = ref(false)
 
-const { data, pending } = useSSRFetch<PaginationType<JobOpeningType>>(() => API_ROUTES.job_opening + `?total=9&page=${page.value}`, {
+const { data, pending } = await useSSRFetch<PaginationType<JobOpeningType>>(() => API_ROUTES.job_opening + `?total=9&page=${page.value}`, {
   key: 'job_openings_' + route.query.page || '1',
   lazy: true,
   watch: [page]

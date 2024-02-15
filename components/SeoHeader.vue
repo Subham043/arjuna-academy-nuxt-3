@@ -16,7 +16,7 @@ const props = defineProps({
 const config = useRuntimeConfig()
 const route = useRoute()
 
-const { data } = useSSRFetch<{
+const { data } = await useSSRFetch<{
   seo: SeoType
 }>(() => API_ROUTES.seo + `/${props.slug}`, {
   key: 'seos_' + props.slug,

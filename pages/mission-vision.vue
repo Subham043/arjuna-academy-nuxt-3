@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { API_ROUTES } from '@/utils/api_routes'
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   mission: {
     mission: string;
     vision: string;

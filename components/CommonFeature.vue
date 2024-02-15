@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import { type FeatureType } from '../utils/types'
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   feature: FeatureType[];
 }>(() => API_ROUTES.feature + '/common', {
   lazy: true,

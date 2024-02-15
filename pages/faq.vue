@@ -7,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = useSSRFetch<PaginationType<FaqType>>(() => API_ROUTES.faq + `?total=12&page=${page.value}`, {
+const { data, pending } = await useSSRFetch<PaginationType<FaqType>>(() => API_ROUTES.faq + `?total=12&page=${page.value}`, {
   key: 'faq_' + route.query.page || '1',
   lazy: true,
   watch: [page]
@@ -37,9 +37,9 @@ const paginationHandler = () => $scroll('#faq-area', () => router.push({ query: 
           <div class="col-lg-6">
             <div class="faq-img">
               <NuxtImg
-                loading="lazy"
+                loading="eager"
+                preload
                 format="webp"
-                placeholder="/images/placeholder.webp"
                 src="/images/faq.webp"
                 alt="faq"
                 title="faq"

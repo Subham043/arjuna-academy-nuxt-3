@@ -40,7 +40,7 @@ onUnmounted(() => {
   }
 })
 
-const { data, pending, error, refresh } = useSSRFetch<{
+const { data, pending, error, refresh } = await useSSRFetch<{
   test: OnlineTestType;
   question_set: OnlineTestQuestionSetType;
   current_question_count: number;

@@ -18,7 +18,7 @@ watch(
   }
 )
 
-const { data, pending } = useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + '?total=9&page=1', {
+const { data, pending } = await useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + '?total=9&page=1', {
   key: 'testimonials_slider',
   lazy: true,
   server: false,

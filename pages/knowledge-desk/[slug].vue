@@ -21,7 +21,7 @@ const loading = ref(false)
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 const commentPage = ref((route.query.commentPage && !isNaN(+route.query.commentPage)) ? +route.query.commentPage : 1)
 
-const { data: blog, pending: blogPending, error } = useSSRFetch<{
+const { data: blog, pending: blogPending, error } = await useSSRFetch<{
   blog: BlogType,
   next_blog: BlogType,
   prev_blog: BlogType
@@ -69,14 +69,14 @@ useHead({
   ]
 })
 
-const { data: blogs, pending: blogsPending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + `?total=12&page=${page.value}&filter[is_popular]=true&sort=-published_on`, {
+const { data: blogs, pending: blogsPending } = await useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + `?total=12&page=${page.value}&filter[is_popular]=true&sort=-published_on`, {
   key: 'popular_blogs_' + route.query.page || '1',
   lazy: true,
   server: false,
   watch: [page]
 })
 
-const { data: blogComments } = useSSRFetch<PaginationType<BlogCommentType>>(() => API_ROUTES.blog + `/comment/${blog.value ? blog.value.blog.id : ''}/paginate?total=12&page=${page.value}`, {
+const { data: blogComments } = await useSSRFetch<PaginationType<BlogCommentType>>(() => API_ROUTES.blog + `/comment/${blog.value ? blog.value.blog.id : ''}/paginate?total=12&page=${page.value}`, {
   key: 'blog_comments_' + route.query.commentPage || '1',
   lazy: true,
   server: false,

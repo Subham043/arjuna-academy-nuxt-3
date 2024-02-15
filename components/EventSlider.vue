@@ -18,7 +18,7 @@ watch(
   }
 )
 
-const { data, pending } = useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + '?total=8&page=1&sort=-id', {
+const { data, pending } = await useSSRFetch<PaginationType<EventType>>(() => API_ROUTES.event + '?total=8&page=1&sort=-id', {
   key: 'events_slider',
   lazy: true,
   server: false,

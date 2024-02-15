@@ -11,7 +11,7 @@ definePageMeta({
 const toast = useToast()
 const loading = ref(false)
 
-const { data, refresh } = useSSRFetch<{user:ProfileType}>(() => API_ROUTES.profile, {
+const { data, refresh } = await useSSRFetch<{user:ProfileType}>(() => API_ROUTES.profile, {
   key: 'profile',
   lazy: true
 })

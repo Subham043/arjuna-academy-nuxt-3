@@ -2,7 +2,7 @@
 import { API_ROUTES } from '../utils/api_routes'
 import { type LegalType } from '../utils/types'
 
-const { data: legalData, pending } = useSSRFetch<{
+const { data: legalData, pending } = await useSSRFetch<{
   legal: LegalType[];
 }>(API_ROUTES.legal, {
   lazy: true,

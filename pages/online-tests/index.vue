@@ -25,7 +25,7 @@ const options = ref([{
   label: 'Eliminated'
 }])
 
-const { data, pending } = useSSRFetch<PaginationType<OnlineTestType>>(() => (authStatus.value === 'authenticated' ? API_ROUTES.authTests : API_ROUTES.tests) + `?total=9&page=${page.value}${status.value === 'All' ? '' : `&filter[has_status]=${status.value}`}`, {
+const { data, pending } = await useSSRFetch<PaginationType<OnlineTestType>>(() => (authStatus.value === 'authenticated' ? API_ROUTES.authTests : API_ROUTES.tests) + `?total=9&page=${page.value}${status.value === 'All' ? '' : `&filter[has_status]=${status.value}`}`, {
   key: 'online_tests_' + route.query.page || '1',
   lazy: true,
   watch: [page, status]

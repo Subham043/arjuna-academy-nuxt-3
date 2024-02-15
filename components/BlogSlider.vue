@@ -17,7 +17,7 @@ watch(
   }
 )
 
-const { data, pending } = useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + '?total=9&page=1&filter[is_popular]=true&sort=-published_on', {
+const { data, pending } = await useSSRFetch<PaginationType<BlogType>>(() => API_ROUTES.blog + '?total=9&page=1&filter[is_popular]=true&sort=-published_on', {
   key: 'blogs_slider',
   lazy: true,
   server: false,

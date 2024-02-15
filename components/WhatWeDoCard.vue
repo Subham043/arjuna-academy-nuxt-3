@@ -17,7 +17,7 @@ const props = defineProps({
   }
 })
 
-const { data, pending } = useSSRFetch<{
+const { data, pending } = await useSSRFetch<{
   feature: FeatureType[];
 }>(() => API_ROUTES.feature + `/${props.slug}`, {
   lazy: true,

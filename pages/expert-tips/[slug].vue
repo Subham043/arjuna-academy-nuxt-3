@@ -5,7 +5,7 @@ import type { ExpertTipType } from '@/utils/types'
 const config = useRuntimeConfig()
 const route = useRoute()
 
-const { data: expertTip, pending: expertTipPending, error } = useSSRFetch<{
+const { data: expertTip, pending: expertTipPending, error } = await useSSRFetch<{
   expertTip: ExpertTipType,
   next_expertTip: ExpertTipType,
   prev_expertTip: ExpertTipType

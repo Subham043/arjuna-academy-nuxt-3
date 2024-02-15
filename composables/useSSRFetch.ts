@@ -19,29 +19,18 @@ export const useSSRFetch: useFetchType = (path, options = {}) => {
       options.headers = new Headers({ Authorization: `Bearer ${session.value.user.token}` })
     }
   }
-  options.onResponse = ({ response }) => {
+  options.onResponse = () => {
     if (process.client && isLoading.value) {
       finish()
       clear()
     }
-    if (!response.ok) {
-      throw createError({
-        statusCode: response.status,
-        statusMessage: response._data.message
-      })
-    }
   }
-  options.onResponseError = ({ response }) => {
+  options.onResponseError = () => {
     if (process.client && isLoading.value) {
       finish()
       clear()
     }
-    if (!response.ok) {
-      throw createError({
-        statusCode: response.status,
-        statusMessage: response._data.message
-      })
-    }
   }
+
   return useFetch(path, options)
 }

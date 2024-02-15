@@ -11,9 +11,8 @@ definePageMeta({
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const pdfSection = ref<HTMLElement | null>(null)
 
-const { data, pending, error } = useSSRFetch<{
+const { data, pending, error } = await useSSRFetch<{
   test: OnlineTestType;
   total_answer_count: number;
   total_question_count: number;
@@ -164,7 +163,7 @@ const pieChartOptions = computed(() => {
         <div class="spinner-border m-0 p-0" role="status" />
       </div>
       <template v-else-if="!pending && data">
-        <div ref="pdfSection" class="main-report-wrapper">
+        <div class="main-report-wrapper">
           <div class="inner-report-wrapper">
             <div class="report-logo-container">
               <NuxtImg format="webp" loading="lazy" src="/images/logos/new-logo.webp" alt="logo" width="400px" />

@@ -20,7 +20,14 @@ const { handleSubmit, defineField } = useForm({
       course: string().required(),
       branch: string().required()
     })
-  )
+  ),
+  initialValues: {
+    name: '',
+    email: '',
+    phone: undefined,
+    course: 'Day Scholar',
+    branch: 'Vijayanagar (PU & CBSE)'
+  }
 })
 
 const [course] = defineField('course')
@@ -119,7 +126,6 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                   loading="eager"
                   preload
                   format="webp"
-                  placeholder="/images/placeholder.webp"
                   width="1280"
                   height="296"
                   src="/images/scholar-bg.jpg"
@@ -133,7 +139,6 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                   width="1280"
                   height="296"
                   format="webp"
-                  placeholder="/images/placeholder.webp"
                   src="/images/residential-bg.jpg"
                   alt="2 Year Integrated Residential Program for PU/CBSE Boards, CET, JEE and NEET"
                   title="2 Year Integrated Residential Program for PU/CBSE Boards, CET, JEE and NEET"

@@ -11,7 +11,7 @@ const route = useRoute()
 const router = useRouter()
 const page = ref((route.query.page && !isNaN(+route.query.page)) ? +route.query.page : 1)
 
-const { data, pending } = useSSRFetch<PaginationType<GalleryType>>(() => API_ROUTES.gallery + `?total=12&page=${page.value}`, {
+const { data, pending } = await useSSRFetch<PaginationType<GalleryType>>(() => API_ROUTES.gallery + `?total=12&page=${page.value}`, {
   key: 'staff_' + route.query.page || '1',
   lazy: true,
   watch: [page]
