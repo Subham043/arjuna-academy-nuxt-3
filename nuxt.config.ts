@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/google-fonts",
-    // 'nuxt-security',
+    "nuxt-security",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
     "nuxt-icon",
