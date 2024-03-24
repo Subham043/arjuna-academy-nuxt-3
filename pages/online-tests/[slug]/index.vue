@@ -145,6 +145,7 @@ const verifyPayment = async (data:any) => {
     loading.close()
   }
 }
+
 </script>
 
 <template>

@@ -358,7 +358,7 @@ const logout = async () => await signOut()
               <NuxtLink
                 noPrefetch
                 to="#"
-                :class="`nav-link dropdown-toggle ${$route.path.includes('profile') && 'nuxt-link-active'}`"
+                :class="`nav-link dropdown-toggle ${($route.path.includes('profile') || $route.path.includes('course-enrolled') || $route.path.includes('test-enrolled')) && 'nuxt-link-active'}`"
               >
                 Account
               </NuxtLink>
@@ -371,6 +371,26 @@ const logout = async () => await signOut()
                     :class="`nav-link ${$route.path.includes('profile') && 'nuxt-link-active'}`"
                   >
                     Profile
+                  </NuxtLink>
+                </li>
+                <li class="nav-item">
+                  <NuxtLink
+                    noPrefetch
+                    to="/course-enrolled"
+                    aria-label="course enrolled page"
+                    :class="`nav-link ${$route.path.includes('course-enrolled') && 'nuxt-link-active'}`"
+                  >
+                    Course Enrolled
+                  </NuxtLink>
+                </li>
+                <li class="nav-item">
+                  <NuxtLink
+                    noPrefetch
+                    to="/test-enrolled"
+                    aria-label="test enrolled page"
+                    :class="`nav-link ${$route.path.includes('test-enrolled') && 'nuxt-link-active'}`"
+                  >
+                    Test Enrolled
                   </NuxtLink>
                 </li>
                 <li class="nav-item">

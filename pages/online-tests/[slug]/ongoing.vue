@@ -234,7 +234,7 @@ const timeElapsedHandler = async () => {
   <div>
     <div ref="el">
       <template v-if="!pending && data">
-        <div :class="`bg-light ${isFullscreen ? 'h-100' : ''}`">
+        <div :class="`bg-light ${isFullscreen ? 'h-100 test-full-screen' : ''}`">
           <div class="inner-banner inner-banner-bg">
             <div class="container">
               <div class="inner-title text-center test-inner-title">
@@ -571,6 +571,15 @@ const timeElapsedHandler = async () => {
     color: #606266;
     font-size: 14px;
     margin-bottom: 4px;
+}
+.answer-holder .el-radio{
+  height: auto !important;
+}
+
+.test-full-screen{
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 @media only screen and (max-width:767px){

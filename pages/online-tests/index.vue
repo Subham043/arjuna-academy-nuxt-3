@@ -48,22 +48,22 @@ const paginationHandler = () => $scroll('#event-area', () => router.push({ query
 
     <div id="blog-area" class="blog-area pt-70 pb-70">
       <div class="container">
-        <div class="section-title mb-45 text-center">
+        <div class="section-title mb-30 text-center">
           <h2>Latest from our <b>Online Tests</b></h2>
           <p>
             Explore The Latest Updates About NEET, JEE, IIT Exams And Foundation Courses
           </p>
-          <div v-if="authStatus === 'authenticated'" class="row justify-content-end align-items-center">
-            <div class="col-md-2 col-sm-12">
-              <el-select v-model="status" placeholder="Filter">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </div>
+        </div>
+        <div v-if="authStatus === 'authenticated'" class="row justify-content-end align-items-center mb-30">
+          <div class="col-md-2 col-sm-12 test-filter">
+            <el-select v-model="status" placeholder="Filter">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
           </div>
         </div>
         <div v-if="pending" class="row justify-content-center">
@@ -91,6 +91,11 @@ const paginationHandler = () => $scroll('#event-area', () => router.push({ query
               :items-per-page="data.meta.per_page"
               :on-click="paginationHandler"
             />
+          </div>
+        </div>
+        <div v-if="!pending && data && data.data.length===0" class="row justify-content-center">
+          <div class="col-12 text-center">
+            <p>No Test Found</p>
           </div>
         </div>
       </div>

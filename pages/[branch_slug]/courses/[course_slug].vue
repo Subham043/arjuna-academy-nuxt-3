@@ -125,6 +125,11 @@ const loadRazorpay = (resp:any) => {
     },
     handler: async (response:any) => {
       await verifyPayment(response)
+    },
+    modal: {
+      ondismiss: async () => {
+        await cancelPayment({ razorpay_order_id: resp.razorpay_order_id })
+      }
     }
   }
   const rzp = new (window as any).Razorpay(options)
@@ -150,6 +155,31 @@ const verifyPayment = async (data:any) => {
     if (response.ok) {
       toast.success(content.message)
     } else {
+      throw content
+    }
+  } catch (err:any) {
+    if (err?.message) { toast.error(err.message) }
+    if (err?.error) { toast.error(err.error) }
+  } finally {
+    loading.close()
+  }
+}
+
+const cancelPayment = async (data:any) => {
+  const loading = ElLoading.service({
+    lock: true,
+    text: 'Loading',
+    background: 'rgba(0, 0, 0, 0.7)'
+  })
+  try {
+    const formData = new FormData()
+    formData.append('razorpay_order_id', data.razorpay_order_id)
+    const response = await useCustomFetch('/api/v1/enrollment/cancelled', {
+      method: 'POST',
+      body: formData
+    })
+    const content = await response.json()
+    if (!response.ok) {
       throw content
     }
   } catch (err:any) {
