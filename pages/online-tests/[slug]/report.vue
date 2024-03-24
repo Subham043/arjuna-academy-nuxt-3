@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useToast } from 'vue-toastification'
 import { Bar, Pie } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement } from 'chart.js'
 import { API_ROUTES } from '@/utils/api_routes'
@@ -147,6 +148,27 @@ const pieChartOptions = computed(() => {
   }
 })
 
+const downloadLoading = ref(false)
+const toast = useToast()
+const downloadHandler = async () => {
+  downloadLoading.value = true
+  try {
+    const response = await useCustomFetch(API_ROUTES.tests + `/${route.params.slug}/report-download-request`, {
+      method: 'GET'
+    })
+    const content = await response.json()
+    if (response.ok) {
+      window.open(config.public.apiURL + '/v1/test-report-download/' + content.file_key, '_blank')
+    } else {
+      throw content
+    }
+  } catch (err:any) {
+    toast.error('Something went wrong! Please try again later.')
+  } finally {
+    downloadLoading.value = false
+  }
+}
+
 </script>
 
 <template>
@@ -163,6 +185,11 @@ const pieChartOptions = computed(() => {
         <div class="spinner-border m-0 p-0" role="status" />
       </div>
       <template v-else-if="!pending && data">
+        <div class="py-2" style="text-align:right;">
+          <el-button type="success" :disabled="downloadLoading" :loading="downloadLoading" plain @click="downloadHandler">
+            Download Report
+          </el-button>
+        </div>
         <div class="main-report-wrapper">
           <div class="inner-report-wrapper">
             <div class="report-logo-container">
