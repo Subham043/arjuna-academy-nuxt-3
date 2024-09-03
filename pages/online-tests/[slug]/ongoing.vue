@@ -91,7 +91,7 @@ if (error.value) {
 
 watch(() => data.value, async (value) => {
   if (value) {
-    if (value.question_set.test_status === 'Pending' || value.question_set.test_status === 'Ongoing') {
+    if ((value.question_set.test_status === 'Pending' || value.question_set.test_status === 'Ongoing') && value.test.is_timer_active) {
       scheduledOn.value = value ? value.question_set.current_quiz.duration * 60000 : 0
       duration.value = value ? value.question_set.current_quiz.duration : 0
       timerTrigger.value = true
@@ -254,7 +254,11 @@ const timeElapsedHandler = async () => {
                   </div>
                   <div class="question_set_div">
                     <div class="question_set_marker d-flex flex-wrap align-items-center" style="justify-content:center">
-                      <div v-for="i in data.total_question_count" :key="i" :class="`${(i)===data.current_question_count ? 'question_set_box_current' : ((i) < data.current_question_count ? 'question_set_box_completed' : 'question_set_box_pending')} question_set_box`">
+                      <div
+                        v-for="i in data.total_question_count"
+                        :key="i"
+                        :class="`${(i)===data.current_question_count ? 'question_set_box_current' : ((i) < data.current_question_count ? 'question_set_box_completed' : 'question_set_box_pending')} question_set_box`"
+                      >
                         {{ i }}
                       </div>
                     </div>
@@ -265,13 +269,9 @@ const timeElapsedHandler = async () => {
             <hr>
             <div class="container">
               <div class="row align-items-center">
-                <div class="col-lg-9 order-2-sm">
+                <div :class="data.test.is_timer_active ? 'col-lg-9 order-2-sm' : 'col-lg-12 order-2-sm'">
                   <div v-if="errorMessage" class="mb-1">
-                    <el-alert
-                      :title="errorMessage"
-                      type="error"
-                      show-icon
-                    />
+                    <el-alert :title="errorMessage" type="error" show-icon />
                   </div>
                   <div class="question-block">
                     <div class="question-block-counter p-2">
@@ -300,7 +300,7 @@ const timeElapsedHandler = async () => {
                             {{ data.question_set.current_quiz.mark }}
                           </h6>
                         </div>
-                        <div class="col-auto text-center">
+                        <div v-if="data.test.is_timer_active" class="col-auto text-center">
                           <p class="head-text text-light">
                             Duration
                           </p>
@@ -340,17 +340,29 @@ const timeElapsedHandler = async () => {
                         </div>
                       </div>
                     </div>
-                    <div class="py-1 px-2 text-center">
-                      <el-button type="success" plain :loading="answerSubmitLoading" :disabled="answerSubmitLoading" @click="fillAnswerHandler">
+                    <div class="py-1 px-2 text-center d-flex justify-content-between align-items-center">
+                      <el-button
+                        type="success"
+                        plain
+                        :loading="answerSubmitLoading"
+                        :disabled="answerSubmitLoading"
+                        @click="fillAnswerHandler"
+                      >
                         Submit
                       </el-button>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 order-1-sm">
+                <div v-if="data.test.is_timer_active" class="col-lg-3 order-1-sm">
                   <div class="timer-div">
                     <ClientOnly>
-                      <vue-countdown v-if="timerTrigger" v-slot="{ minutes, seconds }" :auto-start="timerTrigger" :time="scheduledOn" @end="timeElapsedHandler">
+                      <vue-countdown
+                        v-if="timerTrigger && data.test.is_timer_active"
+                        v-slot="{ minutes, seconds }"
+                        :auto-start="timerTrigger"
+                        :time="scheduledOn"
+                        @end="timeElapsedHandler"
+                      >
                         <div style="position: relative;">
                           <div class="timer" :style="`--duration: ${duration * 60}; --size: 250;`">
                             <div class="mask" />

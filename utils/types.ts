@@ -540,6 +540,7 @@ export type OnlineTestType = {
   id: number,
   is_active: boolean,
   is_paid: boolean,
+  is_timer_active: boolean,
   image: string,
   image_alt: string,
   image_title: string,
@@ -547,6 +548,8 @@ export type OnlineTestType = {
   meta_keywords: string | null,
   meta_scripts: string | null,
   meta_title: string,
+  total_duration: number | null,
+  total_marks: number | null,
   name: string,
   slug: string,
   updated_at: string,
@@ -649,12 +652,12 @@ export type PaginationType<T> = {
 interface EncryptionOptions {
   userPassword?: string;
   ownerPassword?: string;
-  userPermissions?: ("print" | "modify" | "copy" | "annot-forms")[];
+  userPermissions?: ('print' | 'modify' | 'copy' | 'annot-forms')[];
 }
 
 export interface jsPDFOptions {
-  orientation?: "p" | "portrait" | "l" | "landscape";
-  unit?: "pt" | "px" | "in" | "mm" | "cm" | "ex" | "em" | "pc";
+  orientation?: 'p' | 'portrait' | 'l' | 'landscape';
+  unit?: 'pt' | 'px' | 'in' | 'mm' | 'cm' | 'ex' | 'em' | 'pc';
   format?: string | number[];
   compress?: boolean;
   precision?: number;
@@ -663,5 +666,5 @@ export interface jsPDFOptions {
   encryption?: EncryptionOptions;
   putOnlyUsedFonts?: boolean;
   hotfixes?: string[];
-  floatPrecision?: number | "smart";
+  floatPrecision?: number | 'smart';
 }

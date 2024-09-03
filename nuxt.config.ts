@@ -184,15 +184,16 @@ export default defineNuxtConfig({
           "www.google.co.in",
           "www.google.com",
           "server-api.aaaedu.in",
+          "127.0.0.1:8000",
           "i.ytimg.com",
           "s3.amazonaws.com",
           "www.googletagmanager.com"
         ], // Add relevant https://... sources if you load images from external sources
         "font-src": ["'self'", "https:", "data:"], //  For increased security, replace by the specific sources for fonts
-        "base-uri": ["'self'", "server-api.aaaedu.in"],
+        "base-uri": ["'self'", "server-api.aaaedu.in", "127.0.0.1:8000"],
         "object-src": ["'self'"],
         "script-src-attr": ["'self'"],
-        "form-action": ["'self'", "server-api.aaaedu.in"],
+        "form-action": ["'self'", "server-api.aaaedu.in", "127.0.0.1:8000"],
         "frame-ancestors": ["'self'", "www.google.com", "www.youtube.com"],
         "frame-src": [
           "'self'",
@@ -205,6 +206,7 @@ export default defineNuxtConfig({
         "connect-src": [
           "'self'",
           "server-api.aaaedu.in",
+          "127.0.0.1:8000",
           "www.youtube.com",
           "www.google.com",
           "www.google-analytics.com",

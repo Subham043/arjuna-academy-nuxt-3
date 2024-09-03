@@ -176,7 +176,10 @@ const verifyPayment = async (data:any) => {
                   <div class="tab_content current active">
                     <div class="tabs_item">
                       <div class="courses-details-tab-content">
-                        <div v-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Completed'" class="mb-2">
+                        <div
+                          v-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Completed'"
+                          class="mb-2"
+                        >
                           <el-alert
                             title="You have completed your test. Please click on the View Test Report button to view your test report card."
                             type="success"
@@ -184,7 +187,10 @@ const verifyPayment = async (data:any) => {
                             :closable="false"
                           />
                         </div>
-                        <div v-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'" class="mb-2">
+                        <div
+                          v-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'"
+                          class="mb-2"
+                        >
                           <el-alert
                             :title="`You have been barred from giving this exam because You ${data.test.is_test_enrolled.reason}`"
                             type="error"
@@ -211,28 +217,66 @@ const verifyPayment = async (data:any) => {
                     <span v-if="data.test.is_paid ">&#8377;{{ data.test.amount }}</span><span v-else>Free</span>
                   </h5>
                 </div>
-                <img :src="data.test.image" :alt="data.test.image_alt" :title="data.test.image_title" class="w-100" do-not-lazy>
+                <img
+                  :src="data.test.image"
+                  :alt="data.test.image_alt"
+                  :title="data.test.image_title"
+                  class="w-100"
+                  do-not-lazy
+                >
                 <div class="content">
                   <span class="d-flex justify-content-center align-items-center">
                     <h5 class="d-inline m-0"><span>{{ data.test.name }}</span></h5>
                   </span>
                   <hr>
+                  <span class="d-flex justify-content-start align-items-center">
+                    <p class="d-inline m-0">Total Marks: <span>{{ data.test.total_marks }}</span></p>
+                  </span>
+                  <span class="d-flex justify-content-start align-items-center">
+                    <p v-if="data.test.is_timer_active" class="d-inline m-0">Total Duration: <span>{{ data.test.total_duration }} mins</span></p>
+                    <p v-else class="d-inline m-0">Total Duration: <span>No Time Limit</span></p>
+                  </span>
+                  <hr>
                   <div class="">
                     <div class="col-lg-12 col-md-12">
                       <div class="d-flex align-items-center">
-                        <button v-if="!data.test.is_test_enrolled" type="button" :disabled="enrollmentLoading" class="default-btn" @click="testApplyHandler">
+                        <button
+                          v-if="!data.test.is_test_enrolled"
+                          type="button"
+                          :disabled="enrollmentLoading"
+                          class="default-btn"
+                          @click="testApplyHandler"
+                        >
                           <template v-if="!enrollmentLoading">
                             Take Now
                           </template>
                           <div v-else class="spinner-border" role="status" />
                         </button>
-                        <button v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Pending'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogVisible = true">
+                        <button
+                          v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Pending'"
+                          type="button"
+                          :disabled="enrollmentLoading"
+                          class="default-btn"
+                          @click="dialogVisible = true"
+                        >
                           Start Now
                         </button>
-                        <button v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Ongoing'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogVisible = true">
+                        <button
+                          v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Ongoing'"
+                          type="button"
+                          :disabled="enrollmentLoading"
+                          class="default-btn"
+                          @click="dialogVisible = true"
+                        >
                           Resument Test
                         </button>
-                        <button v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'" type="button" :disabled="enrollmentLoading" class="default-btn" @click="dialogEliminatedVisible = true">
+                        <button
+                          v-else-if="data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'"
+                          type="button"
+                          :disabled="enrollmentLoading"
+                          class="default-btn"
+                          @click="dialogEliminatedVisible = true"
+                        >
                           Elimination Report
                         </button>
                         <NuxtLink v-else noPrefetch :to="`/online-tests/${data.test.slug}/report`" class="default-btn">
@@ -258,7 +302,13 @@ const verifyPayment = async (data:any) => {
       </div>
     </div>
 
-    <el-dialog v-if="data && data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled" v-model="dialogVisible" :title="data.test.name" width="50%" top="20px">
+    <el-dialog
+      v-if="data && data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled"
+      v-model="dialogVisible"
+      :title="data.test.name"
+      width="50%"
+      top="20px"
+    >
       <div class="p-4 py-1">
         <div class="test-instruction">
           <h5 class="text-center mb-0">
@@ -268,20 +318,46 @@ const verifyPayment = async (data:any) => {
             <li>There are <b>set of questions</b></li>
             <li>Each questions hold <b>4 options</b>.</li>
             <li>You need to <b>select any one of the option</b> out of the four.</li>
-            <li>Once you have selected your favourable option, <b>click on the submit button</b> to submit your answer.</li>
+            <li>
+              Once you have selected your favourable option, <b>click on the submit button</b> to submit your answer.
+            </li>
             <li>Once you submit your answer, <b>the next question will appear for you to answer</b>.</li>
-            <li>You need to repeat the above steps, till you have reached the last question of your questionarie timeline.</li>
-            <li>Each question holds a duration. You need to answer the question within the given time period. <b>If you fail to answer within the given time period, you will automatically move to the next question</b>.</li>
-            <li>Once you proceed to the next question, <b>you cannot move backward to change your answer</b>. So select your answer carefully.</li>
-            <li><b>The test will be conducted in full screen mode</b>. Trying to escape the full screen mode will lead to disqualification/elimination.</li>
-            <li><b>Do not try to change your browser tab, or use your system for other purposes while attending the test</b>. Trying to do that will also lead you to disqualification/elimination.</li>
+            <li>
+              You need to repeat the above steps, till you have reached the last question of your questionarie
+              timeline.
+            </li>
+            <li>
+              Each question holds a duration. You need to answer the question within the given time period. <b>If you
+                fail to answer within the given time period, you will automatically move to the next question</b>.
+            </li>
+            <li>
+              Once you proceed to the next question, <b>you cannot move backward to change your answer</b>. So select
+              your answer carefully.
+            </li>
+            <li>
+              <b>The test will be conducted in full screen mode</b>. Trying to escape the full screen mode will lead
+              to disqualification/elimination.
+            </li>
+            <li>
+              <b>Do not try to change your browser tab, or use your system for other purposes while attending the
+                test</b>. Trying to do that will also lead you to disqualification/elimination.
+            </li>
             <li>Once you are disqualified/eliminated, you can never re-attend the test.</li>
-            <li>In case of bad network or system shut down while attending the test, No need to worry. <b>You can refresh the browser and resume the test from where it was last attended</b>.</li>
+            <li>
+              In case of bad network or system shut down while attending the test, No need to worry. <b>You can
+                refresh the browser and resume the test from where it was last attended</b>.
+            </li>
             <li>Once you complete answering all the question, you will recieve your report card.</li>
           </ol>
-          <p>Once you are done reading the above instructions, Please click the button given below to proceed with your test.</p>
+          <p>
+            Once you are done reading the above instructions, Please click the button given below to proceed with your
+            test.
+          </p>
         </div>
-        <div v-if="data.test.is_test_enrolled && (data.test.is_test_enrolled.test_status=='Pending' || data.test.is_test_enrolled.test_status=='Ongoing')" class="my-2 text-center">
+        <div
+          v-if="data.test.is_test_enrolled && (data.test.is_test_enrolled.test_status=='Pending' || data.test.is_test_enrolled.test_status=='Ongoing')"
+          class="my-2 text-center"
+        >
           <NuxtLink noPrefetch class="default-btn" :to="`/online-tests/${data.test.slug}/ongoing`">
             <template v-if="data.test.is_test_enrolled.test_status=='Pending'">
               Start Now
@@ -297,7 +373,13 @@ const verifyPayment = async (data:any) => {
       </div>
     </el-dialog>
 
-    <el-dialog v-if="data && data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'" v-model="dialogEliminatedVisible" :title="data.test.name" width="30vw" top="20px">
+    <el-dialog
+      v-if="data && data.test.is_test_enrolled && data.test.is_test_enrolled.is_enrolled && data.test.is_test_enrolled.test_status=='Eliminated'"
+      v-model="dialogEliminatedVisible"
+      :title="data.test.name"
+      width="30vw"
+      top="20px"
+    >
       <div class="p-4 pt-1">
         <div class="test-instruction">
           <h5 class="text-center mb-0">
