@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { API_ROUTES } from '@/utils/api_routes'
-import type { PaginationType, TestimonialType } from '@/utils/types'
 import { object, string, number, mixed, ref as yupRef } from 'yup'
 import { useToast } from 'vue-toastification'
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
+import type { PaginationType, TestimonialType } from '@/utils/types'
+import { API_ROUTES } from '@/utils/api_routes'
 
 const config = useRuntimeConfig()
 const route = useRoute()
@@ -42,18 +42,18 @@ useHead({
 
 const scrollToForm = () => $scroll('#form-area')
 
-const { data, pending } = await useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + `?total=9&page=1`, {
+const { data, pending } = await useSSRFetch<PaginationType<TestimonialType>>(() => API_ROUTES.testimonial + '?total=9&page=1', {
   key: 'testimonials_1',
-  lazy: true,
+  lazy: true
 })
 
-const tabVal = ref("jee-advanced")
-const applyTabVal = ref("apply-tab")
+const tabVal = ref('jee-advanced')
+const applyTabVal = ref('apply-tab')
 const dialogVideoVisible = ref(false)
 
 const { data: achieverStudent, pending: achieverStudentPending } = await useSSRFetch<PaginationType<AchieverStudentType>>(() => API_ROUTES.achieverStudent + `?total=12&page=1&filter[has_categories]=${tabVal.value}`, {
   key: 'achiever_student_1',
-  lazy: true,
+  lazy: true
 })
 
 const { handleSubmit, defineField } = useForm({
@@ -101,7 +101,7 @@ const { handleSubmit, defineField } = useForm({
             return ['image/webp', 'image/png', 'image/jpeg', 'image/jpg', 'application/pdf'].includes(value.type)
           }
           return true
-        }),
+        })
     })
   )
 })
@@ -136,7 +136,7 @@ const modeOptions = useState('modeOptions', () => [
   {
     value: 'OFFLINE',
     label: 'OFFLINE'
-  },
+  }
 ])
 const examDateOptions = useState('examDateOptions', () => [
   {
@@ -150,21 +150,25 @@ const examDateOptions = useState('examDateOptions', () => [
   {
     value: 'November 2, 2025',
     label: 'November 2, 2025'
-  },
+  }
 ])
 const examCenterOptions = useState('examCenterOptions', () => [
   {
-    value: 'Vijayanagar',
-    label: 'Vijayanagar'
+    value: 'Vijayanagar - Arjunaa Academy for Achievers centre',
+    label: 'Vijayanagar - Arjunaa Academy for Achievers centre'
   },
   {
-    value: 'Whitefield',
-    label: 'Whitefield'
+    value: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012',
+    label: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012'
+  },
+  {
+    value: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087',
+    label: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087'
   },
   {
     value: 'Konanakunte cross',
     label: 'Konanakunte cross'
-  },
+  }
 ])
 const programOptions = useState('programOptions', () => [
   {
@@ -202,9 +206,8 @@ const programOptions = useState('programOptions', () => [
   {
     value: 'Sumedha Class 10 Foundation',
     label: 'Sumedha Class 10 Foundation'
-  },
+  }
 ])
-
 
 const loadRazorpay = (resp: any) => {
   const options = {
@@ -225,7 +228,7 @@ const loadRazorpay = (resp: any) => {
     },
     handler: async (response: any) => {
       await verifyPayment(response)
-    },
+    }
   }
   const rzp = new (window as any).Razorpay(options)
   rzp.open()
@@ -249,7 +252,7 @@ const verifyPayment = async (data: any) => {
     const content = await response.json()
     if (response.ok) {
       toast.success(content.message)
-      applyTabVal.value = "applied-tab"
+      applyTabVal.value = 'applied-tab'
     } else {
       throw content
     }
@@ -291,11 +294,11 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
     })
     const content = await response.json()
     if (response.ok) {
-      if (content.data.payment_status === "PENDING"){
+      if (content.data.payment_status === 'PENDING') {
         loadRazorpay(content.data)
-      }else{
+      } else {
         toast.success(content.message)
-        applyTabVal.value = "applied-tab"
+        applyTabVal.value = 'applied-tab'
       }
       actions.resetForm()
     } else {
@@ -321,7 +324,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       exam_date: err?.errors?.exam_date?.length > 0 && err?.errors?.exam_date[0],
       exam_center: err?.errors?.exam_center?.length > 0 && err?.errors?.exam_center[0],
       password: err?.errors?.password?.length > 0 && err?.errors?.password[0],
-      confirm_password: err?.errors?.confirm_password?.length > 0 && err?.errors?.confirm_password[0],
+      confirm_password: err?.errors?.confirm_password?.length > 0 && err?.errors?.confirm_password[0]
     })
   } finally {
     loading.value = false
@@ -331,9 +334,8 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
 
 <template>
   <div>
-
     <div class="w-100">
-      <img src="/images/admission-banner-new.jpg" alt="banner-admission" class="banner-img-admission">
+      <img src="/images/admission_3.webp" alt="banner-admission" class="banner-img-admission">
     </div>
 
     <div class="pt-70 pb-60">
@@ -349,23 +351,9 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               </div>
               <div class="section-title">
                 <p>
-                  Get Introduced to AAA - the only institute in Bangalore for IIT JEE & Medical - invested in mindful
+                  AAA is the only Institute in Bangalore for IIT JEE & Medical - invested in mindful
                   learning where talent is nurtured through our finite batch of 30 students with utmost personal
-                  attention since 2012. Get Introduced to AAA - the only institute in Bangalore for IIT JEE & Medical -
-                  invested in mindful
-                  learning where talent is nurtured through our finite batch of 30 students with utmost personal
-                  attention since 2012. Get Introduced to AAA - the only institute in Bangalore for IIT JEE & Medical -
-                  invested in mindful
-                  learning where talent is nurtured through our finite batch of 30 students with utmost personal
-                  attention since 2012.Get Introduced to AAA - the only institute in Bangalore for IIT JEE & Medical -
-                  invested in mindful
-                  learning where talent is nurtured through our finite batch of 30 students with utmost personal
-                  attention since 2012
-                </p>
-                <p>
-                  Get Introduced to AAA - the only institute in Bangalore for IIT JEE & Medical - invested in mindful
-                  learning where talent is nurtured through our finite batch of 30 students with utmost personal
-                  attention since 2012
+                  attention since 2012.
                 </p>
               </div>
               <div class="row">
@@ -377,28 +365,26 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                     </li>
                     <li>
                       <i class="flaticon-check" /> Arjunaa’s Competency Based Offline Exam Date : <span
-                        class="text-dark">OCTOBER 26th 2025
+                        class="text-dark"
+                      >OCTOBER 26th 2025
                         Sunday,
                         NOVEMBER 1st 2025 Saturday and
                         November 2nd Sunday</span>
                     </li>
                     <li>
                       <i class="flaticon-check" /> Arjunaa’s Competency Based Online Exam Date : <span
-                        class="text-dark">OCTOBER 26th 2025
+                        class="text-dark"
+                      >OCTOBER 26th 2025
                         Sunday to November 2nd Sunday</span>
                     </li>
                     <li>
                       <i class="flaticon-check" /> Last Date to Register for AAASAT - <span class="text-dark">October
                         24th 2025</span>
                     </li>
-                    <li>
-                      <i class="flaticon-check" /> To instill confidence & improve on the competency
-                      level of the students
-                    </li>
                   </ul>
                   <div class="text-center">
-                    <button class="default-btn border-radius-50" @click="scrollToForm" aria-label="APPLY NOW">
-                      APPLY NOW
+                    <button class="default-btn border-radius-50" aria-label="APPLY NOW" @click="scrollToForm">
+                      REGISTER NOW
                     </button>
                   </div>
                 </div>
@@ -414,8 +400,14 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
         <div class="row align-items-center">
           <div class="col-lg-5">
             <div class="enrolled-img-two mb-30" data-speed="0.05" data-revert="true">
-              <NuxtImg format="webp" loading="lazy" placeholder="/images/img-placeholder.webp"
-                src="/images/objective-of-vrddhi.webp" width="500px" alt="Enrolled" />
+              <NuxtImg
+                format="webp"
+                loading="lazy"
+                placeholder="/images/img-placeholder.webp"
+                src="/images/admission_4.webp"
+                width="500px"
+                alt="Enrolled"
+              />
             </div>
           </div>
           <div class="col-lg-7">
@@ -428,41 +420,55 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               </div>
               <div class="confetti">
                 <div class="pyro">
-                  <div class="before"></div>
-                  <div class="after"></div>
+                  <div class="before" />
+                  <div class="after" />
                 </div>
                 <table class="content-table">
                   <thead>
                     <tr>
                       <th>% Marks in Entrance Test</th>
-                      <th class="text-center">Scholarship % (on AAA fees)</th>
+                      <th class="text-center">
+                        Scholarship % (on AAA fees)
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Above 95% (High Honors)</td>
-                      <td class="text-center">100%</td>
+                      <td class="text-center">
+                        100%
+                      </td>
                     </tr>
                     <tr>
                       <td>90%-95% (Honors)</td>
-                      <td class="text-center">80%</td>
+                      <td class="text-center">
+                        80%
+                      </td>
                     </tr>
                     <tr>
                       <td>85%-90% (Excellent)</td>
-                      <td class="text-center">65%</td>
+                      <td class="text-center">
+                        65%
+                      </td>
                     </tr>
                     <tr>
                       <td>75%-85% (Distinction)</td>
-                      <td class="text-center">50%</td>
+                      <td class="text-center">
+                        50%
+                      </td>
                     </tr>
                     <tr>
                       <td>65%-75% (Very Good)</td>
-                      <td class="text-center">35%</td>
+                      <td class="text-center">
+                        35%
+                      </td>
                     </tr>
                   </tbody>
                 </table>
-                <p>As an encouragement to all other students we would like to announce, Get AIR&lt;1000 JEE Main / JEE
-                  Advanced / NEET & get entire 2 year AAA fee refunded </p>
+                <p>
+                  To all other students we would like to announce, Get AIR&lt;1000 JEE Main / JEE
+                  Advanced / NEET & get entire 2 year AAA fee refunded
+                </p>
                 <p><code>** Above scholarship slab is not valid for school batches **</code></p>
                 <p><code>** Scholarship on AAA fee only and not on Uniform or college fee **</code></p>
               </div>
@@ -487,90 +493,149 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       </div>
     </div>
 
-
     <div class="pt-70">
       <div class="container">
         <div class="section-title text-center mb-20">
           <span>ACHIEVERS</span>
-          <h2>Top Achievers</h2>
+          <h2>Our Achievers</h2>
         </div>
-        <el-tabs type="border-card" v-model="tabVal">
+        <el-tabs v-model="tabVal" type="border-card">
           <el-tab-pane label="JEE ADVANCED" name="jee-advanced">
             <AchieverStudentLoading v-if="achieverStudentPending" :count="8" />
-            <div v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
-              class="achiever-row row justify-content-center">
+            <div
+              v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
+              class="achiever-row row justify-content-center"
+            >
               <div v-for="(item, i) in achieverStudent.data" :key="i" class="col-lg-2 col-md-4 col-sm-6">
-                <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title"
-                  :name="item.name" :rank="item.rank" :college="item.college" />
+                <AchieverStudentCard
+                  :image="item.image"
+                  :image_alt="item.image_alt"
+                  :image_title="item.image_title"
+                  :name="item.name"
+                  :rank="item.rank"
+                  :college="item.college"
+                />
               </div>
               <div class="col-lg-12 col-md-12 text-center">
-                <NuxtLink noPrefetch to="/achievers/jee-advanced" class="default-btn border-radius-50"
-                  aria-label="View all Achievers">
-                  View all Achievers
+                <NuxtLink
+                  noPrefetch
+                  to="/achievers/jee-advanced"
+                  class="default-btn border-radius-50"
+                  aria-label="View All achievers"
+                >
+                  View All achievers
                 </NuxtLink>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="JEE MAINS" name="jee-mains">
             <AchieverStudentLoading v-if="achieverStudentPending" :count="8" />
-            <div v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
-              class="achiever-row row justify-content-center">
+            <div
+              v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
+              class="achiever-row row justify-content-center"
+            >
               <div v-for="(item, i) in achieverStudent.data" :key="i" class="col-lg-2 col-md-4 col-sm-6">
-                <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title"
-                  :name="item.name" :rank="item.rank" :college="item.college" />
+                <AchieverStudentCard
+                  :image="item.image"
+                  :image_alt="item.image_alt"
+                  :image_title="item.image_title"
+                  :name="item.name"
+                  :rank="item.rank"
+                  :college="item.college"
+                />
               </div>
               <div class="col-lg-12 col-md-12 text-center">
-                <NuxtLink noPrefetch to="/achievers/jee-mains" class="default-btn border-radius-50"
-                  aria-label="View all Achievers">
-                  View all Achievers
+                <NuxtLink
+                  noPrefetch
+                  to="/achievers/jee-mains"
+                  class="default-btn border-radius-50"
+                  aria-label="View All achievers"
+                >
+                  View All achievers
                 </NuxtLink>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="NEET" name="neet">
             <AchieverStudentLoading v-if="achieverStudentPending" :count="8" />
-            <div v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
-              class="achiever-row row justify-content-center">
+            <div
+              v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
+              class="achiever-row row justify-content-center"
+            >
               <div v-for="(item, i) in achieverStudent.data" :key="i" class="col-lg-2 col-md-4 col-sm-6">
-                <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title"
-                  :name="item.name" :rank="item.rank" :college="item.college" />
+                <AchieverStudentCard
+                  :image="item.image"
+                  :image_alt="item.image_alt"
+                  :image_title="item.image_title"
+                  :name="item.name"
+                  :rank="item.rank"
+                  :college="item.college"
+                />
               </div>
               <div class="col-lg-12 col-md-12 text-center">
-                <NuxtLink noPrefetch to="/achievers/neet" class="default-btn border-radius-50"
-                  aria-label="View all Achievers">
-                  View all Achievers
+                <NuxtLink
+                  noPrefetch
+                  to="/achievers/neet"
+                  class="default-btn border-radius-50"
+                  aria-label="View All achievers"
+                >
+                  View All achievers
                 </NuxtLink>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="K-CET" name="k-cet">
             <AchieverStudentLoading v-if="achieverStudentPending" :count="8" />
-            <div v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
-              class="achiever-row row justify-content-center">
+            <div
+              v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
+              class="achiever-row row justify-content-center"
+            >
               <div v-for="(item, i) in achieverStudent.data" :key="i" class="col-lg-2 col-md-4 col-sm-6">
-                <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title"
-                  :name="item.name" :rank="item.rank" :college="item.college" />
+                <AchieverStudentCard
+                  :image="item.image"
+                  :image_alt="item.image_alt"
+                  :image_title="item.image_title"
+                  :name="item.name"
+                  :rank="item.rank"
+                  :college="item.college"
+                />
               </div>
               <div class="col-lg-12 col-md-12 text-center">
-                <NuxtLink noPrefetch to="/achievers/k-cet" class="default-btn border-radius-50"
-                  aria-label="View all Achievers">
-                  View all Achievers
+                <NuxtLink
+                  noPrefetch
+                  to="/achievers/k-cet"
+                  class="default-btn border-radius-50"
+                  aria-label="View All achievers"
+                >
+                  View All achievers
                 </NuxtLink>
               </div>
             </div>
           </el-tab-pane>
           <el-tab-pane label="NSTSE" name="nstse">
             <AchieverStudentLoading v-if="achieverStudentPending" :count="8" />
-            <div v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
-              class="achiever-row row justify-content-center">
+            <div
+              v-if="!achieverStudentPending && achieverStudent && achieverStudent.data.length > 0"
+              class="achiever-row row justify-content-center"
+            >
               <div v-for="(item, i) in achieverStudent.data" :key="i" class="col-lg-2 col-md-4 col-sm-6">
-                <AchieverStudentCard :image="item.image" :image_alt="item.image_alt" :image_title="item.image_title"
-                  :name="item.name" :rank="item.rank" :college="item.college" />
+                <AchieverStudentCard
+                  :image="item.image"
+                  :image_alt="item.image_alt"
+                  :image_title="item.image_title"
+                  :name="item.name"
+                  :rank="item.rank"
+                  :college="item.college"
+                />
               </div>
               <div class="col-lg-12 col-md-12 text-center">
-                <NuxtLink noPrefetch to="/achievers/nstse" class="default-btn border-radius-50"
-                  aria-label="View all Achievers">
-                  View all Achievers
+                <NuxtLink
+                  noPrefetch
+                  to="/achievers/nstse"
+                  class="default-btn border-radius-50"
+                  aria-label="View All achievers"
+                >
+                  View All achievers
                 </NuxtLink>
               </div>
             </div>
@@ -579,26 +644,32 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       </div>
     </div>
 
-    <div class="faq-area pt-70">
-      <div class="container">
+    <div class="faq-area pt-70" style="margin-top: 2rem;">
+      <div class="container-fluid px-0">
         <div class="row">
           <div class="col-lg-5">
             <div class="faq-img">
-              <NuxtImg format="webp" loading="lazy" placeholder="/images/img-placeholder.webp" src="/images/reward.webp"
-                width="700px" alt="faq" />
+              <NuxtImg
+                format="webp"
+                loading="lazy"
+                placeholder="/images/img-placeholder.webp"
+                src="/images/admission_2.webp"
+                width="700px"
+                alt="faq"
+              />
               <div class="shape">
                 <NuxtImg format="webp" loading="lazy" src="/images/faq-shape.png" height="90px" alt="Faq" />
               </div>
             </div>
           </div>
-          <div class="col-lg-7">
-            <div class="contact-widget-area faq-contact" id="form-area">
+          <div class="col-lg-7 col-sm-12">
+            <div id="form-area" class="contact-widget-area faq-contact">
               <div class="container">
                 <div class="register-form">
                   <div class="top-header text-center">
                     <h3>AAASAT 2025</h3>
                   </div>
-                  <el-tabs type="border-card" v-model="applyTabVal">
+                  <el-tabs v-model="applyTabVal" type="border-card">
                     <el-tab-pane label="APPLY NOW" name="apply-tab">
                       <div class="contact-form">
                         <form id="contactForm" method="post" @submit.prevent="onSubmit">
@@ -688,14 +759,20 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                             </div>
                             <div class="col-lg-4 col-md-6">
                               <div class="form-group">
-                                <CustomElSelect name="program" placeholder="Select Your Program*"
-                                  :options="programOptions" />
+                                <CustomElSelect
+                                  name="program"
+                                  placeholder="Select Your Program*"
+                                  :options="programOptions"
+                                />
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                               <div class="form-group">
-                                <CustomElSelect name="mode" placeholder="Select Your Exam Mode*"
-                                  :options="modeOptions" />
+                                <CustomElSelect
+                                  name="mode"
+                                  placeholder="Select Your Exam Mode*"
+                                  :options="modeOptions"
+                                />
                               </div>
                             </div>
                             <div v-if="examMode === 'OFFLINE'" class="col-12 mb-3">
@@ -706,14 +783,20 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                             </div>
                             <div v-if="examMode === 'OFFLINE'" class="col-lg-6 col-md-6">
                               <div class="form-group">
-                                <CustomElSelect name="exam_date" placeholder="Select Exam Date*"
-                                  :options="examDateOptions" />
+                                <CustomElSelect
+                                  name="exam_date"
+                                  placeholder="Select Exam Date*"
+                                  :options="examDateOptions"
+                                />
                               </div>
                             </div>
                             <div v-if="examMode === 'OFFLINE'" class="col-lg-6 col-md-6">
                               <div class="form-group">
-                                <CustomElSelect name="exam_center" placeholder="Select Exam Center*"
-                                  :options="examCenterOptions" />
+                                <CustomElSelect
+                                  name="exam_center"
+                                  placeholder="Select Exam Center*"
+                                  :options="examCenterOptions"
+                                />
                               </div>
                             </div>
                             <div class="col-12">
@@ -728,8 +811,11 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                             </div>
                             <div class="col-lg-6 col-md-6">
                               <div class="form-group">
-                                <CustomElInput type="password" name="confirm_password"
-                                  placeholder="Confirm Password*" />
+                                <CustomElInput
+                                  type="password"
+                                  name="confirm_password"
+                                  placeholder="Confirm Password*"
+                                />
                               </div>
                             </div>
                             <div class="col-lg-12 col-md-12">
@@ -744,7 +830,9 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
                         </form>
                       </div>
                     </el-tab-pane>
-                    <el-tab-pane label="ALREADY APPLIED" name="applied-tab">abc</el-tab-pane>
+                    <el-tab-pane label="ALREADY APPLIED" name="applied-tab">
+                      abc
+                    </el-tab-pane>
                   </el-tabs>
                 </div>
               </div>
@@ -758,13 +846,18 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       <div class="container">
         <div class="section-title text-center">
           <span>TESTIMONIAL</span>
-          <h2>What our learers have to say</h2>
+          <h2>What our learner's have to say</h2>
         </div>
         <TestimonialCardLoading v-if="pending" :count="9" />
         <div v-if="!pending && data && data.data.length > 0" class="testimonials-slider-two row">
           <div v-for="(item, i) in data.data" :key="i" class="col-lg-4 col-md-6 col-sm-12">
-            <TestimonialCard :image="item.image" :name="item.name" :star="item.star" :message="item.message"
-              :designation="item.designation" />
+            <TestimonialCard
+              :image="item.image"
+              :name="item.name"
+              :star="item.star"
+              :message="item.message"
+              :designation="item.designation"
+            />
           </div>
         </div>
         <div class="col-lg-12 col-md-12 text-center">
@@ -776,8 +869,14 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
     </div>
 
     <el-dialog v-model="dialogVideoVisible" title="Hareesh PK" width="90%" top="20px">
-      <iframe v-if="dialogVideoVisible" src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1"
-        frameborder="0" width="100%" height="550" allowfullscreen />
+      <iframe
+        v-if="dialogVideoVisible"
+        src="https://www.youtube.com/embed/sfCJJZ0Wmi8?rel=0&autoplay=1&loop=1"
+        frameborder="0"
+        width="100%"
+        height="550"
+        allowfullscreen
+      />
     </el-dialog>
   </div>
 </template>
@@ -786,6 +885,9 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
 .banner-img-admission{
   width: 100%;
   object-fit: cover;
+  height: 470px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .fs-4{

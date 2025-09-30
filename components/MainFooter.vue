@@ -17,67 +17,44 @@ const { data: legalData, pending } = await useSSRFetch<{
           <div class="footer-widget text-center">
             <div class="footer-logo">
               <NuxtLink noPrefetch to="/">
-                <NuxtImg
-                  loading="lazy"
-                  format="webp"
-                  placeholder="/images/placeholder.webp"
-                  src="/images/logos/new-logo.webp"
-                  alt="Images"
-                  aria-label="home page"
-                />
+                <NuxtImg loading="lazy" format="webp" placeholder="/images/placeholder.webp"
+                  src="/images/logos/new-logo.webp" alt="Images" aria-label="home page" />
               </NuxtLink>
             </div>
             <ul class="social-link">
               <li>
-                <a
-                  href="https://www.facebook.com/www.aaaedu.in/"
-                  target="_blank"
-                  aria-label="facebook page"
-                >
+                <a href="https://www.facebook.com/www.aaaedu.in/" target="_blank" aria-label="facebook page">
                   <span class="svg-icon">
                     <Icon name="fa6-brands:facebook-f" />
                   </span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://twitter.com/academy_arjunaa"
-                  target="_blank"
-                  aria-label="twitter page"
-                >
+                <a href="https://twitter.com/academy_arjunaa" target="_blank" aria-label="twitter page">
                   <span class="svg-icon">
                     <Icon name="fa6-brands:twitter" />
                   </span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/arjunaa_academy_for_achievers/"
-                  target="_blank"
-                  aria-label="instagram page"
-                >
+                <a href="https://www.instagram.com/arjunaa_academy_for_achievers/" target="_blank"
+                  aria-label="instagram page">
                   <span class="svg-icon">
                     <Icon name="fa6-brands:instagram" />
                   </span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://in.linkedin.com/company/arjunaa-academy-for-achievers"
-                  target="_blank"
-                  aria-label="linkedin page"
-                >
+                <a href="https://in.linkedin.com/company/arjunaa-academy-for-achievers" target="_blank"
+                  aria-label="linkedin page">
                   <span class="svg-icon">
                     <Icon name="fa6-brands:linkedin" />
                   </span>
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA"
-                  target="_blank"
-                  aria-label="youtube page"
-                >
+                <a href="https://www.youtube.com/channel/UCcPOkcZ_YGpTMcVnLJQYLPA" target="_blank"
+                  aria-label="youtube page">
                   <span class="svg-icon">
                     <Icon name="fa6-brands:youtube" />
                   </span>
@@ -96,20 +73,12 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
-                  noPrefetch
-                  to="/mission-vision"
-                  aria-label="mission & vision page"
-                >
+                <NuxtLink noPrefetch to="/mission-vision" aria-label="mission & vision page">
                   Mission & Vision
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
-                  noPrefetch
-                  to="/leadership-team"
-                  aria-label="leadership team & faculty page"
-                >
+                <NuxtLink noPrefetch to="/leadership-team" aria-label="leadership team & faculty page">
                   Leadership Team & Faculty
                 </NuxtLink>
               </li>
@@ -161,11 +130,8 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink
-                  noPrefetch
-                  to="/2-year-integrated-day-scholar-and-residential-program"
-                  aria-label="Day Scholar / Residential"
-                >
+                <NuxtLink noPrefetch to="/2-year-integrated-day-scholar-and-residential-program"
+                  aria-label="Day Scholar / Residential">
                   Day Scholar / Residential
                 </NuxtLink>
               </li>
@@ -185,16 +151,9 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </template>
               </el-skeleton>
             </ul>
-            <ul
-              v-if="!pending && legalData && legalData.legal.length > 0"
-              class="footer-list"
-            >
+            <ul v-if="!pending && legalData && legalData.legal.length > 0" class="footer-list">
               <li v-for="(item, i) in legalData.legal" :key="i">
-                <NuxtLink
-                  noPrefetch
-                  :to="`/legal/${item.slug}`"
-                  :aria-label="item.page_name"
-                >
+                <NuxtLink noPrefetch :to="`/legal/${item.slug}`" :aria-label="item.page_name">
                   {{ item.page_name }}
                 </NuxtLink>
               </li>
@@ -203,7 +162,7 @@ const { data: legalData, pending } = await useSSRFetch<{
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="footer-widget ps-5">
-            <h3>Official Info</h3>
+            <h3>Contact us</h3>
             <ul class="footer-contact">
               <li>
                 <span class="svg-icon">
@@ -211,13 +170,10 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </span>
                 <div class="content">
                   <h4>Location:</h4>
-                  <span><a
-                    href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar"
-                  >3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main,
-                    Vijaya Nagar</a></span>
+                  <span><a href="https://goo.gl/maps/pDUVxh6ZVWEanYsi6" target="_blank" rel="noopener noreferrer"
+                      aria-label="3rd Floor, No.02, CHBCS 1st Layout, 1st Floor, 5th Main, Vijaya Nagar">3rd Floor,
+                      No.02, CHBCS 1st Layout, 1st Floor, 5th Main,
+                      Vijaya Nagar</a></span>
                 </div>
               </li>
               <li>
@@ -226,10 +182,7 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </span>
                 <div class="content">
                   <h4>Email:</h4>
-                  <span><a
-                    href="mailto:info@aaaedu.in"
-                    aria-label="info@aaaedu.in"
-                  >info@aaaedu.in</a></span>
+                  <span><a href="mailto:info@aaaedu.in" aria-label="info@aaaedu.in">info@aaaedu.in</a></span>
                 </div>
               </li>
               <li>
@@ -238,14 +191,8 @@ const { data: legalData, pending } = await useSSRFetch<{
                 </span>
                 <div class="content">
                   <h4>Phone:</h4>
-                  <span><a
-                    href="tel:7676642258"
-                    aria-label="76766 42258"
-                  >76766 42258</a></span><br>
-                  <span><a
-                    href="tel:8197554516"
-                    aria-label="81975 54516"
-                  >81975 54516</a></span>
+                  <span><a href="tel:7676642258" aria-label="76766 42258">76766 42258</a></span><br>
+                  <span><a href="tel:8197554516" aria-label="81975 54516">81975 54516</a></span>
                 </div>
               </li>
             </ul>
@@ -258,11 +205,7 @@ const { data: legalData, pending } = await useSSRFetch<{
         <div class="copy-right-text text-center">
           <p>
             Copyright © {{ new Date().getFullYear() }}
-            <NuxtLink
-              noPrefetch
-              to="/"
-              aria-label="Arjunaa Academy for Achievers"
-            >
+            <NuxtLink noPrefetch to="/" aria-label="Arjunaa Academy for Achievers">
               Arjunaa Academy for Achievers
             </NuxtLink>. All Rights Reserved.
           </p>
