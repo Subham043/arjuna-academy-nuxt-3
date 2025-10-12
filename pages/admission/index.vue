@@ -346,7 +346,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
               <div class="section-title text-center">
                 <span class="fs-4">AAASAT 2025</span>
                 <div class="head-one">
-                  <h2>Arjunaa Scholastic and Aptitude Test</h2>
+                  <h2>Arjunaa Scholarship and Aptitude Test</h2>
                 </div>
               </div>
               <div class="section-title">
