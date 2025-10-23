@@ -43,6 +43,7 @@ export const authOptions: AuthConfig = {
             }
           )
           const content = await response.json()
+          if (content.status === false) { return null }
           return { ...content.user, token: content.token }
         } catch (error: any) {
           return null

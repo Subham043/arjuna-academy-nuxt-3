@@ -668,3 +668,27 @@ export interface jsPDFOptions {
   hotfixes?: string[];
   floatPrecision?: number | 'smart';
 }
+
+export interface AdmissionRegistrationInfoType {
+  id: number;
+  name: string;
+  email: string;
+  school_name: string;
+  father_name: string;
+  father_email: string;
+  father_phone: string;
+  mother_name: string;
+  mother_email: string;
+  mother_phone: string;
+  class: string | null;
+  program: string;
+  mode: string | null;
+  address: string;
+  exam_date: string;
+  exam_center: string;
+  amount: string;
+  razorpay_order_id: string;
+  payment_status: string | null;
+  created_at: string;
+  updated_at: string;
+}
