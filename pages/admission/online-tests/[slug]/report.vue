@@ -119,17 +119,17 @@ const totalReport = computed(() => {
 const grade = computed(() => {
   if (data.value) {
     const percentage = ((data.value.alloted_score / data.value.total_score) * 100)
-    if (percentage >= 90 && percentage <= 100) {
+    if (percentage >= 95 && percentage <= 100) {
       return 'A'
-    } else if (percentage >= 75 && percentage <= 89) {
+    } else if (percentage >= 90 && percentage <= 94) {
       return 'B'
-    } else if (percentage >= 60 && percentage <= 74) {
+    } else if (percentage >= 85 && percentage <= 89) {
       return 'C'
-    } else if (percentage >= 45 && percentage <= 59) {
+    } else if (percentage >= 75 && percentage <= 84) {
       return 'D'
-    } else if (percentage >= 35 && percentage <= 44) {
+    } else if (percentage >= 65 && percentage <= 74) {
       return 'E'
-    } else if (percentage >= 0 && percentage <= 34) {
+    } else if (percentage >= 0 && percentage <= 64) {
       return 'F'
     }
   }
@@ -186,7 +186,13 @@ const downloadHandler = async () => {
       </div>
       <template v-else-if="!pending && data">
         <div class="py-2" style="text-align:right;">
-          <el-button type="success" :disabled="downloadLoading" :loading="downloadLoading" plain @click="downloadHandler">
+          <el-button
+            type="success"
+            :disabled="downloadLoading"
+            :loading="downloadLoading"
+            plain
+            @click="downloadHandler"
+          >
             Download Report
           </el-button>
         </div>
@@ -247,11 +253,7 @@ const downloadHandler = async () => {
                     <div class="text-center">
                       <h5>SUBJECT WISE EVALUATION ANALYSIS</h5>
                     </div>
-                    <Bar
-                      id="bar-chart-id"
-                      :options="barChartOptions"
-                      :data="subjectReportSorted"
-                    />
+                    <Bar id="bar-chart-id" :options="barChartOptions" :data="subjectReportSorted" />
                   </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 mobile-overflow-scroll">
@@ -293,11 +295,7 @@ const downloadHandler = async () => {
                       <h5>TOTAL EVALUATION ANALYSIS</h5>
                     </div>
                     <div style="height: 400px; display: flex; justify-content: center;">
-                      <Pie
-                        id="pie-chart-id"
-                        :options="pieChartOptions"
-                        :data="totalReport"
-                      />
+                      <Pie id="pie-chart-id" :options="pieChartOptions" :data="totalReport" />
                     </div>
                   </div>
                 </div>
@@ -315,37 +313,37 @@ const downloadHandler = async () => {
                         <th scope="row">
                           A
                         </th>
-                        <td>100% - 90%</td>
+                        <td>100% - 95% (High Honors)</td>
                       </tr>
                       <tr :class="grade==='B' ? 'table-success' : ''">
                         <th scope="row">
                           B
                         </th>
-                        <td>89% - 75%</td>
+                        <td>94% - 90% (Honors)</td>
                       </tr>
                       <tr :class="grade==='C' ? 'table-success' : ''">
                         <th scope="row">
                           C
                         </th>
-                        <td>74% - 60%</td>
+                        <td>89% - 85% (Excellent)</td>
                       </tr>
                       <tr :class="grade==='D' ? 'table-success' : ''">
                         <th scope="row">
                           D
                         </th>
-                        <td>59% - 45%</td>
+                        <td>84% - 75% (Distinction)</td>
                       </tr>
                       <tr :class="grade==='E' ? 'table-success' : ''">
                         <th scope="row">
                           E
                         </th>
-                        <td>44% - 35%</td>
+                        <td>74% - 65% (Very Good)</td>
                       </tr>
                       <tr :class="grade==='F' ? 'table-success' : ''">
                         <th scope="row">
                           F
                         </th>
-                        <td>34% - 0%</td>
+                        <td>64% - 0% (Ineligible for Scholarship)</td>
                       </tr>
                     </tbody>
                   </table>
