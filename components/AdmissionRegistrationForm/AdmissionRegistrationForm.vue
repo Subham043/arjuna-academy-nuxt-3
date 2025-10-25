@@ -14,7 +14,7 @@ function changeApplyTab (newVal: string) {
   emit('update:applyTabValue', newVal)
 }
 
-const { handleSubmit, defineField } = useForm({
+const { handleSubmit, defineField, setFieldValue } = useForm({
   validationSchema: toTypedSchema(
     object({
       name: string().required(),
@@ -37,7 +37,7 @@ const { handleSubmit, defineField } = useForm({
       address: string().required(),
       program: string().required(),
       class: string().required(),
-      mode: string().required(),
+      mode: string().required().default('OFFLINE'),
       password: string().required(),
       confirm_password: string()
         .required('confirm password is a required field')
@@ -65,6 +65,7 @@ const { handleSubmit, defineField } = useForm({
 })
 
 const [examMode] = defineField('mode')
+const [examCenter] = defineField('exam_center')
 
 const loading = ref(false)
 
@@ -87,10 +88,10 @@ const classOptions = useState('classOptions', () => [
   }
 ])
 const modeOptions = useState('modeOptions', () => [
-  {
-    value: 'ONLINE',
-    label: 'ONLINE'
-  },
+  // {
+  //   value: 'ONLINE',
+  //   label: 'ONLINE'
+  // },
   {
     value: 'OFFLINE',
     label: 'OFFLINE'
@@ -99,15 +100,15 @@ const modeOptions = useState('modeOptions', () => [
 const examDateOptions = useState('examDateOptions', () => [
   {
     value: 'October 26, 2025',
-    label: 'October 26, 2025'
+    label: 'October 26, 2025 (10.30a.m - 1p.m)'
   },
   {
     value: 'November 1, 2025',
-    label: 'November 1, 2025'
+    label: 'November 1, 2025 (10.30a.m - 1p.m)'
   },
   {
     value: 'November 2, 2025',
-    label: 'November 2, 2025'
+    label: 'November 2, 2025 (10.30a.m - 1p.m)'
   }
 ])
 const examCenterOptions = useState('examCenterOptions', () => [
@@ -124,8 +125,8 @@ const examCenterOptions = useState('examCenterOptions', () => [
     label: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087'
   },
   {
-    value: 'Konanakunte cross',
-    label: 'Konanakunte cross'
+    value: 'NPS JP Nagar',
+    label: 'NPS JP Nagar'
   }
 ])
 const programOptions = useState('programOptions', () => [
@@ -166,6 +167,22 @@ const programOptions = useState('programOptions', () => [
     label: 'Sumedha Class 10 Foundation'
   }
 ])
+
+const examDateOptionsFiltered = computed(() => {
+  if (examCenter.value === 'NPS JP Nagar') {
+    return [{
+      value: 'November 2, 2025',
+      label: 'November 2, 2025 (10.30a.m - 1p.m)'
+    }]
+  }
+  return examDateOptions.value
+})
+
+watch(() => examCenter.value, () => {
+  if (examCenter.value === 'NPS JP Nagar') {
+    setFieldValue('exam_date', 'November 2, 2025')
+  }
+})
 
 const loadRazorpay = (resp: any) => {
   const options = {
@@ -241,7 +258,8 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
     formData.append('password', values.password)
     formData.append('confirm_password', values.confirm_password)
     formData.append('image', values.image)
-    formData.append('mode', values.mode)
+    // formData.append('mode', values.mode)
+    formData.append('mode', 'OFFLINE')
     if (values.mode === 'OFFLINE') {
       formData.append('exam_date', values.exam_date)
       formData.append('exam_center', values.exam_center)
@@ -394,12 +412,12 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       </div>
       <div v-if="examMode === 'OFFLINE'" class="col-lg-6 col-md-6">
         <div class="form-group">
-          <CustomElSelect name="exam_date" placeholder="Select Exam Date*" :options="examDateOptions" />
+          <CustomElSelect name="exam_center" placeholder="Select Exam Center*" :options="examCenterOptions" />
         </div>
       </div>
       <div v-if="examMode === 'OFFLINE'" class="col-lg-6 col-md-6">
         <div class="form-group">
-          <CustomElSelect name="exam_center" placeholder="Select Exam Center*" :options="examCenterOptions" />
+          <CustomElSelect name="exam_date" placeholder="Select Exam Date*" :options="examDateOptionsFiltered" />
         </div>
       </div>
       <div class="col-12">

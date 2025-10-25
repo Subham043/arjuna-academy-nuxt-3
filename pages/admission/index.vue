@@ -95,6 +95,11 @@ const { data: achieverStudent, pending: achieverStudentPending } = await useSSRF
                         November 2nd Sunday</span>
                     </li>
                     <li>
+                      <i class="flaticon-check" /> Arjunaa’s Competency Based Offline Exam Time : <span
+                        class="text-dark"
+                      >10.30 am - 1 pm</span>
+                    </li>
+                    <li>
                       <i class="flaticon-check" /> Arjunaa’s Competency Based Online Exam Date : <span
                         class="text-dark"
                       >OCTOBER 26th 2025

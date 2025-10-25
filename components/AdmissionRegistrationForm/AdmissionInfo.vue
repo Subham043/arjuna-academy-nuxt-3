@@ -258,7 +258,7 @@ const isTestAllowed = computed(() => {
               <th style="background-color: #f1f1f1; width: 200px">
                 Exam Date
               </th>
-              <td>{{ data.enrollmentForm.exam_date }}</td>
+              <td>{{ data.enrollmentForm.exam_date }} (10.30a.m - 1p.m)</td>
             </tr>
             <tr v-if="data.enrollmentForm.mode === 'OFFLINE'">
               <th style="background-color: #f1f1f1; width: 200px">
