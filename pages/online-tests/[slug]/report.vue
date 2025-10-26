@@ -118,7 +118,7 @@ const totalReport = computed(() => {
 
 const percentage = computed(() => {
   if (data.value) {
-    return Math.round(((data.value.alloted_score / data.value.total_score) * 100))
+    return Number(((data.value.alloted_score / data.value.total_score) * 100).toFixed(2))
   }
   return 0
 })
@@ -264,7 +264,7 @@ const downloadHandler = async () => {
                   <table class="table table-bordered table-responsive">
                     <thead>
                       <tr class="table-primary tb-heading">
-                        <th scope="col" colspan="5">
+                        <th scope="col" colspan="6">
                           TOTAL EVALUATION
                         </th>
                       </tr>
