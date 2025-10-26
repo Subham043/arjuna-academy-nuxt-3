@@ -116,24 +116,30 @@ const totalReport = computed(() => {
   }
 })
 
-const grade = computed(() => {
+const percentage = computed(() => {
   if (data.value) {
-    const percentage = ((data.value.alloted_score / data.value.total_score) * 100)
-    if (percentage >= 90 && percentage <= 100) {
-      return 'A'
-    } else if (percentage >= 75 && percentage <= 89) {
-      return 'B'
-    } else if (percentage >= 60 && percentage <= 74) {
-      return 'C'
-    } else if (percentage >= 45 && percentage <= 59) {
-      return 'D'
-    } else if (percentage >= 35 && percentage <= 44) {
-      return 'E'
-    } else if (percentage >= 0 && percentage <= 34) {
-      return 'F'
-    }
+    return Math.round(((data.value.alloted_score / data.value.total_score) * 100))
   }
-  return 'F'
+  return 0
+})
+
+const grade = computed(() => {
+  const floorPercentage = Math.floor(percentage.value)
+  if (floorPercentage >= 90 && floorPercentage <= 100) {
+    return 'A'
+  } else if (floorPercentage >= 75 && floorPercentage <= 89) {
+    return 'B'
+  } else if (floorPercentage >= 60 && floorPercentage <= 74) {
+    return 'C'
+  } else if (floorPercentage >= 45 && floorPercentage <= 59) {
+    return 'D'
+  } else if (floorPercentage >= 35 && floorPercentage <= 44) {
+    return 'E'
+  } else if (floorPercentage >= 0 && floorPercentage <= 34) {
+    return 'F'
+  } else {
+    return 'F'
+  }
 })
 
 const barChartOptions = computed(() => {
@@ -275,6 +281,12 @@ const downloadHandler = async () => {
                         <th scope="col">
                           MARKS ALLOTED
                         </th>
+                        <th scope="col">
+                          PERCENTAGE ALLOTED
+                        </th>
+                        <th scope="col">
+                          GRADE ALLOTED
+                        </th>
                       </tr>
                     </thead>
                     <tbody class="text-center">
@@ -283,6 +295,8 @@ const downloadHandler = async () => {
                         <td>{{ data.total_answer_count }}</td>
                         <td>{{ data.total_score }}</td>
                         <td>{{ data.alloted_score }}</td>
+                        <td>{{ percentage }}</td>
+                        <td>{{ grade }}</td>
                       </tr>
                     </tbody>
                   </table>
