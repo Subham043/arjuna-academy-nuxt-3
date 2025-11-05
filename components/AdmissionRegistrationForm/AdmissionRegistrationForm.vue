@@ -99,16 +99,40 @@ const modeOptions = useState('modeOptions', () => [
 ])
 const examDateOptions = useState('examDateOptions', () => [
   {
-    value: 'October 26, 2025',
-    label: 'October 26, 2025 (10.30a.m - 1p.m)'
+    value: 'November 8, 2025',
+    label: 'November 8, 2025 (10.30a.m - 1p.m)'
   },
   {
-    value: 'November 1, 2025',
-    label: 'November 1, 2025 (10.30a.m - 1p.m)'
+    value: 'November 9, 2025',
+    label: 'November 9, 2025 (10.30a.m - 1p.m)'
   },
   {
-    value: 'November 2, 2025',
-    label: 'November 2, 2025 (10.30a.m - 1p.m)'
+    value: 'November 16, 2025',
+    label: 'November 16, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'November 23, 2025',
+    label: 'November 23, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'November 30, 2025',
+    label: 'November 30, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'December 7, 2025',
+    label: 'December 7, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'December 14, 2025',
+    label: 'December 14, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'December 21, 2025',
+    label: 'December 21, 2025 (10.30a.m - 1p.m)'
+  },
+  {
+    value: 'December 28, 2025',
+    label: 'December 28, 2025 (10.30a.m - 1p.m)'
   }
 ])
 const examCenterOptions = useState('examCenterOptions', () => [
@@ -116,14 +140,14 @@ const examCenterOptions = useState('examCenterOptions', () => [
     value: 'Vijayanagar - Arjunaa Academy for Achievers centre',
     label: 'Vijayanagar - Arjunaa Academy for Achievers centre'
   },
-  {
-    value: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012',
-    label: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012'
-  },
-  {
-    value: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087',
-    label: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087'
-  },
+  // {
+  //   value: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012',
+  //   label: 'Malleshwaram - Maharani Lakshmi Ammanni PU college Margosa Rd, Malleshwaram, Bengaluru, Karnataka 560012'
+  // },
+  // {
+  //   value: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087',
+  //   label: 'Whitefield - Varthur Road - The Green School Bangalore, # 30/2 and 34/5 Kotur Village, Muthasandra Post, KOTUR, Hobli Hoskote, Taluk, Bengaluru, Karnataka 560087'
+  // },
   {
     value: 'NPS JP Nagar',
     label: 'NPS JP Nagar'
@@ -171,8 +195,8 @@ const programOptions = useState('programOptions', () => [
 const examDateOptionsFiltered = computed(() => {
   if (examCenter.value === 'NPS JP Nagar') {
     return [{
-      value: 'November 2, 2025',
-      label: 'November 2, 2025 (10.30a.m - 1p.m)'
+      value: 'November 23, 2025',
+      label: 'November 23, 2025 (10.30a.m - 1p.m)'
     }]
   }
   return examDateOptions.value
@@ -180,7 +204,7 @@ const examDateOptionsFiltered = computed(() => {
 
 watch(() => examCenter.value, () => {
   if (examCenter.value === 'NPS JP Nagar') {
-    setFieldValue('exam_date', 'November 2, 2025')
+    setFieldValue('exam_date', 'November 23, 2025')
   }
 })
 
