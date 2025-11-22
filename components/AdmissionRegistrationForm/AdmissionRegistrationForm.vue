@@ -51,15 +51,15 @@ const { handleSubmit, defineField, setFieldValue } = useForm({
         is: 'OFFLINE',
         then: schema => schema.required(),
         otherwise: schema => schema
-      }),
-      image: mixed()
-        .required('Please select an passport size photo')
-        .test('fileFormat', 'Please select a valid passport size photo', (value: any) => {
-          if (value !== undefined) {
-            return ['image/webp', 'image/png', 'image/jpeg', 'image/jpg', 'application/pdf'].includes(value.type)
-          }
-          return true
-        })
+      })
+      // image: mixed()
+      //   .required('Please select an passport size photo')
+      //   .test('fileFormat', 'Please select a valid passport size photo', (value: any) => {
+      //     if (value !== undefined) {
+      //       return ['image/webp', 'image/png', 'image/jpeg', 'image/jpg', 'application/pdf'].includes(value.type)
+      //     }
+      //     return true
+      //   })
     })
   )
 })
@@ -281,7 +281,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
     formData.append('class', values.class)
     formData.append('password', values.password)
     formData.append('confirm_password', values.confirm_password)
-    formData.append('image', values.image)
+    // formData.append('image', values.image)
     // formData.append('mode', values.mode)
     formData.append('mode', 'OFFLINE')
     if (values.mode === 'OFFLINE') {
@@ -319,7 +319,7 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
       class: err?.errors?.class?.length > 0 && err?.errors?.class[0],
       program: err?.errors?.program?.length > 0 && err?.errors?.program[0],
       address: err?.errors?.address?.length > 0 && err?.errors?.address[0],
-      image: err?.errors?.image?.length > 0 && err?.errors?.image[0],
+      // image: err?.errors?.image?.length > 0 && err?.errors?.image[0],
       mode: err?.errors?.mode?.length > 0 && err?.errors?.mode[0],
       exam_date: err?.errors?.exam_date?.length > 0 && err?.errors?.exam_date[0],
       exam_center: err?.errors?.exam_center?.length > 0 && err?.errors?.exam_center[0],
@@ -360,14 +360,14 @@ const onSubmit = handleSubmit(async (values: any, actions: any) => {
           <CustomElInput name="address" type="textarea" placeholder="Address*" />
         </div>
       </div>
-      <div class="col-lg-12 col-md-12">
+      <!-- <div class="col-lg-12 col-md-12">
         <div class="form-group">
           <label class="form-label">Choose Passport Size Photo* <br>
             <code>(Only JPEG | WEBP | JPG | PNG files are allowed. Max-size 512kb)</code></label>
           <VeeField id="image" type="file" name="image" class="form-control" />
           <VeeErrorMessage name="image" as="div" class="is-invalid" />
         </div>
-      </div>
+      </div> -->
       <div class="col-12">
         <h3 class="user-title">
           Father's Information
